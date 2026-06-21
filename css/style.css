@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Exo+2:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --bg-black: #000000;
@@ -154,7 +154,7 @@ button:focus-visible {
   align-items: center;
   gap: 12px;
   color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 700;
   font-size: 22px;
   letter-spacing: -0.02em;
@@ -254,7 +254,7 @@ button:focus-visible {
   gap: 8px;
   margin: 0;
   color: var(--accent-cyan);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -267,7 +267,7 @@ button:focus-visible {
 .contact-card h2 {
   margin: 20px 0;
   color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 800;
   font-size: clamp(42px, 6vw, 76px);
   line-height: 1.05;
@@ -415,7 +415,7 @@ button:focus-visible {
 
 .data-card strong {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 20px;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -531,7 +531,7 @@ button:focus-visible {
   display: grid;
   place-items: center;
   color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 700;
   font-size: 16px;
   border-radius: 12px;
@@ -544,7 +544,7 @@ button:focus-visible {
 .eq-card strong {
   margin: 0 0 12px;
   color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 600;
   font-size: 20px;
   letter-spacing: -0.02em;
@@ -580,7 +580,7 @@ button:focus-visible {
 
 .eq-card span {
   color: var(--accent-cyan);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -641,7 +641,7 @@ button:focus-visible {
 }
 
 .metric strong {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 1;
@@ -665,7 +665,7 @@ button:focus-visible {
   display: block;
   margin-bottom: 24px;
   color: var(--accent-cyan);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 800;
   font-size: 32px;
   line-height: 1;
@@ -705,7 +705,7 @@ button:focus-visible {
   align-items: center;
   gap: 12px;
   color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 600;
   font-size: 18px;
 }
