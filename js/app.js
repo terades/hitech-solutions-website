@@ -92,3 +92,13 @@ if (reduceMotion || typeof IntersectionObserver === "undefined") {
 
   counters.forEach((counter) => counterObserver.observe(counter));
 }
+
+window.addEventListener("scroll", () => {
+  const scrollProgress = document.getElementById("scrollProgress");
+  if (scrollProgress) {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = scrolled + "%";
+  }
+});
