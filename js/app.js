@@ -102,3 +102,37 @@ window.addEventListener("scroll", () => {
     scrollProgress.style.width = scrolled + "%";
   }
 });
+
+// Interactive Canvas Tabs switching
+const canvasTabs = document.querySelectorAll(".canvas-tab");
+const canvasPanels = document.querySelectorAll(".canvas-panel");
+
+if (canvasTabs.length > 0 && canvasPanels.length > 0) {
+  canvasTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      // Deactivate all tabs
+      canvasTabs.forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      
+      // Hide all panels
+      canvasPanels.forEach((panel) => {
+        panel.classList.remove("active");
+        panel.setAttribute("hidden", "true");
+      });
+
+      // Activate clicked tab
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+
+      // Show matching panel
+      const targetId = tab.getAttribute("aria-controls");
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+        targetPanel.removeAttribute("hidden");
+      }
+    });
+  });
+}
