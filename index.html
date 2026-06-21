@@ -20,6 +20,8 @@
   <meta name="twitter:title" content="HI Tech Solutions | Digital Manufacturing, MES &amp; Smart Factory">
   <meta name="twitter:description" content="Connecting Production, Data &amp; Technology.">
   <link rel="canonical" href="https://hitech-solutions.eu/">
+  <link rel="icon" type="image/jpeg" href="assets/logo-hi-tech-solutions.jpeg">
+  <link rel="apple-touch-icon" href="assets/logo-hi-tech-solutions.jpeg">
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="css/style.css?v=1.2">
   <noscript>
@@ -467,9 +469,12 @@
                 <div class="summary-line"><span>Unser MVP-Ansatz:</span> <strong id="summary-solution">-</strong></div>
               </div>
             </div>
-            <div class="config-actions-row justify-center">
+            <div class="config-actions-row justify-center" style="align-items: center; flex-wrap: wrap;">
               <button class="button secondary prev-step-btn">Eingabe ändern</button>
-              <a class="button primary" id="config-mail-btn" href="#">Quick-Check per E-Mail anfordern</a>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <a class="button primary" id="config-mail-btn" href="#">Quick-Check per E-Mail anfordern</a>
+                <button type="button" id="copy-email-btn" style="background:none; border:none; color:var(--text-secondary); cursor:pointer; text-decoration:underline; font-size:13px; margin-top:12px; display:inline-block; font-family:inherit;">E-Mail-Adresse kopieren</button>
+              </div>
             </div>
           </div>
         </div>

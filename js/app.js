@@ -182,15 +182,31 @@ if (configStep1 && configStep2 && configStep3) {
     return checkedInput ? checkedInput.value : null;
   };
 
+  // Helper to toggle selected class on parent label card
+  const updateSelectedClass = (name) => {
+    document.querySelectorAll(`input[name="${name}"]`).forEach((input) => {
+      const card = input.closest(".config-option-card");
+      if (card) {
+        if (input.checked) {
+          card.classList.add("selected");
+        } else {
+          card.classList.remove("selected");
+        }
+      }
+    });
+  };
+
   // Radio selection change listener for step validation
   document.querySelectorAll('input[name="bottleneck"]').forEach((radio) => {
     radio.addEventListener("change", () => {
+      updateSelectedClass("bottleneck");
       configStep1.querySelector(".next-step-btn").removeAttribute("disabled");
     });
   });
 
   document.querySelectorAll('input[name="infra"]').forEach((radio) => {
     radio.addEventListener("change", () => {
+      updateSelectedClass("infra");
       configStep2.querySelector(".next-step-btn").removeAttribute("disabled");
     });
   });
@@ -266,6 +282,29 @@ if (configStep1 && configStep2 && configStep3) {
     stepDot2.classList.remove("active");
     stepDot2.classList.add("completed");
     stepDot3.classList.add("active");
+
+    // Intercept mail click to prevent default if not set
+    mailBtn.addEventListener("click", (e) => {
+      if (mailBtn.getAttribute("href") === "#") {
+        e.preventDefault();
+      }
+    });
+
+    // Copy to clipboard fallback
+    const copyBtn = document.getElementById("copy-email-btn");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText("info@hitech-solutions.eu").then(() => {
+          const originalText = copyBtn.textContent;
+          copyBtn.textContent = "Kopiert!";
+          setTimeout(() => {
+            copyBtn.textContent = originalText;
+          }, 2000);
+        }).catch(err => {
+          console.error("Copy failed", err);
+        });
+      });
+    }
   });
 
   // Step 3 -> Step 2 (Back)
