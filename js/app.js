@@ -136,3 +136,147 @@ if (canvasTabs.length > 0 && canvasPanels.length > 0) {
     });
   });
 }
+
+// Interactive Code Terminal Tab switching
+const terminalTabs = document.querySelectorAll(".terminal-tab");
+const terminalCodes = document.querySelectorAll(".terminal-code");
+
+if (terminalTabs.length > 0 && terminalCodes.length > 0) {
+  terminalTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      terminalTabs.forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      terminalCodes.forEach((code) => {
+        code.classList.remove("active");
+        code.setAttribute("hidden", "true");
+      });
+      
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      
+      const targetId = tab.getAttribute("aria-controls");
+      const targetCode = document.getElementById(targetId);
+      if (targetCode) {
+        targetCode.classList.add("active");
+        targetCode.removeAttribute("hidden");
+      }
+    });
+  });
+}
+
+// Quick-Check Configurator Logic
+const configStep1 = document.getElementById("config-step-1");
+const configStep2 = document.getElementById("config-step-2");
+const configStep3 = document.getElementById("config-step-3");
+
+const stepDot1 = document.getElementById("step-dot-1");
+const stepDot2 = document.getElementById("step-dot-2");
+const stepDot3 = document.getElementById("step-dot-3");
+
+if (configStep1 && configStep2 && configStep3) {
+  // Helper to get active step
+  const getSelectedValue = (name) => {
+    const checkedInput = document.querySelector(`input[name="${name}"]:checked`);
+    return checkedInput ? checkedInput.value : null;
+  };
+
+  // Radio selection change listener for step validation
+  document.querySelectorAll('input[name="bottleneck"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      configStep1.querySelector(".next-step-btn").removeAttribute("disabled");
+    });
+  });
+
+  document.querySelectorAll('input[name="infra"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      configStep2.querySelector(".next-step-btn").removeAttribute("disabled");
+    });
+  });
+
+  // Step 1 -> Step 2
+  configStep1.querySelector(".next-step-btn").addEventListener("click", () => {
+    configStep1.classList.remove("active");
+    configStep1.setAttribute("hidden", "true");
+    configStep2.classList.add("active");
+    configStep2.removeAttribute("hidden");
+
+    stepDot1.classList.remove("active");
+    stepDot1.classList.add("completed");
+    stepDot2.classList.add("active");
+  });
+
+  // Step 2 -> Step 1 (Back)
+  configStep2.querySelector(".prev-step-btn").addEventListener("click", () => {
+    configStep2.classList.remove("active");
+    configStep2.setAttribute("hidden", "true");
+    configStep1.classList.add("active");
+    configStep1.removeAttribute("hidden");
+
+    stepDot2.classList.remove("active");
+    stepDot1.classList.remove("completed");
+    stepDot1.classList.add("active");
+  });
+
+  // Step 2 -> Step 3 (Calculation)
+  configStep2.querySelector(".next-step-btn").addEventListener("click", () => {
+    const bottleneck = getSelectedValue("bottleneck");
+    const infra = getSelectedValue("infra");
+
+    // Dynamic Solution Mapping
+    let solution = "Fokussierte Shopfloor-Datenbrücke & MVP-Entwicklung";
+    if (bottleneck.includes("Transparenz")) {
+      solution = "OEE-Live-Dashboard & Shopfloor-Terminal";
+    } else if (bottleneck.includes("Schnittstellen")) {
+      solution = "Unified Namespace (UNS) & ERP-API-Brücke";
+    } else if (bottleneck.includes("Rückmeldung")) {
+      solution = "Digitaler Schichtbericht & Rückmeldeportal";
+    } else if (bottleneck.includes("Großprojekte")) {
+      solution = "Gezieltes MVP-Softwarewerkzeug für Engpass";
+    }
+
+    // Populate summary fields
+    document.getElementById("summary-bottleneck").textContent = bottleneck;
+    document.getElementById("summary-infra").textContent = infra;
+    document.getElementById("summary-solution").textContent = solution;
+
+    // Generate Mailto Link
+    const subject = encodeURIComponent("Quick-Check Anfrage: HI Tech Solutions");
+    const body = encodeURIComponent(
+      `Hallo HI Tech Solutions,\n\n` +
+      `ich habe den Quick-Check Konfigurator auf Ihrer Website ausgefüllt und interessiere mich für ein kostenfreies Erstgespräch.\n\n` +
+      `Hier sind unsere Angaben:\n` +
+      `- Unser größter Engpass: ${bottleneck}\n` +
+      `- Unsere vorhandene IT-Landschaft: ${infra}\n` +
+      `- Empfohlener Lösungsansatz: ${solution}\n\n` +
+      `Bitte kontaktieren Sie mich bezüglich einer Terminvereinbarung.\n\n` +
+      `Mit freundlichen Grüßen`
+    );
+    
+    const mailBtn = document.getElementById("config-mail-btn");
+    mailBtn.setAttribute("href", `mailto:info@hitech-solutions.eu?subject=${subject}&body=${body}`);
+
+    // Show Step 3
+    configStep2.classList.remove("active");
+    configStep2.setAttribute("hidden", "true");
+    configStep3.classList.add("active");
+    configStep3.removeAttribute("hidden");
+
+    stepDot2.classList.remove("active");
+    stepDot2.classList.add("completed");
+    stepDot3.classList.add("active");
+  });
+
+  // Step 3 -> Step 2 (Back)
+  configStep3.querySelector(".prev-step-btn").addEventListener("click", () => {
+    configStep3.classList.remove("active");
+    configStep3.setAttribute("hidden", "true");
+    configStep2.classList.add("active");
+    configStep2.removeAttribute("hidden");
+
+    stepDot3.classList.remove("active");
+    stepDot2.classList.remove("completed");
+    stepDot2.classList.add("active");
+  });
+}

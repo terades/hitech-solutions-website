@@ -135,6 +135,64 @@
       </div>
     </section>
 
+    <!-- Code Preview / Datenintegration Section -->
+    <section class="section code-preview-section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Schnittstellen &amp; Standards</p>
+        <h2>Wie wir Shopfloor und IT verbinden.</h2>
+        <p>Unsere Software übersetzt rohe Maschinensignale in strukturierte, sofort nutzbare Datenmodelle für ERP- und Cloud-Systeme.</p>
+      </div>
+      
+      <div class="terminal-container reveal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="terminal-tabs" role="tablist">
+            <button class="terminal-tab active" role="tab" aria-selected="true" aria-controls="code-json" id="tab-json">Unified Namespace (MQTT)</button>
+            <button class="terminal-tab" role="tab" aria-selected="false" aria-controls="code-api" id="tab-api">REST API (OEE-Endpoint)</button>
+            <button class="terminal-tab" role="tab" aria-selected="false" aria-controls="code-opc" id="tab-opc">OPC UA Node (XML)</button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre class="terminal-code active" id="code-json" role="tabpanel" aria-labelledby="tab-json"><code>{
+  <span class="key">"topic"</span>: <span class="str">"hits/factory_01/line_03/robot_arm_4/state"</span>,
+  <span class="key">"timestamp"</span>: <span class="str">"2026-06-21T21:03:00Z"</span>,
+  <span class="key">"metrics"</span>: {
+    <span class="key">"oee_current"</span>: <span class="num">89.6</span>,
+    <span class="key">"active_order"</span>: <span class="str">"WO-48192-A"</span>,
+    <span class="key">"state"</span>: <span class="str">"RUNNING"</span>,
+    <span class="key">"cycle_time_ms"</span>: <span class="num">1420</span>,
+    <span class="key">"temperature_celsius"</span>: <span class="num">42.8</span>
+  }
+}</code></pre>
+          <pre class="terminal-code" id="code-api" role="tabpanel" aria-labelledby="tab-api" hidden><code><span class="comment">// GET /api/v1/lines/line_03/oee</span>
+{
+  <span class="key">"line_id"</span>: <span class="str">"line_03"</span>,
+  <span class="key">"oee"</span>: {
+    <span class="key">"availability"</span>: <span class="num">0.945</span>,
+    <span class="key">"performance"</span>: <span class="num">0.962</span>,
+    <span class="key">"quality"</span>: <span class="num">0.992</span>,
+    <span class="key">"oee_total"</span>: <span class="num">0.896</span>
+  },
+  <span class="key">"target_comparison"</span>: {
+    <span class="key">"actual_units"</span>: <span class="num">2410</span>,
+    <span class="key">"target_units"</span>: <span class="num">2600</span>,
+    <span class="key">"delta"</span>: <span class="num">-190</span>
+  }
+}</code></pre>
+          <pre class="terminal-code" id="code-opc" role="tabpanel" aria-labelledby="tab-opc" hidden><code><span class="tag">&lt;UAObjectType</span> <span class="attr">NodeId=</span><span class="str">"ns=2;i=1004"</span> <span class="attr">BrowseName=</span><span class="str">"HITS_RobotArmType"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;UAInstanceDeclaration</span> <span class="attr">NodeId=</span><span class="str">"ns=2;i=1005"</span> <span class="attr">BrowseName=</span><span class="str">"OeeCurrent"</span> <span class="attr">DataType=</span><span class="str">"Double"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;Value&gt;</span>89.6<span class="tag">&lt;/Value&gt;</span>
+  <span class="tag">&lt;/UAInstanceDeclaration&gt;</span>
+  <span class="tag">&lt;UAInstanceDeclaration</span> <span class="attr">NodeId=</span><span class="str">"ns=2;i=1006"</span> <span class="attr">BrowseName=</span><span class="str">"State"</span> <span class="attr">DataType=</span><span class="str">"String"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;Value&gt;</span>RUNNING<span class="tag">&lt;/Value&gt;</span>
+  <span class="tag">&lt;/UAInstanceDeclaration&gt;</span>
+<span class="tag">&lt;/UAObjectType&gt;</span></code></pre>
+        </div>
+      </div>
+    </section>
+
     <!-- Unser Weg (Storyline) Section -->
     <section id="path" class="section">
       <div class="section-head reveal">
@@ -303,6 +361,115 @@
                   <li><strong>Security:</strong> Sichere Rollenmodelle, Audit-Trails und DSGVO-Konformität von Beginn an.</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick-Check Konfigurator Section -->
+    <section class="section config-section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quick Check Konfigurator</p>
+        <h2>Individuellen Lösungsansatz ermitteln.</h2>
+        <p>Beantworten Sie uns 2 kurze Fragen zu Ihrer Produktion, um einen präzise zugeschnittenen Quick-Check-Fahrplan per E-Mail zu erhalten.</p>
+      </div>
+
+      <div class="config-container reveal">
+        <!-- Progress Bar -->
+        <div class="config-progress">
+          <div class="progress-step active" id="step-dot-1">1<span>Engpass</span></div>
+          <div class="progress-step" id="step-dot-2">2<span>IT-Landschaft</span></div>
+          <div class="progress-step" id="step-dot-3">3<span>Ihr Ergebnis</span></div>
+        </div>
+
+        <!-- Step content wrapper -->
+        <div class="config-card-wrapper">
+          <!-- Step 1: Bottleneck -->
+          <div class="config-step-panel active" id="config-step-1">
+            <h3>1. Was bremst Ihre Produktion am meisten aus?</h3>
+            <div class="config-options">
+              <label class="config-option-card">
+                <input type="radio" name="bottleneck" value="Kein Echtzeit-OEE-Blick (Transparenz)">
+                <span class="option-icon">👁</span>
+                <span class="option-title">Echtzeit-Transparenz</span>
+                <span class="option-desc">Es fehlt der Live-Blick auf OEE, Stillstände und Linienstatus.</span>
+              </label>
+              <label class="config-option-card">
+                <input type="radio" name="bottleneck" value="Schnittstellenbrüche (ERP/Maschine)">
+                <span class="option-icon">🔌</span>
+                <span class="option-title">System-Schnittstellen</span>
+                <span class="option-desc">Maschinen, ERP, MES und Excel laufen getrennt voneinander.</span>
+              </label>
+              <label class="config-option-card">
+                <input type="radio" name="bottleneck" value="Zettelwirtschaft & manuelle Rückmeldung">
+                <span class="option-icon">📝</span>
+                <span class="option-title">Manuelle Berichte</span>
+                <span class="option-desc">Hoher Aufwand durch Excel-Listen und papierbasiertes Schreiben.</span>
+              </label>
+              <label class="config-option-card">
+                <input type="radio" name="bottleneck" value="Zu komplexe MES-Großprojekte">
+                <span class="option-icon">⌛</span>
+                <span class="option-title">Starres MES-Großprojekt</span>
+                <span class="option-desc">Angebote von Standard-MES-Suiten sind überteuert und zu träge.</span>
+              </label>
+            </div>
+            <div class="config-actions-row">
+              <button class="button primary next-step-btn" disabled>Weiter</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Infrastructure -->
+          <div class="config-step-panel" id="config-step-2" hidden>
+            <h3>2. Welche IT-Infrastruktur nutzen Sie aktuell?</h3>
+            <div class="config-options">
+              <label class="config-option-card">
+                <input type="radio" name="infra" value="ERP + viele Excel-Inseln">
+                <span class="option-icon">📊</span>
+                <span class="option-title">ERP + Excel</span>
+                <span class="option-desc">Planung im ERP (SAP, D365 etc.), operative Listen in Excel.</span>
+              </label>
+              <label class="config-option-card">
+                <input type="radio" name="infra" value="Fast reine Excel-Steuerung">
+                <span class="option-icon">📎</span>
+                <span class="option-title">Reine Excel-Steuerung</span>
+                <span class="option-desc">Auftrags- und Ressourcenplanung hängen an manuellen Dateien.</span>
+              </label>
+              <label class="config-option-card">
+                <input type="radio" name="infra" value="Starres Altsystem / MES ohne API">
+                <span class="option-icon">🧱</span>
+                <span class="option-title">Starres Altsystem</span>
+                <span class="option-desc">Ein historisch gewachsenes System, das keine API-Anbindung erlaubt.</span>
+              </label>
+              <label class="config-option-card">
+                <input type="radio" name="infra" value="Bereits moderne IIoT/Cloud-Strukturen">
+                <span class="option-icon">☁</span>
+                <span class="option-title">Moderne IIoT-Strukturen</span>
+                <span class="option-desc">Bereits erste MQTT-Broker, APIs oder Cloud-Dienste vorhanden.</span>
+              </label>
+            </div>
+            <div class="config-actions-row">
+              <button class="button secondary prev-step-btn">Zurück</button>
+              <button class="button primary next-step-btn" disabled>Ergebnis berechnen</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Result -->
+          <div class="config-step-panel" id="config-step-3" hidden>
+            <div class="result-message-wrapper">
+              <div class="result-icon-glowing">⚡</div>
+              <h3>Ihr individueller Quick-Check Fahrplan</h3>
+              <p class="result-text">Basierend auf Ihren Angaben haben wir die optimale MVP-Strategie zur Reduzierung Ihrer Reibungsverluste ermittelt:</p>
+              
+              <div class="result-summary-box">
+                <div class="summary-line"><span>Priorisierter Engpass:</span> <strong id="summary-bottleneck">-</strong></div>
+                <div class="summary-line"><span>Vorhandene IT-Landschaft:</span> <strong id="summary-infra">-</strong></div>
+                <div class="summary-line"><span>Unser MVP-Ansatz:</span> <strong id="summary-solution">-</strong></div>
+              </div>
+            </div>
+            <div class="config-actions-row justify-center">
+              <button class="button secondary prev-step-btn">Eingabe ändern</button>
+              <a class="button primary" id="config-mail-btn" href="#">Quick-Check per E-Mail anfordern</a>
             </div>
           </div>
         </div>
