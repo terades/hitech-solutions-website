@@ -24,115 +24,54 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-normal-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/exo2-normal-latin.woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:#f6f8fa;color:#2b323a;font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    ::selection{background:rgba(62,186,236,.2)}
-    .wrap{width:min(1200px,100% - 80px);margin-inline:auto}
-    .sec{padding:100px 0}
-
-    /* Nav open state */
-    #site-nav.open{display:flex!important;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:#fff;border-bottom:1px solid #e4e8ec;padding:20px 32px 28px;gap:0;z-index:99;box-shadow:0 8px 24px rgba(43,50,58,.08)}
-    #site-nav.open a{padding:12px 0;border-bottom:1px solid #f0f2f5;font-size:15px!important;color:#2b323a!important}
-    #site-nav.open a:last-child{border:none;margin-top:12px;text-align:center}
-    .nav-link{font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s;text-decoration:none!important}
-    .nav-link:hover{color:#2b323a}
-    .nav-link.active{color:#3ebaec;font-weight:700}
-
-    /* Reveal */
-    .reveal{opacity:0;transform:translateY(32px) scale(0.98);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
-    .reveal.in{opacity:1;transform:none}
-    .stagger>*{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-    .stagger.in>*{opacity:1;transform:none}
-    .stagger.in>*:nth-child(2){transition-delay:80ms}
-    .stagger.in>*:nth-child(3){transition-delay:160ms}
-    .stagger.in>*:nth-child(4){transition-delay:240ms}
-
-    /* Timeline step */
-    .timeline-step{display:flex;flex-direction:column;gap:12px;padding:20px;background:#fff;border:1px solid #e4e8ec;border-radius:16px;position:relative}
-    .timeline-step::after{content:'→';position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:#d0d5db;font-size:14px}
-    .timeline-step:last-child::after{display:none}
-
-    /* Founder card */
-    .founder-card{background:#fff;border:1px solid #e4e8ec;border-radius:20px;overflow:hidden;display:flex;flex-direction:row}
-    .founder-photo{width:280px;flex-shrink:0;object-fit:cover;object-position:center top;display:block;align-self:stretch}
-    .founder-photo-placeholder{width:280px;flex-shrink:0;background:linear-gradient(135deg,#f0f4f8 0%,#e2e8f0 100%);display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;font-weight:500}
-
-    /* Value card */
-    .value-card{padding:28px 24px;background:#fff;border:1px solid #e4e8ec;border-radius:16px}
-
-    @media(max-width:980px){
-      #site-nav{display:none!important}
-      #nav-toggle{display:flex!important}
-      #hero-grid{grid-template-columns:1fr!important;gap:40px!important}
-      #hero-visual{display:none!important}
-      #geschichte-grid{grid-template-columns:1fr!important;gap:40px!important}
-      #timeline{grid-template-columns:1fr 1fr!important}
-      .timeline-step::after{display:none}
-      #gruender-grid{grid-template-columns:1fr!important;gap:40px!important}
-      .founder-card{flex-direction:column!important}
-      .founder-photo,.founder-photo-placeholder{width:100%!important;height:260px!important}
-      #values-grid{grid-template-columns:1fr 1fr!important}
-      .sec{padding:72px 0}
-      .wrap{width:calc(100% - 48px)!important}
-    }
-    @media(max-width:640px){
-      #timeline{grid-template-columns:1fr!important}
-      #values-grid{grid-template-columns:1fr!important}
-      .wrap{width:calc(100% - 32px)!important}
-      .sec{padding:56px 0}
-    }
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.stagger>*{opacity:1;transform:none}}
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- ══ HEADER ══ -->
-<header style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid #e4e8ec">
-  <div style="width:min(1200px,100% - 80px);margin-inline:auto;height:80px;display:flex;align-items:center;justify-content:space-between;gap:40px">
-    <a href="index.html" aria-label="HI-Tech Solutions" style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" style="height:44px;width:auto;object-fit:contain;mix-blend-mode:multiply">
-      <img src="assets/logo-schrift.png" alt="HI-Tech Solutions" width="1894" height="341" style="height:28px;width:auto;object-fit:contain;mix-blend-mode:multiply">
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" aria-label="HI-Tech Solutions" class="logo-link">
+      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" class="logo-img-symbol">
+      <img src="assets/logo-schrift.png" alt="HI-Tech Solutions" width="1894" height="341" class="logo-img-text">
     </a>
-    <button id="nav-toggle" type="button" aria-expanded="false" style="display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px;flex-shrink:0">
-      <span style="display:block;width:20px;height:1.5px;background:#2b323a"></span>
-      <span style="display:block;width:20px;height:1.5px;background:#2b323a"></span>
-      <span style="display:block;width:14px;height:1.5px;background:#2b323a"></span>
+    <button id="nav-toggle" type="button" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-    <nav id="site-nav" style="display:flex;align-items:center;gap:28px">
+    <nav id="site-nav">
       <a href="index.html#ansatz" class="nav-link">Ansatz</a>
       <a href="index.html#use-cases" class="nav-link">Use Cases</a>
       <a href="index.html#angebote" class="nav-link">Angebote</a>
       <a href="index.html#projektweg" class="nav-link">Projektweg</a>
       <a href="ueber-uns.html" class="nav-link">Über uns</a>
-      <a href="index.html#kontakt" style="font-size:13px;font-weight:700;color:#2b323a;padding:10px 22px;border:1.5px solid #3ebaec;border-radius:999px;transition:all .25s;white-space:nowrap">Quick Check ↗</a>
+      <a href="index.html#kontakt" class="nav-cta">Quick Check ↗</a>
     </nav>
   </div>
 </header>
 
 <!-- ══ HERO ══ -->
-<section style="background:#f8fafc;border-bottom:1px solid #e4e8ec;overflow:hidden">
+<section class="hero-section">
   <div class="wrap">
-    <div id="hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;min-height:400px;padding:80px 0">
+    <div id="hero-grid" class="hero-layout">
       <div>
-        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3ebaec;margin-bottom:16px;display:flex;align-items:center;gap:8px">
-          <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ebaec"></span>
+        <p class="hero-badge-container">
+          <span class="hero-badge-pulse"></span>
           Über uns
         </p>
-        <h1 style="font-family:'Exo 2',sans-serif;font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.06;letter-spacing:-0.04em;color:#2b323a;margin-bottom:24px">
+        <h1 class="hero-title">
           Die Geschichte hinter<br>
-          <span style="color:#3ebaec">HI-Tech Solutions.</span>
+          <em>HI-Tech Solutions.</em>
         </h1>
-        <p style="font-size:16px;line-height:1.75;color:#6f7780;max-width:480px">
+        <p class="hero-lead">
           Wir verbinden Produktionsverständnis mit technischer Umsetzung und entwickeln pragmatische digitale Lösungen, die in der Fertigung wirklich einen Unterschied machen.
         </p>
       </div>
-      <div id="hero-visual" style="position:relative">
+      <div id="hero-visual" class="hero-visual">
         <picture>
           <source srcset="assets/abstract-smart-factory.webp" type="image/webp">
-          <img src="assets/abstract-smart-factory.png" alt="Smart Factory" width="1254" height="1254" style="width:100%;max-height:420px;border-radius:20px;object-fit:contain;opacity:.85;mix-blend-mode:multiply">
+          <img src="assets/abstract-smart-factory.png" alt="Smart Factory" width="1254" height="1254" class="about-hero-img">
         </picture>
       </div>
     </div>
@@ -140,37 +79,37 @@
 </section>
 
 <!-- ══ GESCHICHTE ══ -->
-<section class="sec" style="background:#fff;border-bottom:1px solid #e4e8ec">
+<section class="sec journey-section">
   <div class="wrap">
-    <div id="geschichte-grid" class="reveal" style="display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start">
+    <div id="geschichte-grid" class="reveal">
       <div>
-        <h2 style="font-family:'Exo 2',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.03em;color:#2b323a;margin-bottom:16px">Unsere Geschichte</h2>
-        <p style="font-size:14px;line-height:1.75;color:#6f7780">HI-Tech Solutions entstand aus der Überzeugung, dass Produktionsunternehmen pragmatische, wirkungsvolle Digitalisierung brauchen – statt überdimensionierter Theorieprojekte.</p>
+        <h2 class="section-title">Unsere Geschichte</h2>
+        <p class="section-desc">HI-Tech Solutions entstand aus der Überzeugung, dass Produktionsunternehmen pragmatische, wirkungsvolle Digitalisierung brauchen – statt überdimensionierter Theorieprojekte.</p>
       </div>
-      <div id="timeline" class="stagger" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch">
+      <div id="timeline" class="stagger">
         <div class="timeline-step">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#eff9fe;color:#3ebaec;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:800">01</span>
-          <div style="width:36px;height:36px;border-radius:10px;background:#f0f4f8;display:flex;align-items:center;justify-content:center;font-size:18px">💡</div>
-          <strong style="font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;color:#2b323a">Idee</strong>
-          <p style="font-size:12px;line-height:1.65;color:#6f7780">Aus vielen Gesprächen in der Praxis entstand eine einfache Erkenntnis: Die Praxis braucht pragmatische Lösungen, die schnell Wirkung zeigen.</p>
+          <span class="timeline-num">01</span>
+          <div class="timeline-icon">💡</div>
+          <strong>Idee</strong>
+          <p>Aus vielen Gesprächen in der Praxis entstand eine einfache Erkenntnis: Die Praxis braucht pragmatische Lösungen, die schnell Wirkung zeigen.</p>
         </div>
         <div class="timeline-step">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#eff9fe;color:#3ebaec;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:800">02</span>
-          <div style="width:36px;height:36px;border-radius:10px;background:#f0f4f8;display:flex;align-items:center;justify-content:center;font-size:18px">🤝</div>
-          <strong style="font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;color:#2b323a">Erste Projekte</strong>
-          <p style="font-size:12px;line-height:1.65;color:#6f7780">Wir starten mit ersten Projekten, liefern messbare Ergebnisse und beweisen, dass kleine Schritte in wenigen Wochen Mehrwert bringen.</p>
+          <span class="timeline-num">02</span>
+          <div class="timeline-icon">🤝</div>
+          <strong>Erste Projekte</strong>
+          <p>Wir starten mit ersten Projekten, liefern messbare Ergebnisse und beweisen, dass kleine Schritte in wenigen Wochen Mehrwert bringen.</p>
         </div>
         <div class="timeline-step">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#eff9fe;color:#3ebaec;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:800">03</span>
-          <div style="width:36px;height:36px;border-radius:10px;background:#f0f4f8;display:flex;align-items:center;justify-content:center;font-size:18px">🏗️</div>
-          <strong style="font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;color:#2b323a">Plattform-Ansatz</strong>
-          <p style="font-size:12px;line-height:1.65;color:#6f7780">Aus den Projekten wuchs unser modularer Lösungsansatz für Produktionssteuerung – skalierbar, integrierbar und praxisbewährt.</p>
+          <span class="timeline-num">03</span>
+          <div class="timeline-icon">🏗️</div>
+          <strong>Plattform-Ansatz</strong>
+          <p>Aus den Projekten wuchs unser modularer Lösungsansatz für Produktionssteuerung – skalierbar, integrierbar und praxisbewährt.</p>
         </div>
         <div class="timeline-step">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#eff9fe;color:#3ebaec;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:800">04</span>
-          <div style="width:36px;height:36px;border-radius:10px;background:#f0f4f8;display:flex;align-items:center;justify-content:center;font-size:18px">📈</div>
-          <strong style="font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;color:#2b323a">Heute</strong>
-          <p style="font-size:12px;line-height:1.65;color:#6f7780">Heute unterstützen wir Fertigungsunternehmen dabei, ihre Produktion transparenter, effizienter und nachhaltiger aufzustellen – jeden Tag.</p>
+          <span class="timeline-num">04</span>
+          <div class="timeline-icon">📈</div>
+          <strong>Heute</strong>
+          <p>Heute unterstützen wir Fertigungsunternehmen dabei, ihre Produktion transparenter, effizienter und nachhaltiger aufzustellen – jeden Tag.</p>
         </div>
       </div>
     </div>
@@ -178,14 +117,15 @@
 </section>
 
 <!-- ══ GRÜNDER ══ -->
-<section class="sec" style="background:#f8fafc;border-bottom:1px solid #e4e8ec">
+<!-- ══ GRÜNDER ══ -->
+<section class="sec sec-bg-light sec-border-bottom">
   <div class="wrap">
-    <div id="gruender-grid" style="display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start">
+    <div id="gruender-grid">
       <div class="reveal">
-        <h2 style="font-family:'Exo 2',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.03em;color:#2b323a;margin-bottom:16px">Die Gründer</h2>
-        <p style="font-size:14px;line-height:1.75;color:#6f7780">Wir kommen aus unterschiedlichen Wegen, teilen aber die gleiche Überzeugung: Software muss die Produktion verstehen – nicht umgekehrt.</p>
+        <h2 class="section-title">Die Gründer</h2>
+        <p class="section-desc">Wir kommen aus unterschiedlichen Wegen, teilen aber die gleiche Überzeugung: Software muss die Produktion verstehen – nicht umgekehrt.</p>
       </div>
-      <div id="founder-cards" class="stagger" style="display:grid;grid-template-columns:1fr;gap:20px">
+      <div id="founder-cards" class="stagger">
 
         <!-- Carsten -->
         <div class="founder-card">
@@ -193,24 +133,24 @@
             <source srcset="assets/carsten.webp" type="image/webp">
             <img src="assets/carsten.JPG" alt="Carsten Ideke" class="founder-photo" loading="lazy">
           </picture>
-          <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:0">
-            <h3 style="font-family:'Exo 2',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#2b323a;margin-bottom:4px">Carsten Ideke</h3>
-            <p style="font-size:13px;font-weight:700;color:#3ebaec;margin-bottom:8px">Co-Founder &amp; Chief Product Officer</p>
-            <p style="font-size:11px;font-weight:600;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Production Digitalization · MES/MOM · Smart Factory</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Verantwortet Produktvision, Use-Case-Priorisierung und fachliche Lösungsarchitektur</li>
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Bringt tiefes Verständnis für Shopfloor, Ressourcen, Aufträge und Rückmeldeprozesse ein</li>
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Kennt die Schnittstellen zwischen ERP/D365, MES/MOM, Planung und Produktion</li>
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Sorgt dafür, dass aus Digitalisierungsideen nutzbare Werkzeuge für den Betrieb entstehen</li>
+          <div class="founder-info">
+            <h3 class="founder-name">Carsten Ideke</h3>
+            <p class="founder-title">Co-Founder &amp; Chief Product Officer</p>
+            <p class="founder-tags">Production Digitalization · MES/MOM · Smart Factory</p>
+            <ul class="founder-list">
+              <li><span>●</span>Verantwortet Produktvision, Use-Case-Priorisierung und fachliche Lösungsarchitektur</li>
+              <li><span>●</span>Bringt tiefes Verständnis für Shopfloor, Ressourcen, Aufträge und Rückmeldeprozesse ein</li>
+              <li><span>●</span>Kennt die Schnittstellen zwischen ERP/D365, MES/MOM, Planung und Produktion</li>
+              <li><span>●</span>Sorgt dafür, dass aus Digitalisierungsideen nutzbare Werkzeuge für den Betrieb entstehen</li>
             </ul>
           </div>
         </div>
 
         <!-- Verbindungstext -->
-        <div style="padding:28px 32px;background:linear-gradient(135deg,rgba(62,186,236,.06) 0%,rgba(99,102,241,.04) 100%);border:1px solid rgba(62,186,236,.15);border-radius:16px;text-align:center">
-          <p style="font-size:15px;line-height:1.75;color:#4a5260;max-width:600px;margin:0 auto">
+        <div class="founder-connector-card">
+          <p>
             HI-Tech Solutions entsteht aus zwei Blickwinkeln: dem Verständnis für reale Produktionsabläufe und der Fähigkeit, daraus robuste Software zu bauen.<br>
-            <strong style="color:#2b323a">Genau diese Verbindung macht unsere Lösungen pragmatisch, nutzbar und skalierbar.</strong>
+            <strong>Genau diese Verbindung macht unsere Lösungen pragmatisch, nutzbar und skalierbar.</strong>
           </p>
         </div>
 
@@ -218,20 +158,20 @@
         <div class="founder-card">
           <div class="founder-photo-placeholder">
             <!-- Foto einfügen: <img src="assets/kristian.JPG" alt="Kristian Hinnenthal" class="founder-photo"> -->
-            <span style="display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.4">
+            <span>
               <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
               Foto folgt
             </span>
           </div>
-          <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:0">
-            <h3 style="font-family:'Exo 2',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#2b323a;margin-bottom:4px">Kristian Hinnenthal</h3>
-            <p style="font-size:13px;font-weight:700;color:#3ebaec;margin-bottom:8px">Co-Founder &amp; Chief Technology Officer</p>
-            <p style="font-size:11px;font-weight:600;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Architektur · Cloud · Integration</p>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Entwickelt robuste Cloud-, API- und Integrationsarchitekturen</li>
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Denkt Plattformen skalierbar, sicher und wartbar</li>
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Verbindet ERP, Maschinen, Datenmodelle und Anwendungen technisch sauber</li>
-              <li style="display:flex;gap:10px;font-size:13px;line-height:1.5;color:#4a5260"><span style="color:#3ebaec;flex-shrink:0;margin-top:3px">●</span>Sorgt dafür, dass MVPs später nicht neu gebaut, sondern erweitert werden</li>
+          <div class="founder-info">
+            <h3 class="founder-name">Kristian Hinnenthal</h3>
+            <p class="founder-title">Co-Founder &amp; Chief Technology Officer</p>
+            <p class="founder-tags">Architektur · Cloud · Integration</p>
+            <ul class="founder-list">
+              <li><span>●</span>Entwickelt robuste Cloud-, API- und Integrationsarchitekturen</li>
+              <li><span>●</span>Denkt Plattformen skalierbar, sicher und wartbar</li>
+              <li><span>●</span>Verbindet ERP, Maschinen, Datenmodelle und Anwendungen technisch sauber</li>
+              <li><span>●</span>Sorgt dafür, dass MVPs später nicht neu gebaut, sondern erweitert werden</li>
             </ul>
           </div>
         </div>
@@ -242,74 +182,74 @@
 </section>
 
 <!-- ══ WERTE ══ -->
-<section class="sec" style="background:#fff;border-bottom:1px solid #e4e8ec">
+<section class="sec sec-bg-white sec-border-bottom">
   <div class="wrap">
-    <div id="values-grid" class="stagger" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    <div id="values-grid" class="stagger">
       <div class="value-card">
-        <div style="width:40px;height:40px;border-radius:12px;background:#eff9fe;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+        <div class="value-card-icon">
           <svg width="20" height="20" fill="none" stroke="#3ebaec" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
-        <h3 style="font-family:'Exo 2',sans-serif;font-size:15px;font-weight:700;color:#2b323a;margin-bottom:8px">Pragmatisch</h3>
-        <p style="font-size:13px;line-height:1.65;color:#6f7780">Wir starten klein, liefern schnell Ergebnisse und entwickeln iterativ weiter.</p>
+        <h3>Pragmatisch</h3>
+        <p>Wir starten klein, liefern schnell Ergebnisse und entwickeln iterativ weiter.</p>
       </div>
       <div class="value-card">
-        <div style="width:40px;height:40px;border-radius:12px;background:#eff9fe;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+        <div class="value-card-icon">
           <svg width="20" height="20" fill="none" stroke="#3ebaec" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v4M10 14h4"/></svg>
         </div>
-        <h3 style="font-family:'Exo 2',sans-serif;font-size:15px;font-weight:700;color:#2b323a;margin-bottom:8px">Produktionsnah</h3>
-        <p style="font-size:13px;line-height:1.65;color:#6f7780">Unsere Lösungen entstehen aus der Praxis für die Praxis – mit echtem Shopfloor-Fokus.</p>
+        <h3>Produktionsnah</h3>
+        <p>Unsere Lösungen entstehen aus der Praxis für die Praxis – mit echtem Shopfloor-Fokus.</p>
       </div>
       <div class="value-card">
-        <div style="width:40px;height:40px;border-radius:12px;background:#eff9fe;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+        <div class="value-card-icon">
           <svg width="20" height="20" fill="none" stroke="#3ebaec" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <h3 style="font-family:'Exo 2',sans-serif;font-size:15px;font-weight:700;color:#2b323a;margin-bottom:8px">Skalierbar</h3>
-        <p style="font-size:13px;line-height:1.65;color:#6f7780">Technologie, die mitwächst – offen, integrationsstark und zukunftssicher.</p>
+        <h3>Skalierbar</h3>
+        <p>Technologie, die mitwächst – offen, integrationsstark und zukunftssicher.</p>
       </div>
       <div class="value-card">
-        <div style="width:40px;height:40px;border-radius:12px;background:#eff9fe;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+        <div class="value-card-icon">
           <svg width="20" height="20" fill="none" stroke="#3ebaec" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3 style="font-family:'Exo 2',sans-serif;font-size:15px;font-weight:700;color:#2b323a;margin-bottom:8px">Zuverlässig</h3>
-        <p style="font-size:13px;line-height:1.65;color:#6f7780">Sicher, stabil und nachhaltig – für kritische Produktionsumgebungen.</p>
+        <h3>Zuverlässig</h3>
+        <p>Sicher, stabil und nachhaltig – für kritische Produktionsumgebungen.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══ CTA ══ -->
-<section class="sec" style="background:#f8fafc">
+<section class="sec sec-bg-light">
   <div class="wrap">
-    <div class="reveal" style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:56px;background:#fff;border:1px solid #e4e8ec;border-radius:24px;position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:56px;right:56px;height:2px;background:linear-gradient(90deg,#3ebaec,rgba(193,163,104,.4),transparent);pointer-events:none"></div>
+    <div class="reveal cta-panel">
+      <div class="cta-panel-glow"></div>
       <div>
-        <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(22px,2.8vw,36px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;color:#2b323a;margin-bottom:12px">Gemeinsam digitale Produktion gestalten.</h2>
-        <p style="font-size:15px;line-height:1.7;color:#6f7780;max-width:500px">Sie möchten mehr über uns erfahren oder haben eine konkrete Herausforderung? Wir freuen uns auf das Gespräch.</p>
+        <h2>Gemeinsam digitale Produktion gestalten.</h2>
+        <p>Sie möchten mehr über uns erfahren oder haben eine konkrete Herausforderung? Wir freuen uns auf das Gespräch.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;flex-shrink:0">
-        <a href="index.html#kontakt" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#3ebaec;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;color:#fff;box-shadow:0 8px 24px rgba(62,186,236,.25);white-space:nowrap">
+      <div class="cta-panel-actions">
+        <a href="index.html#kontakt" class="contact-btn">
           Lernen wir uns kennen →
         </a>
-        <a href="index.html#kontakt" style="font-size:12px;font-weight:600;color:#6f7780;transition:color .2s">Kontakt aufnehmen</a>
+        <a href="index.html#kontakt" class="cta-sublink">Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══ FOOTER ══ -->
-<footer style="padding:36px 0;background:#2b323a;border-top:1px solid rgba(255,255,255,.06)">
-  <div style="width:min(1200px,100% - 80px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-    <a href="index.html" style="display:flex;gap:10px;align-items:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.02em;color:#fff">
-      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" loading="lazy" style="width:28px;height:28px;object-fit:contain">
-      HI-Tech <strong style="font-weight:800;margin-left:3px">Solutions</strong>
+<footer class="site-footer">
+  <div class="site-footer-layout">
+    <a href="index.html" class="site-footer-logo">
+      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" loading="lazy">
+      HI-Tech <strong>Solutions</strong>
     </a>
-    <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
-      <a href="impressum.html" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s">Impressum</a>
-      <a href="datenschutz.html" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s">Datenschutz</a>
-      <a href="cookies.html" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s">Cookies</a>
-      <a href="https://www.linkedin.com/company/hitech-solutions-eu/" target="_blank" rel="noopener noreferrer" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s;display:inline-flex;align-items:center;gap:5px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:5px"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+    <div class="site-footer-links">
+      <a href="impressum.html" class="site-footer-link">Impressum</a>
+      <a href="datenschutz.html" class="site-footer-link">Datenschutz</a>
+      <a href="cookies.html" class="site-footer-link">Cookies</a>
+      <a href="https://www.linkedin.com/company/hitech-solutions-eu/" target="_blank" rel="noopener noreferrer" class="site-footer-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
     </div>
-    <a href="mailto:info@hitech-solutions.eu" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.4);transition:color .2s">info@hitech-solutions.eu</a>
+    <a href="mailto:info@hitech-solutions.eu" class="site-footer-email">info@hitech-solutions.eu</a>
   </div>
 </footer>
 
@@ -354,8 +294,8 @@
 </script>
 
 <!-- ══ STICKY CTA ══ -->
-<div id="sticky-cta" style="position:fixed;bottom:24px;right:24px;z-index:9998;transition:opacity .3s,transform .3s;opacity:0;transform:translateY(8px);pointer-events:none">
-  <a href="index.html#kontakt" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#3ebaec;color:#fff;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;box-shadow:0 4px 20px rgba(62,186,236,.4);white-space:nowrap;text-decoration:none;line-height:1">Quick Check ↗</a>
+<div id="sticky-cta" class="sticky-cta-container">
+  <a href="index.html#kontakt" class="sticky-cta-link">Quick Check ↗</a>
 </div>
 <script>
 (function(){
@@ -369,13 +309,13 @@
 })();
 </script>
 <!-- ══ COOKIE BANNER ══ -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#2b323a;border-top:1px solid rgba(255,255,255,.08);padding:16px 24px">
-  <div style="width:min(1200px,100% - 48px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-    <p style="font-size:13px;color:rgba(255,255,255,.7);margin:0;line-height:1.5">
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-banner-layout">
+    <p>
       Diese Website verwendet ausschließlich technisch notwendige Cookies. Keine Analyse, kein Tracking.
-      <a href="cookies.html" style="color:#3ebaec;text-decoration:underline;white-space:nowrap">Mehr erfahren</a>
+      <a href="cookies.html">Mehr erfahren</a>
     </p>
-    <button id="cookie-ok" style="flex-shrink:0;background:#3ebaec;color:#fff;border:none;border-radius:999px;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">Verstanden</button>
+    <button id="cookie-ok" class="cookie-btn-ok">Verstanden</button>
   </div>
 </div>
 <script>
