@@ -34,6 +34,9 @@
     .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.04em}
     .badge-green{background:#dcfce7;color:#166534}
     .badge-gray{background:#f1f5f9;color:#475569}
+    .nav-link{font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s;text-decoration:none!important}
+    .nav-link:hover{color:#2b323a;text-decoration:none!important}
+    .nav-link.active{color:#3ebaec;font-weight:700}
   </style>
 </head>
 <body>
@@ -50,10 +53,11 @@
       <span style="display:block;width:14px;height:1.5px;background:#2b323a"></span>
     </button>
     <nav id="site-nav" style="display:flex;align-items:center;gap:28px">
-      <a href="index.html#ansatz" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em">Ansatz</a>
-      <a href="index.html#use-cases" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em">Use Cases</a>
-      <a href="index.html#angebote" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em">Angebote</a>
-      <a href="index.html#projektweg" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em">Projektweg</a>
+      <a href="index.html#ansatz" class="nav-link">Ansatz</a>
+      <a href="index.html#use-cases" class="nav-link">Use Cases</a>
+      <a href="index.html#angebote" class="nav-link">Angebote</a>
+      <a href="index.html#projektweg" class="nav-link">Projektweg</a>
+      <a href="ueber-uns.html" class="nav-link">Über uns</a>
       <a href="index.html#kontakt" style="font-size:13px;font-weight:700;color:#2b323a;padding:10px 22px;border:1.5px solid #3ebaec;border-radius:999px;transition:all .25s;white-space:nowrap">Quick Check ↗</a>
     </nav>
   </div>
@@ -157,6 +161,11 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
   }
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('a.nav-link').forEach(function(a){
+    var href=(a.getAttribute('href')||'').split('#')[0].split('/').pop();
+    if(href&&href.indexOf('.html')!==-1&&href===p)a.classList.add('active');
+  });
 </script>
 </body>
 </html>

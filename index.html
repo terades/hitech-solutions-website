@@ -126,6 +126,9 @@
     #site-nav.open a{padding:12px 0;border-bottom:1px solid #f0f2f5;font-size:15px!important;color:#2b323a!important}
     #site-nav.open a:last-child{border:none;margin-top:12px;text-align:center}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.hi,.stagger>*{opacity:1;transform:none}}
+    .nav-link{font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s;text-decoration:none!important}
+    .nav-link:hover{color:#2b323a}
+    .nav-link.active{color:#3ebaec;font-weight:700}
   </style>
 </head>
 <body>
@@ -148,11 +151,11 @@
       <span style="display:block;width:14px;height:1.5px;background:#2b323a"></span>
     </button>
     <nav id="site-nav" class="nav-links" style="display:flex;align-items:center;gap:28px">
-      <a href="#ansatz" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Ansatz</a>
-      <a href="#use-cases" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Use Cases</a>
-      <a href="#angebote" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Angebote</a>
-      <a href="#projektweg" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Projektweg</a>
-      <a href="ueber-uns.html" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Über uns</a>
+      <a href="#ansatz" class="nav-link">Ansatz</a>
+      <a href="#use-cases" class="nav-link">Use Cases</a>
+      <a href="#angebote" class="nav-link">Angebote</a>
+      <a href="#projektweg" class="nav-link">Projektweg</a>
+      <a href="ueber-uns.html" class="nav-link">Über uns</a>
       <a href="#kontakt" style="font-size:13px;font-weight:700;color:#2b323a;padding:10px 22px;border:1.5px solid #3ebaec;border-radius:999px;transition:all .25s;white-space:nowrap">Quick Check ↗</a>
     </nav>
   </div>
@@ -699,6 +702,13 @@
       toggle.setAttribute('aria-expanded', 'false');
     }));
   }
+
+  // Active nav
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('a.nav-link').forEach(function(a){
+    var href=(a.getAttribute('href')||'').split('#')[0].split('/').pop();
+    if(href&&href.indexOf('.html')!==-1&&href===p)a.classList.add('active');
+  });
 
   // Quick Check
   const steps = [0, 1, 2].map(i => document.querySelector('[data-step="' + i + '"]'));
