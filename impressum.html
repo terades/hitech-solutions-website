@@ -5,7 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Impressum | HI-Tech Solutions</title>
   <meta name="robots" content="noindex,follow">
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#2b323a">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hitech-solutions.eu/impressum.html">
+  <meta property="og:title" content="Impressum | HI-Tech Solutions">
+  <meta property="og:description" content="Impressum und Anbieterkennzeichnung von HI-Tech Solutions.">
+  <meta property="og:image" content="https://hitech-solutions.eu/assets/logo.png">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="HI-Tech Solutions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Impressum | HI-Tech Solutions">
+  <meta name="twitter:description" content="Impressum und Anbieterkennzeichnung von HI-Tech Solutions.">
+  <meta name="twitter:image" content="https://hitech-solutions.eu/assets/logo.png">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
@@ -34,8 +48,8 @@
 <header style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid #e4e8ec">
   <div style="width:min(1200px,100% - 80px);margin-inline:auto;height:80px;display:flex;align-items:center;justify-content:space-between;gap:40px">
     <a href="index.html" aria-label="HI-Tech Solutions" style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-      <img src="assets/logo.png" alt="HI-Tech Logo" style="height:44px;width:auto;object-fit:contain;mix-blend-mode:multiply">
-      <img src="assets/logo-schrift.png" alt="HI-Tech Solutions" style="height:28px;width:auto;object-fit:contain;mix-blend-mode:multiply">
+      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" style="height:44px;width:auto;object-fit:contain;mix-blend-mode:multiply">
+      <img src="assets/logo-schrift.png" alt="HI-Tech Solutions" width="1894" height="341" style="height:28px;width:auto;object-fit:contain;mix-blend-mode:multiply">
     </a>
     <button id="nav-toggle" type="button" aria-expanded="false" style="display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px;flex-shrink:0">
       <span style="display:block;width:20px;height:1.5px;background:#2b323a"></span>
@@ -127,7 +141,7 @@
 <footer style="padding:36px 0;background:#2b323a;border-top:1px solid rgba(255,255,255,.06)">
   <div style="width:min(1200px,100% - 80px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <a href="index.html" style="display:flex;gap:10px;align-items:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.02em;color:#fff">
-      <img src="assets/logo.png" alt="HI-Tech Logo" style="width:28px;height:28px;object-fit:contain">
+      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" style="width:28px;height:28px;object-fit:contain">
       HI-Tech <strong style="font-weight:800;margin-left:3px">Solutions</strong>
     </a>
     <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
@@ -154,5 +168,26 @@
     if(href&&href.indexOf('.html')!==-1&&href===p)a.classList.add('active');
   });
 </script>
-</body>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#2b323a;border-top:1px solid rgba(255,255,255,.08);padding:16px 24px">
+  <div style="width:min(1200px,100% - 48px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <p style="font-size:13px;color:rgba(255,255,255,.7);margin:0;line-height:1.5">
+      Diese Website verwendet ausschließlich technisch notwendige Cookies. Keine Analyse, kein Tracking.
+      <a href="cookies.html" style="color:#3ebaec;text-decoration:underline;white-space:nowrap">Mehr erfahren</a>
+    </p>
+    <button id="cookie-ok" style="flex-shrink:0;background:#3ebaec;color:#fff;border:none;border-radius:999px;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">Verstanden</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('cookie-ok')){
+    document.getElementById('cookie-banner').style.display='block';
+    document.getElementById('cookie-ok').addEventListener('click',function(){
+      localStorage.setItem('cookie-ok','1');
+      document.getElementById('cookie-banner').style.display='none';
+    });
+  }
+})();
+</script></body>
 </html>

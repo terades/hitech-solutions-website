@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /impressum.html
+Disallow: /datenschutz.html
+Disallow: /cookies.html
 
 Sitemap: https://hitech-solutions.eu/sitemap.xml

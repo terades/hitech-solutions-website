@@ -1,18 +1,13 @@
 {
-  "name": "HI Tech Solutions",
-  "short_name": "HI Tech",
-  "description": "Digital Manufacturing, MES, OT/IT Integration und Azure.",
+  "name": "HI-Tech Solutions",
+  "short_name": "HI-Tech",
+  "description": "Digitalisierungslösungen für die Fertigung",
   "start_url": "/",
-  "display": "standalone",
-  "background_color": "#071226",
-  "theme_color": "#0E1D3A",
-  "lang": "de-DE",
+  "display": "browser",
+  "background_color": "#f6f8fa",
+  "theme_color": "#2b323a",
   "icons": [
-    {
-      "src": "assets/logo-hi-tech-solutions.jpeg",
-      "sizes": "1254x1254",
-      "type": "image/jpeg",
-      "purpose": "any"
-    }
+    { "src": "assets/logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/logo.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
