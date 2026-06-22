@@ -64,11 +64,14 @@
       .sec{padding:72px 0!important}
       /* Container narrower padding on tablet */
       .wrap{width:calc(100% - 48px)!important}
-      /* Architecture flow: vertical */
-      #arch-flow{flex-direction:column!important;border-radius:16px!important}
-      #arch-flow .arch-unit{border-right:none!important;border-bottom:1px solid #e4e8ec!important;padding:16px!important;display:flex!important;align-items:center!important;gap:16px!important;text-align:left!important}
-      #arch-flow .arch-unit b{display:inline!important;margin-bottom:0!important}
-      #arch-flow .arch-sep{width:100%!important;height:24px!important;justify-content:center!important}
+      /* Architecture flow: vertikal stapeln */
+      #arch-flow{flex-direction:column!important}
+      #arch-flow .arch-unit{flex:none!important;border-right:none!important;border-bottom:1px solid #e4e8ec!important;padding:16px 20px!important;display:flex!important;align-items:center!important;gap:14px!important;text-align:left!important}
+      #arch-flow .arch-unit > span:first-child{margin:0!important;flex-shrink:0!important}
+      #arch-flow .arch-unit strong{font-size:13px!important;display:inline!important}
+      #arch-flow .arch-unit small{display:inline!important;margin-left:6px!important;font-size:9px!important}
+      #arch-flow .arch-sep{width:100%!important;height:24px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#f6f8fa!important}
+      #arch-flow .arch-sep span{display:inline-block!important;transform:rotate(90deg)!important;font-size:13px!important}
       /* Contact right panel */
       #contact-right{border-left:none!important;padding-left:0!important;border-top:1px solid #e4e8ec!important;padding-top:28px!important;margin-top:4px!important}
       /* QC layout gap */
