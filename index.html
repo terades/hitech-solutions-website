@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'">
   <title>HI-Tech Solutions | Produktionssteuerung, die funktioniert</title>
   <meta name="description" content="HI-Tech Solutions entwickelt pragmatische MES/MOM- und Smart-Factory-Lösungen für mittelständische Produktionsunternehmen.">
-  <meta name="theme-color" content="#10161d">
+  <meta name="theme-color" content="#f8fafc">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="HI-Tech Solutions">
   <meta property="og:title" content="Produktionssteuerung, die im Werk wirklich funktioniert.">
@@ -17,135 +16,650 @@
   <link rel="icon" type="image/jpeg" href="assets/logo-hi-tech-solutions.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/app.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(62,186,236,.45)} 70%{box-shadow:0 0 0 8px transparent} }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes heroIn { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:#f6f8fa;color:#2b323a;font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:rgba(62,186,236,.2)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+    .reveal.in{opacity:1;transform:none}
+    .hi{opacity:0;transform:translateY(20px);animation:heroIn .9s cubic-bezier(.16,1,.3,1) forwards}
+    .d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.28s}.d4{animation-delay:.38s}.d5{animation-delay:.48s}.d6{animation-delay:.58s}
+
+    /* QC Choices */
+    .qc-choice span{display:block;padding:12px 10px;border:1px solid #e4e8ec;border-radius:8px;font-size:11px;font-weight:600;line-height:1.35;transition:all .2s;cursor:pointer;min-height:48px;background:#fff;color:#2b323a}
+    .qc-choice span:hover{border-color:#3ebaec;background:rgba(62,186,236,.04)}
+    .qc-choice input:checked + span{background:rgba(62,186,236,.07);border-color:#3ebaec;color:#2b323a;box-shadow:0 0 0 1px #3ebaec}
+    .qc-choice input{position:absolute;opacity:0;pointer-events:none}
+
+    /* Mobile */
+    @media(max-width:980px){
+      #hero-grid,#approach-panels,#offers-grid,#arch-layout,#qc-layout,#contact-panel{grid-template-columns:1fr!important;gap:40px!important}
+      #usecase-grid{grid-template-columns:repeat(2,1fr)!important}
+      #uc-wide{grid-column:span 2!important;flex-direction:column!important;gap:16px!important;align-items:flex-start!important}
+      #friction-flow{flex-wrap:wrap;gap:8px!important}
+      #friction-flow .fc{display:none}
+      .nav-links{display:none}
+      #nav-toggle{display:flex!important}
+    }
+    @media(max-width:640px){
+      #usecase-grid{grid-template-columns:1fr!important}
+      #uc-wide{grid-column:span 1!important}
+      #offers-grid{grid-template-columns:1fr!important}
+      .trust-item:nth-child(even){display:none}
+      #qc-choices{grid-template-columns:1fr 1fr!important}
+      #journey-step{grid-template-columns:56px 1fr!important;gap:12px!important}
+    }
+    #site-nav.open{display:flex!important;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:#fff;border-bottom:1px solid #e4e8ec;padding:20px 40px 28px;gap:0;z-index:99;box-shadow:0 8px 24px rgba(43,50,58,.08)}
+    #site-nav.open a{padding:12px 0;border-bottom:1px solid #f0f2f5;font-size:15px!important;color:#2b323a!important}
+    #site-nav.open a:last-child{border:none;margin-top:12px;text-align:center}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.hi{opacity:1;transform:none}}
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="HI-Tech Solutions – Startseite"><span class="brand-mark">H</span><span>HI-Tech <b>Solutions</b></span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span><span class="sr-only">Navigation öffnen</span></button>
-    <nav id="siteNav" class="site-nav" aria-label="Hauptnavigation">
-      <a href="#ansatz">Ansatz</a><a href="#use-cases">Use Cases</a><a href="#angebote">Angebote</a><a href="#projektweg">Projektweg</a>
-      <a class="nav-cta" href="#kontakt">Quick Check starten <span aria-hidden="true">↗</span></a>
+<!-- Scroll progress -->
+<div style="position:fixed;inset:0 0 auto;height:3px;z-index:200;pointer-events:none">
+  <span id="progress-bar" style="display:block;width:0%;height:100%;background:linear-gradient(90deg,#3ebaec,#6366F1)"></span>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto;height:80px;display:flex;align-items:center;justify-content:space-between;gap:40px">
+    <a href="#top" aria-label="HI-Tech Solutions" style="display:flex;gap:10px;align-items:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;flex-shrink:0;color:#2b323a">
+      <span style="display:grid;place-items:center;width:32px;height:32px;background:linear-gradient(135deg,#3ebaec,#6366F1);border-radius:8px;font-size:14px;font-weight:800;color:#fff;font-family:'Exo 2',sans-serif">H</span>
+      HI-Tech <strong style="font-weight:800;margin-left:4px">Solutions</strong>
+    </a>
+    <button id="nav-toggle" type="button" aria-expanded="false" style="display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px;flex-shrink:0">
+      <span style="display:block;width:20px;height:1.5px;background:#2b323a"></span>
+      <span style="display:block;width:20px;height:1.5px;background:#2b323a"></span>
+      <span style="display:block;width:14px;height:1.5px;background:#2b323a"></span>
+    </button>
+    <nav id="site-nav" class="nav-links" style="display:flex;align-items:center;gap:28px">
+      <a href="#ansatz" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Ansatz</a>
+      <a href="#use-cases" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Use Cases</a>
+      <a href="#angebote" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Angebote</a>
+      <a href="#projektweg" style="font-size:13px;font-weight:600;color:#6f7780;letter-spacing:.01em;transition:color .2s">Projektweg</a>
+      <a href="#kontakt" style="font-size:13px;font-weight:700;color:#2b323a;padding:10px 22px;border:1.5px solid #3ebaec;border-radius:999px;transition:all .25s;white-space:nowrap">Quick Check ↗</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main id="main">
-    <section id="top" class="hero">
-      <div class="hero-grid"></div>
-      <div class="hero-inner container">
-        <div class="hero-copy">
-          <p class="eyebrow hero-in delay-1"><span class="status-dot"></span> MES/MOM · Smart Factory · Azure</p>
-          <p class="hero-brand hero-in delay-2">HI-Tech Solutions</p>
-          <h1 class="hero-in delay-3">Digitale Produktionssteuerung, die im Werk <em>wirklich funktioniert.</em></h1>
-          <p class="hero-lead hero-in delay-4">Wir entwickeln pragmatische MES/MOM- und Smart-Factory-Lösungen für mittelständische Produktionsunternehmen — von der Engpassanalyse bis zum lauffähigen MVP in wenigen Wochen.</p>
-          <p class="hero-detail hero-in delay-5">Auftragsübersicht, Ressourcensteuerung, Maschinenanbindung, OEE, D365-/ERP-Integration, Dashboards und skalierbare Plattformbausteine.</p>
-          <div class="hero-actions hero-in delay-6"><a class="button button-primary" href="#quick-check">Quick Check starten <span>→</span></a><a class="button button-text" href="#use-cases">Use Cases ansehen <span>↓</span></a></div>
+<!-- ══ HERO ══ -->
+<section id="top" style="position:relative;overflow:hidden;background:#f8fafc;min-height:calc(100svh - 80px)">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(62,186,236,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(62,186,236,.055) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(160deg,rgba(0,0,0,.8) 20%,rgba(0,0,0,.1) 70%,transparent);pointer-events:none"></div>
+  <div style="position:absolute;width:600px;height:600px;top:-200px;left:-120px;background:radial-gradient(circle,rgba(62,186,236,.09),transparent 65%);filter:blur(60px);pointer-events:none"></div>
+  <div style="position:absolute;width:480px;height:480px;top:15%;right:-160px;background:radial-gradient(circle,rgba(99,102,241,.07),transparent 65%);filter:blur(70px);pointer-events:none"></div>
+
+  <div id="hero-grid" style="width:min(1200px,100% - 80px);margin-inline:auto;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;gap:72px;padding:80px 0 64px;position:relative;z-index:1;min-height:calc(100svh - 160px)">
+    <div>
+      <p class="hi d1" style="display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:20px">
+        <span style="width:7px;height:7px;background:#3ebaec;border-radius:50%;animation:pulse 2.2s infinite;flex-shrink:0"></span>
+        MES/MOM · Smart Factory · Azure
+      </p>
+      <p class="hi d2" style="font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#b8bbbe;margin-bottom:14px">HI-Tech Solutions</p>
+      <h1 class="hi d3" style="font-family:'Exo 2',sans-serif;font-size:clamp(34px,4.5vw,58px);font-weight:800;line-height:1.06;letter-spacing:-0.04em;margin-bottom:24px;color:#2b323a">Digitale Produktionssteuerung, die im Werk <em style="font-style:normal;color:#3ebaec">wirklich funktioniert.</em></h1>
+      <p class="hi d4" style="font-size:clamp(15px,1.5vw,17px);line-height:1.75;color:#6f7780;max-width:520px;margin-bottom:12px">Wir entwickeln pragmatische MES/MOM- und Smart-Factory-Lösungen für mittelständische Produktionsunternehmen — von der Engpassanalyse bis zum lauffähigen MVP in wenigen Wochen.</p>
+      <p class="hi d5" style="font-size:12px;letter-spacing:.03em;color:#b8bbbe;margin-bottom:36px">Auftragsübersicht · Ressourcensteuerung · Maschinenanbindung · OEE · D365-/ERP-Integration</p>
+      <div class="hi d6" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <a href="#quick-check" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#3ebaec;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;color:#fff;box-shadow:0 8px 24px rgba(62,186,236,.28);transition:all .3s cubic-bezier(.16,1,.3,1)">Quick Check starten <span>→</span></a>
+        <a href="#use-cases" style="display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border:1.5px solid #e4e8ec;border-radius:999px;font-size:13px;font-weight:600;color:#2b323a;background:#fff;transition:all .25s">Use Cases ansehen <span>↓</span></a>
+      </div>
+    </div>
+
+    <div class="hi d4" style="position:relative;max-width:520px;justify-self:end;width:100%">
+      <div style="position:absolute;inset:-32px;background:radial-gradient(ellipse at 50% 50%,rgba(62,186,236,.1),transparent 68%);filter:blur(24px);pointer-events:none"></div>
+      <img src="assets/smart-factory-dashboard.png" alt="Smart-Factory-Dashboard" style="display:block;width:100%;height:auto;border:1px solid #e4e8ec;border-radius:18px;box-shadow:0 20px 48px rgba(43,50,58,.1),0 4px 12px rgba(43,50,58,.06);position:relative;background:#fff">
+      <div style="position:absolute;top:10%;right:-6%;display:flex;gap:10px;align-items:center;padding:10px 14px;background:#fff;border:1px solid #e4e8ec;border-radius:12px;animation:floatY 5s ease-in-out infinite;box-shadow:0 8px 24px rgba(43,50,58,.1)">
+        <span style="color:#3ebaec;font-size:16px;font-weight:700;line-height:1">↗</span>
+        <span><strong style="display:block;font-size:11px;color:#2b323a">Linie 03</strong><small style="display:block;font-size:9px;color:#b8bbbe;margin-top:2px">Live · 92% OEE</small></span>
+      </div>
+      <div style="position:absolute;bottom:12%;left:-6%;display:flex;gap:10px;align-items:center;padding:10px 14px;background:#fff;border:1px solid #e4e8ec;border-radius:12px;animation:floatY 5s 1.5s ease-in-out infinite;box-shadow:0 8px 24px rgba(43,50,58,.1)">
+        <span style="width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0"></span>
+        <span><strong style="display:block;font-size:11px;color:#2b323a">Auftrag 14892</strong><small style="display:block;font-size:9px;color:#b8bbbe;margin-top:2px">Ressource verfügbar</small></span>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:1;border-top:1px solid #e4e8ec;background:#fff">
+    <div style="width:min(1200px,100% - 80px);margin-inline:auto;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <span class="trust-item" style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#b8bbbe">Produktion verstanden</span>
+      <span style="width:3px;height:3px;background:#3ebaec;border-radius:50%;flex-shrink:0"></span>
+      <span class="trust-item" style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#b8bbbe">Software sauber gebaut</span>
+      <span style="width:3px;height:3px;background:#3ebaec;border-radius:50%;flex-shrink:0"></span>
+      <span class="trust-item" style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#b8bbbe">Azure-ready</span>
+      <span style="width:3px;height:3px;background:#3ebaec;border-radius:50%;flex-shrink:0"></span>
+      <span class="trust-item" style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#b8bbbe">D365-erfahren</span>
+      <span style="width:3px;height:3px;background:#3ebaec;border-radius:50%;flex-shrink:0"></span>
+      <span class="trust-item" style="font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#b8bbbe">OT/IT-integriert</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROBLEM ══ -->
+<section style="padding:120px 0;background:#f6f8fa;border-top:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px">
+      <div>
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Der Ausgangspunkt</p>
+        <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(26px,3.2vw,42px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;color:#2b323a">Warum viele Digitalisierungsprojekte im Werk nicht greifen</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.75;color:#6f7780">ERP, Excel, Maschine und Shopfloor laufen oft nebeneinander. Dadurch entstehen Entscheidungen auf Basis von Annahmen — statt auf Basis dessen, was gerade in der Produktion passiert.</p>
+    </div>
+
+    <div id="friction-flow" class="reveal" style="display:flex;align-items:stretch;gap:6px;margin-bottom:52px">
+      <div style="flex:1;padding:22px 18px;border:1px solid #e4e8ec;border-radius:14px;background:#fff;box-shadow:0 2px 8px rgba(43,50,58,.04)">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:12px">01</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;color:#2b323a">ERP</strong>
+        <small style="font-size:11px;color:#b8bbbe">Auftrag, Stückliste, Termin</small>
+      </div>
+      <div class="fc" style="display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:22px;flex-shrink:0;width:60px">
+        <span style="color:#3ebaec;font-size:14px;line-height:1">→</span>
+        <span style="font-size:8px;font-weight:600;text-align:center;color:#c1a368;line-height:1.3;max-width:54px">Planung bleibt in Excel</span>
+      </div>
+      <div style="flex:1;padding:22px 18px;border:1px solid #e4e8ec;border-radius:14px;background:#fff;box-shadow:0 2px 8px rgba(43,50,58,.04)">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:12px">02</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;color:#2b323a">Excel</strong>
+        <small style="font-size:11px;color:#b8bbbe">Priorität, Kapazität, Schicht</small>
+      </div>
+      <div class="fc" style="display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:22px;flex-shrink:0;width:60px">
+        <span style="color:#3ebaec;font-size:14px;line-height:1">→</span>
+        <span style="font-size:8px;font-weight:600;text-align:center;color:#c1a368;line-height:1.3;max-width:54px">Ist-Zustand fehlt</span>
+      </div>
+      <div style="flex:1;padding:22px 18px;border:1.5px solid #3ebaec;border-radius:14px;background:rgba(62,186,236,.04);box-shadow:0 2px 12px rgba(62,186,236,.1)">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:12px">03</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;color:#2b323a">Shopfloor</strong>
+        <small style="font-size:11px;color:#6f7780">Ressource, Auftrag, Rückmeldung</small>
+      </div>
+      <div class="fc" style="display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:22px;flex-shrink:0;width:60px">
+        <span style="color:#3ebaec;font-size:14px;line-height:1">→</span>
+        <span style="font-size:8px;font-weight:600;text-align:center;color:#c1a368;line-height:1.3;max-width:54px">Daten ohne Kontext</span>
+      </div>
+      <div style="flex:1;padding:22px 18px;border:1px solid #e4e8ec;border-radius:14px;background:#fff;box-shadow:0 2px 8px rgba(43,50,58,.04)">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:12px">04</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;color:#2b323a">Maschine</strong>
+        <small style="font-size:11px;color:#b8bbbe">Status, Zyklus, Alarm</small>
+      </div>
+      <div class="fc" style="display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:22px;flex-shrink:0;width:60px">
+        <span style="color:#3ebaec;font-size:14px;line-height:1">→</span>
+        <span style="font-size:8px;font-weight:600;text-align:center;color:#c1a368;line-height:1.3;max-width:54px">zu spät / manuell</span>
+      </div>
+      <div style="flex:1;padding:22px 18px;border:1px solid #e4e8ec;border-radius:14px;background:#fff;box-shadow:0 2px 8px rgba(43,50,58,.04)">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:12px">05</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;color:#2b323a">Rückmeldung</strong>
+        <small style="font-size:11px;color:#b8bbbe">Menge, Zeit, Ursache</small>
+      </div>
+    </div>
+
+    <div class="reveal" style="max-width:620px;margin-left:auto">
+      <p style="font-size:14px;line-height:1.75;color:#6f7780;margin-bottom:18px"><strong style="color:#2b323a;font-weight:600">Die Folge:</strong> Planung sieht nicht, was wirklich passiert. Maschinendaten liefern keine Entscheidungsgrundlage. Und das MES-Projekt wird zu groß, zu abstrakt und zu langsam.</p>
+      <a href="#quick-check" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#3ebaec;transition:all .2s">Den konkreten Engpass eingrenzen <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPROACH ══ -->
+<section id="ansatz" style="padding:120px 0;background:#fff;border-top:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto">
+    <div class="reveal" style="max-width:720px;margin-bottom:56px">
+      <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Der Duo-Ansatz</p>
+      <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(26px,3.2vw,42px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;margin-bottom:16px;color:#2b323a">Shopfloor-Verstand trifft <em style="font-style:normal;color:#3ebaec">skalierbare Software.</em></h2>
+      <p style="font-size:16px;line-height:1.75;color:#6f7780">Viele Digitalisierungsprojekte scheitern nicht an der Technik. Sie scheitern daran, dass Werkrealität und Softwarelogik nicht sauber übersetzt werden.</p>
+    </div>
+    <div id="approach-panels" class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="padding:48px;background:#f6f8fa;border:1px solid #e4e8ec;border-radius:20px;position:relative;overflow:hidden;transition:box-shadow .3s">
+        <div style="position:absolute;width:180px;height:180px;right:-60px;bottom:-80px;border:1px solid rgba(62,186,236,.15);border-radius:50%;pointer-events:none"></div>
+        <p style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;margin-bottom:48px">01 / Produktion</p>
+        <p style="font-size:28px;color:#3ebaec;margin-bottom:18px;line-height:1">⌁</p>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.03em;margin-bottom:12px;color:#2b323a">Produktionsverständnis</h3>
+        <p style="font-size:14px;line-height:1.75;color:#6f7780;margin-bottom:22px;max-width:400px">Wir sprechen mit Werkleitung, Planung, Arbeitsvorbereitung und Shopfloor auf Augenhöhe. Engpässe, Schichtlogik, Rückmeldungen, Ressourcen, Prioritäten und ERP-Abhängigkeiten sind der Ausgangspunkt.</p>
+        <ul style="list-style:none;font-size:12px;color:#2b323a">
+          <li style="margin-bottom:8px"><span style="color:#3ebaec;margin-right:8px">→</span>konkreter Auftrag statt abstraktes Projekt</li>
+          <li><span style="color:#3ebaec;margin-right:8px">→</span>Werkrealität als fachliche Spezifikation</li>
+        </ul>
+      </div>
+      <div style="padding:48px;background:#f6f8fa;border:1px solid #e4e8ec;border-radius:20px;position:relative;overflow:hidden;transition:box-shadow .3s">
+        <div style="position:absolute;width:180px;height:180px;right:-60px;bottom:-80px;border:1px solid rgba(99,102,241,.12);border-radius:50%;pointer-events:none"></div>
+        <p style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6366F1;margin-bottom:48px">02 / Technik</p>
+        <p style="font-size:28px;color:#6366F1;margin-bottom:18px;line-height:1">◫</p>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.03em;margin-bottom:12px;color:#2b323a">Technische Umsetzung</h3>
+        <p style="font-size:14px;line-height:1.75;color:#6f7780;margin-bottom:22px;max-width:400px">Wir bauen robuste Datenmodelle, APIs, Dashboards, Cloud-Architekturen und Integrationen — so, dass ein MVP später nicht weggeworfen, sondern skaliert werden kann.</p>
+        <ul style="list-style:none;font-size:12px;color:#2b323a">
+          <li style="margin-bottom:8px"><span style="color:#6366F1;margin-right:8px">→</span>klare Schnittstellen und Betriebskonzept</li>
+          <li><span style="color:#6366F1;margin-right:8px">→</span>vom MVP zum wiederverwendbaren Baustein</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:48px;padding:28px 36px;background:linear-gradient(90deg,rgba(62,186,236,.06),rgba(99,102,241,.04));border:1px solid rgba(62,186,236,.18);border-radius:14px;display:inline-block">
+      <p style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.02em;color:#2b323a">Keine PowerPoint-Digitalisierung. <span style="color:#3ebaec">Sondern ein Werkzeug, das im Werk genutzt wird.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ USE CASES ══ -->
+<section id="use-cases" style="padding:120px 0;background:#f6f8fa;border-top:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:52px">
+      <div>
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Anwendungsfälle</p>
+        <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(26px,3.2vw,42px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;color:#2b323a">Typische Probleme, die wir lösen</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.75;color:#6f7780">Wir starten dort, wo Transparenz, Steuerung oder Rückmeldung heute konkret Zeit und Wirkung kosten.</p>
+    </div>
+    <div id="usecase-grid" class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e4e8ec;border:1px solid #e4e8ec;border-radius:20px;overflow:hidden">
+      <div style="padding:32px;background:#fff;transition:background .25s,box-shadow .25s">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:32px">01</span>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.03em;margin-bottom:10px;line-height:1.25;color:#2b323a">Auftrags- und Ressourcensteuerung</h3>
+        <p style="font-size:13px;line-height:1.65;color:#6f7780;margin-bottom:20px">ERP-Daten, Excel-Planung und Shopfloor-Realität laufen auseinander. Wir schaffen ein Board für Aufträge, Ressourcen, Kapazitäten, Prioritäten und Status.</p>
+        <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;padding:4px 10px;background:rgba(62,186,236,.08);border-radius:999px">Planung → Shopfloor</span>
+      </div>
+      <div style="padding:32px;background:#fff;transition:background .25s,box-shadow .25s">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:32px">02</span>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.03em;margin-bottom:10px;line-height:1.25;color:#2b323a">Maschinen- und Linienstatus</h3>
+        <p style="font-size:13px;line-height:1.65;color:#6f7780;margin-bottom:20px">Maschinen liefern Daten, aber niemand sieht den echten Zustand nutzbar. Wir verbinden SPS, OPC UA, Edge und Cloud zu einem verständlichen Live-Bild.</p>
+        <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;padding:4px 10px;background:rgba(62,186,236,.08);border-radius:999px">SPS · OPC UA · Edge</span>
+      </div>
+      <div style="padding:32px;background:#fff;transition:background .25s,box-shadow .25s">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:32px">03</span>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.03em;margin-bottom:10px;line-height:1.25;color:#2b323a">D365-/ERP-Integration</h3>
+        <p style="font-size:13px;line-height:1.65;color:#6f7780;margin-bottom:20px">Produktionsaufträge, Arbeitsgänge, Ressourcen und Rückmeldungen müssen sauber zwischen ERP und Shopfloor fließen. Wir bauen robuste Schnittstellen und Datenmodelle.</p>
+        <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;padding:4px 10px;background:rgba(62,186,236,.08);border-radius:999px">D365 · ERP · APIs</span>
+      </div>
+      <div style="padding:32px;background:#fff;transition:background .25s,box-shadow .25s">
+        <span style="display:block;font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;margin-bottom:32px">04</span>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.03em;margin-bottom:10px;line-height:1.25;color:#2b323a">OEE und Performance</h3>
+        <p style="font-size:13px;line-height:1.65;color:#6f7780;margin-bottom:20px">Stillstände, Zykluszeiten und Leistungsabweichungen werden zu spät erkannt. Wir schaffen OEE-Dashboards mit Ursachenlogik und konkreten Steuerungsimpulsen.</p>
+        <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;padding:4px 10px;background:rgba(62,186,236,.08);border-radius:999px">OEE · Stillstand · Ursache</span>
+      </div>
+      <div id="uc-wide" style="padding:32px;background:#fff;grid-column:span 2;display:flex;align-items:center;gap:48px;transition:background .25s,box-shadow .25s">
+        <span style="font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec;flex-shrink:0">05</span>
+        <div style="flex:1;min-width:0">
+          <h3 style="font-family:'Exo 2',sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.03em;margin-bottom:8px;color:#2b323a">Multi-Werk-Rollout</h3>
+          <p style="font-size:13px;line-height:1.65;color:#6f7780">Ein MVP funktioniert in einem Werk. Danach braucht es Standards, Wiederverwendung und Betrieb. Wir denken Architektur, Support und Skalierung von Anfang an mit.</p>
         </div>
-        <div class="hero-visual hero-in delay-4" aria-label="Produktionsdashboard mit Live-Daten">
-          <img src="assets/smart-factory-dashboard.png" alt="Beispiel eines Smart-Factory-Dashboards mit OEE, Linienstatus und Auftragsdaten" width="1024" height="1024">
-          <div class="signal-card signal-card-top"><span class="signal-icon">↗</span><span><b>Linie 03</b><small>Live · 92% OEE</small></span></div>
-          <div class="signal-card signal-card-bottom"><span class="signal-pulse"></span><span><b>Auftrag 14892</b><small>Ressource verfügbar</small></span></div>
+        <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;flex-shrink:0;padding:4px 10px;background:rgba(62,186,236,.08);border-radius:999px">Standards · Betrieb · Rollout</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OFFERS ══ -->
+<section id="angebote" style="padding:120px 0;background:#fff;border-top:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto">
+    <div class="reveal" style="margin-bottom:52px">
+      <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Klarer Einstieg</p>
+      <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(26px,3.2vw,42px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;color:#2b323a">Drei Wege vom Engpass zur Lösung</h2>
+    </div>
+    <div id="offers-grid" class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch">
+      <div style="padding:36px;border:1px solid #e4e8ec;border-radius:20px;background:#f6f8fa;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:40px">
+          <span style="font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec">01</span>
+          <span style="font-size:11px;font-weight:600;color:#6f7780">Production Quick Check</span>
+        </div>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:20px;font-weight:700;letter-spacing:-0.03em;line-height:1.2;margin-bottom:12px;color:#2b323a">Der digitale Hebel, der sich wirklich lohnt.</h3>
+        <p style="font-size:13px;line-height:1.7;color:#6f7780;margin-bottom:24px">Für Unternehmen, die vor einer Entscheidung stehen und einen konkreten MVP-Scope brauchen.</p>
+        <ul style="list-style:none;padding:20px 0;border-top:1px solid #e4e8ec;font-size:12px;color:#2b323a;flex:1;margin-bottom:24px">
+          <li style="margin-bottom:9px"><span style="color:#3ebaec;margin-right:8px">✓</span>Engpassanalyse</li>
+          <li style="margin-bottom:9px"><span style="color:#3ebaec;margin-right:8px">✓</span>Use-Case-Priorisierung</li>
+          <li style="margin-bottom:9px"><span style="color:#3ebaec;margin-right:8px">✓</span>MVP-Scope &amp; grobe Architektur</li>
+          <li><span style="color:#3ebaec;margin-right:8px">✓</span>Aufwandsschätzung als Entscheidungsgrundlage</li>
+        </ul>
+        <a href="#quick-check" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#6f7780;transition:all .2s;margin-top:auto">Quick Check konfigurieren <span>→</span></a>
+      </div>
+
+      <div style="padding:36px;border:1.5px solid #3ebaec;border-radius:20px;background:#fff;display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(62,186,236,.12),0 2px 8px rgba(43,50,58,.06);position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(62,186,236,.06),transparent 55%);pointer-events:none"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:40px;position:relative;z-index:1">
+          <span style="font-size:10px;font-weight:600;letter-spacing:.1em;color:#3ebaec">02</span>
+          <span style="font-size:11px;font-weight:600;color:#6f7780">MES/MOM MVP</span>
+          <span style="margin-left:auto;padding:4px 10px;background:rgba(62,186,236,.1);border:1px solid rgba(62,186,236,.3);border-radius:999px;font-size:9px;font-weight:700;color:#3ebaec;letter-spacing:.06em;white-space:nowrap">MVP-Fokus</span>
+        </div>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:20px;font-weight:700;letter-spacing:-0.03em;line-height:1.2;margin-bottom:12px;position:relative;z-index:1;color:#2b323a">Ein Problem sichtbar lösen.</h3>
+        <p style="font-size:13px;line-height:1.7;color:#6f7780;margin-bottom:24px;position:relative;z-index:1">Für Unternehmen, die ein greifbares Werkzeug für Planung, Shopfloor oder Maschine live bringen wollen.</p>
+        <ul style="list-style:none;padding:20px 0;border-top:1px solid rgba(62,186,236,.18);font-size:12px;color:#2b323a;flex:1;margin-bottom:24px;position:relative;z-index:1">
+          <li style="margin-bottom:9px"><span style="color:#3ebaec;margin-right:8px">✓</span>Auftrags- und Ressourcenboard</li>
+          <li style="margin-bottom:9px"><span style="color:#3ebaec;margin-right:8px">✓</span>OEE-/Stillstands-Dashboard</li>
+          <li style="margin-bottom:9px"><span style="color:#3ebaec;margin-right:8px">✓</span>Digitale Fertigungsrückmeldung</li>
+          <li><span style="color:#3ebaec;margin-right:8px">✓</span>Maschinenstatus oder D365-Schnittstelle</li>
+        </ul>
+        <a href="#kontakt" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#3ebaec;transition:gap .2s;position:relative;z-index:1">MVP besprechen <span>→</span></a>
+      </div>
+
+      <div style="padding:36px;border:1px solid #e4e8ec;border-radius:20px;background:#f6f8fa;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:40px">
+          <span style="font-size:10px;font-weight:600;letter-spacing:.1em;color:#6366F1">03</span>
+          <span style="font-size:11px;font-weight:600;color:#6f7780">Smart Factory Platform</span>
+        </div>
+        <h3 style="font-family:'Exo 2',sans-serif;font-size:20px;font-weight:700;letter-spacing:-0.03em;line-height:1.2;margin-bottom:12px;color:#2b323a">Was funktioniert, sauber skalieren.</h3>
+        <p style="font-size:13px;line-height:1.7;color:#6f7780;margin-bottom:24px">Für Unternehmen, die erfolgreiche MVPs auf weitere Werke, Linien und Prozesse übertragen.</p>
+        <ul style="list-style:none;padding:20px 0;border-top:1px solid #e4e8ec;font-size:12px;color:#2b323a;flex:1;margin-bottom:24px">
+          <li style="margin-bottom:9px"><span style="color:#6366F1;margin-right:8px">✓</span>Connect: Maschine, Edge, OPC UA, MQTT</li>
+          <li style="margin-bottom:9px"><span style="color:#6366F1;margin-right:8px">✓</span>Model &amp; Flow: Datenmodell, Workflows</li>
+          <li><span style="color:#6366F1;margin-right:8px">✓</span>UI, Security, Azure, Monitoring &amp; Betrieb</li>
+        </ul>
+        <a href="#kontakt" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#6f7780;transition:all .2s;margin-top:auto">Plattform besprechen <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ARCHITECTURE ══ -->
+<section style="padding:120px 0;background:#f6f8fa;border-top:1px solid #e4e8ec">
+  <div id="arch-layout" style="width:min(1200px,100% - 80px);margin-inline:auto;display:grid;grid-template-columns:.6fr 1.4fr;gap:80px;align-items:center">
+    <div class="reveal">
+      <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Architektur, die mitdenkt</p>
+      <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(22px,2.6vw,34px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;margin-bottom:16px;color:#2b323a">Nicht nur Oberflächen. Der ganze Datenfluss.</h2>
+      <p style="font-size:15px;line-height:1.75;color:#6f7780">Wir berücksichtigen Schnittstellen, Datenmodell, Betrieb und spätere Skalierung — bevor eine erste Ansicht gebaut wird.</p>
+    </div>
+    <div class="reveal" style="display:flex;align-items:stretch;gap:0;overflow:hidden;border-radius:16px;border:1px solid #e4e8ec;box-shadow:0 4px 16px rgba(43,50,58,.06)">
+      <div style="flex:1;text-align:center;padding:24px 10px;background:#fff;border-right:1px solid #e4e8ec">
+        <span style="display:grid;place-items:center;width:32px;height:32px;margin:0 auto 10px;color:#3ebaec;font-size:16px;border:1px solid #e4e8ec;border-radius:8px;background:#f6f8fa">⌁</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;margin-bottom:4px;color:#2b323a">Maschine</strong>
+        <small style="font-size:9px;font-weight:500;letter-spacing:.06em;color:#b8bbbe;text-transform:uppercase">SPS · Sensorik</small>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;width:28px;flex-shrink:0;background:#f6f8fa"><span style="color:#3ebaec;font-size:12px">→</span></div>
+      <div style="flex:1;text-align:center;padding:24px 10px;background:#fff;border-right:1px solid #e4e8ec">
+        <span style="display:grid;place-items:center;width:32px;height:32px;margin:0 auto 10px;color:#3ebaec;font-size:16px;border:1px solid #e4e8ec;border-radius:8px;background:#f6f8fa">↔</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;margin-bottom:4px;color:#2b323a">Edge</strong>
+        <small style="font-size:9px;font-weight:500;letter-spacing:.06em;color:#b8bbbe;text-transform:uppercase">OPC UA · MQTT</small>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;width:28px;flex-shrink:0;background:#f6f8fa"><span style="color:#3ebaec;font-size:12px">→</span></div>
+      <div style="flex:1;text-align:center;padding:24px 10px;background:rgba(62,186,236,.05);border-right:1px solid rgba(62,186,236,.2);border-left:1px solid rgba(62,186,236,.2)">
+        <span style="display:grid;place-items:center;width:32px;height:32px;margin:0 auto 10px;color:#3ebaec;font-size:16px;border:1.5px solid #3ebaec;border-radius:8px;background:#fff">◉</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;margin-bottom:4px;color:#3ebaec">Azure</strong>
+        <small style="font-size:9px;font-weight:500;letter-spacing:.06em;color:#3ebaec;text-transform:uppercase;opacity:.7">APIs · Datenmodell</small>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;width:28px;flex-shrink:0;background:#f6f8fa"><span style="color:#3ebaec;font-size:12px">→</span></div>
+      <div style="flex:1;text-align:center;padding:24px 10px;background:#fff;border-right:1px solid #e4e8ec">
+        <span style="display:grid;place-items:center;width:32px;height:32px;margin:0 auto 10px;color:#3ebaec;font-size:16px;border:1px solid #e4e8ec;border-radius:8px;background:#f6f8fa">▦</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;margin-bottom:4px;color:#2b323a">ERP / D365</strong>
+        <small style="font-size:9px;font-weight:500;letter-spacing:.06em;color:#b8bbbe;text-transform:uppercase">MES · Aufträge</small>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;width:28px;flex-shrink:0;background:#f6f8fa"><span style="color:#3ebaec;font-size:12px">→</span></div>
+      <div style="flex:1;text-align:center;padding:24px 10px;background:#fff">
+        <span style="display:grid;place-items:center;width:32px;height:32px;margin:0 auto 10px;color:#3ebaec;font-size:16px;border:1px solid #e4e8ec;border-radius:8px;background:#f6f8fa">◫</span>
+        <strong style="display:block;font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;margin-bottom:4px;color:#2b323a">Ansicht</strong>
+        <small style="font-size:9px;font-weight:500;letter-spacing:.06em;color:#b8bbbe;text-transform:uppercase">Shopfloor · Mgmt</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ JOURNEY ══ -->
+<section id="projektweg" style="padding:120px 0;background:#fff;border-top:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto">
+    <div class="reveal" style="margin-bottom:56px">
+      <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Projektweg</p>
+      <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(26px,3.2vw,42px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;color:#2b323a">Kurzer Weg. Klare Entscheidungen.</h2>
+    </div>
+    <ol style="list-style:none;border-top:1px solid #e4e8ec">
+      <li id="journey-step" class="reveal" style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid #e4e8ec;align-items:start">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#3ebaec;font-family:'Exo 2',sans-serif;padding-top:3px">01</span>
+        <div><h3 style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px;color:#2b323a">Engpass verstehen</h3><p style="font-size:14px;line-height:1.65;color:#6f7780">Wir klären, wo Auftrag, Ressource, Maschine oder Rückmeldung heute Reibung erzeugen.</p></div>
+      </li>
+      <li class="reveal" style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid #e4e8ec;align-items:start">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#3ebaec;font-family:'Exo 2',sans-serif;padding-top:3px">02</span>
+        <div><h3 style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px;color:#2b323a">Daten und Systeme prüfen</h3><p style="font-size:14px;line-height:1.65;color:#6f7780">Wir schauen auf ERP, D365, Excel, Maschinen, Schnittstellen und die Datenqualität.</p></div>
+      </li>
+      <li class="reveal" style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid #e4e8ec;align-items:start">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#3ebaec;font-family:'Exo 2',sans-serif;padding-top:3px">03</span>
+        <div><h3 style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px;color:#2b323a">MVP-Scope definieren</h3><p style="font-size:14px;line-height:1.65;color:#6f7780">Wir legen fest, welches Ergebnis in kurzer Zeit für die Nutzer im Werk wirklich nutzbar ist.</p></div>
+      </li>
+      <li class="reveal" style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid #e4e8ec;align-items:start">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#3ebaec;font-family:'Exo 2',sans-serif;padding-top:3px">04</span>
+        <div><h3 style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px;color:#2b323a">Lösung bauen und testen</h3><p style="font-size:14px;line-height:1.65;color:#6f7780">Wir entwickeln, testen mit den späteren Nutzern und binden die relevanten Datenquellen an.</p></div>
+      </li>
+      <li class="reveal" style="display:grid;grid-template-columns:100px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid #e4e8ec;align-items:start">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#3ebaec;font-family:'Exo 2',sans-serif;padding-top:3px">05</span>
+        <div><h3 style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px;color:#2b323a">Skalieren und betreiben</h3><p style="font-size:14px;line-height:1.65;color:#6f7780">Wir standardisieren Bausteine, schaffen Transparenz im Betrieb und bereiten den Rollout vor.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ QUICK CHECK ══ -->
+<section id="quick-check" style="padding:120px 0;background:#f6f8fa;border-top:1px solid #e4e8ec">
+  <div id="qc-layout" style="width:min(1200px,100% - 80px);margin-inline:auto;display:grid;grid-template-columns:.6fr 1.4fr;gap:80px;align-items:start">
+    <div class="reveal">
+      <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Interaktiver Einstieg</p>
+      <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(22px,2.6vw,34px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;margin-bottom:16px;color:#2b323a">Welcher erste Schritt passt zu Ihrem Werk?</h2>
+      <p style="font-size:15px;line-height:1.75;color:#6f7780;margin-bottom:36px">In drei kurzen Fragen ordnen wir den Engpass ein und geben eine konkrete Empfehlung für den sinnvollsten Einstieg.</p>
+      <div style="display:flex;gap:32px">
+        <div><span style="display:block;font-family:'Exo 2',sans-serif;font-size:28px;font-weight:800;color:#2b323a;line-height:1">3</span><span style="font-size:11px;color:#b8bbbe">Fragen</span></div>
+        <div><span style="display:block;font-family:'Exo 2',sans-serif;font-size:28px;font-weight:800;color:#2b323a;line-height:1">1</span><span style="font-size:11px;color:#b8bbbe">Empfehlung</span></div>
+        <div><span style="display:block;font-family:'Exo 2',sans-serif;font-size:28px;font-weight:800;color:#2b323a;line-height:1">0</span><span style="font-size:11px;color:#b8bbbe">Pitch-Folien</span></div>
+      </div>
+    </div>
+    <div class="reveal" style="padding:36px;border:1px solid #e4e8ec;border-radius:20px;background:#fff;box-shadow:0 4px 16px rgba(43,50,58,.05)">
+      <div id="qc-progress" style="display:flex;align-items:center;gap:8px;margin-bottom:32px">
+        <span data-dot="0" style="display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#3ebaec;font-size:10px;font-weight:700;color:#fff;transition:all .3s">1</span>
+        <span style="flex:1;height:1px;background:#e4e8ec"></span>
+        <span data-dot="1" style="display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#f0f2f5;font-size:10px;font-weight:700;color:#b8bbbe;transition:all .3s">2</span>
+        <span style="flex:1;height:1px;background:#e4e8ec"></span>
+        <span data-dot="2" style="display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#f0f2f5;font-size:10px;font-weight:700;color:#b8bbbe;transition:all .3s">3</span>
+      </div>
+
+      <div data-step="0">
+        <p style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.02em;margin-bottom:18px;color:#2b323a">Was ist aktuell Ihr größtes Problem?</p>
+        <div id="qc-choices" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="problem" value="Planung und Ressourcensteuerung"><span>Planung</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="problem" value="Fertigungsrückmeldung"><span>Rückmeldung</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="problem" value="Maschinen- oder Linienstatus"><span>Maschinenstatus</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="problem" value="OEE und Stillstandsursachen"><span>OEE</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="problem" value="ERP-/D365-Integration"><span>ERP-Integration</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="problem" value="Transparenz im Shopfloor"><span>Transparenz</span></label>
         </div>
       </div>
-      <div class="trust-strip"><div class="container"><span>Produktion verstanden</span><i></i><span>Software sauber gebaut</span><i></i><span>Azure-ready</span><i></i><span>D365-erfahren</span><i></i><span>OT/IT-integriert</span></div></div>
-    </section>
 
-    <section class="section problem-section">
-      <div class="container two-column problem-intro reveal">
-        <div><p class="eyebrow">Der Ausgangspunkt</p><h2>Warum viele Digitalisierungsprojekte im Werk nicht greifen</h2></div>
-        <p class="section-lead">ERP, Excel, Maschine und Shopfloor laufen oft nebeneinander. Dadurch entstehen Entscheidungen auf Basis von Annahmen, statt auf Basis dessen, was gerade in der Produktion passiert.</p>
-      </div>
-      <div class="container friction-map reveal">
-        <div class="friction-node"><span class="node-index">01</span><b>ERP</b><small>Auftrag, Stückliste, Termin</small></div>
-        <div class="friction-link"><span>Planung bleibt in Excel</span></div>
-        <div class="friction-node"><span class="node-index">02</span><b>Excel</b><small>Priorität, Kapazität, Schicht</small></div>
-        <div class="friction-link"><span>Ist-Zustand fehlt</span></div>
-        <div class="friction-node active"><span class="node-index">03</span><b>Shopfloor</b><small>Ressource, Auftrag, Rückmeldung</small></div>
-        <div class="friction-link"><span>Daten ohne Kontext</span></div>
-        <div class="friction-node"><span class="node-index">04</span><b>Maschine</b><small>Status, Zyklus, Alarm</small></div>
-        <div class="friction-link"><span>zu spät / manuell</span></div>
-        <div class="friction-node"><span class="node-index">05</span><b>Rückmeldung</b><small>Menge, Zeit, Ursache</small></div>
-      </div>
-      <div class="container problem-notes reveal"><p><strong>Die Folge:</strong> Planung sieht nicht, was wirklich passiert. Maschinendaten liefern keine Entscheidungsgrundlage. Und das MES-Projekt wird zu groß, zu abstrakt und zu langsam.</p><a href="#quick-check" class="inline-link">Den konkreten Engpass eingrenzen <span>→</span></a></div>
-    </section>
-
-    <section id="ansatz" class="section approach-section">
-      <div class="container section-heading reveal"><p class="eyebrow">Der Duo-Ansatz</p><h2>Shopfloor-Verstand trifft <em>skalierbare Software.</em></h2><p>Viele Digitalisierungsprojekte scheitern nicht an der Technik. Sie scheitern daran, dass Werkrealität und Softwarelogik nicht sauber übersetzt werden.</p></div>
-      <div class="container approach-grid">
-        <article class="approach-panel production reveal"><div class="panel-label">01 / Produktion</div><div class="panel-icon">⌁</div><h3>Produktionsverständnis</h3><p>Wir sprechen mit Werkleitung, Planung, Arbeitsvorbereitung und Shopfloor auf Augenhöhe. Engpässe, Schichtlogik, Rückmeldungen, Ressourcen, Prioritäten und ERP-Abhängigkeiten sind der Ausgangspunkt.</p><ul><li>konkreter Auftrag statt abstraktes Projekt</li><li>Werkrealität als fachliche Spezifikation</li></ul></article>
-        <article class="approach-panel engineering reveal"><div class="panel-label">02 / Technik</div><div class="panel-icon">◫</div><h3>Technische Umsetzung</h3><p>Wir bauen robuste Datenmodelle, APIs, Dashboards, Cloud-Architekturen und Integrationen — so, dass ein MVP später nicht weggeworfen, sondern skaliert werden kann.</p><ul><li>klare Schnittstellen und Betriebskonzept</li><li>vom MVP zum wiederverwendbaren Baustein</li></ul></article>
-      </div>
-      <p class="container approach-conclusion reveal">Keine PowerPoint-Digitalisierung. <span>Sondern ein Werkzeug, das im Werk genutzt wird.</span></p>
-    </section>
-
-    <section id="use-cases" class="section usecase-section">
-      <div class="container section-heading split-heading reveal"><div><p class="eyebrow">Anwendungsfälle</p><h2>Typische Probleme, die wir lösen</h2></div><p>Wir starten dort, wo Transparenz, Steuerung oder Rückmeldung heute konkret Zeit und Wirkung kosten.</p></div>
-      <div class="container usecase-grid">
-        <article class="usecase-card reveal"><span class="case-number">01</span><h3>Auftrags- und Ressourcensteuerung</h3><p>ERP-Daten, Excel-Planung und Shopfloor-Realität laufen auseinander. Wir schaffen ein Board für Aufträge, Ressourcen, Kapazitäten, Prioritäten und Status.</p><span class="case-tag">Planung → Shopfloor</span></article>
-        <article class="usecase-card reveal"><span class="case-number">02</span><h3>Maschinen- und Linienstatus</h3><p>Maschinen liefern Daten, aber niemand sieht den echten Zustand nutzbar. Wir verbinden SPS, OPC UA, Edge und Cloud zu einem verständlichen Live-Bild.</p><span class="case-tag">SPS · OPC UA · Edge</span></article>
-        <article class="usecase-card reveal"><span class="case-number">03</span><h3>D365-/ERP-Integration</h3><p>Produktionsaufträge, Arbeitsgänge, Ressourcen und Rückmeldungen müssen sauber zwischen ERP und Shopfloor fließen. Wir bauen robuste Schnittstellen und Datenmodelle.</p><span class="case-tag">D365 · ERP · APIs</span></article>
-        <article class="usecase-card reveal"><span class="case-number">04</span><h3>OEE und Performance</h3><p>Stillstände, Zykluszeiten und Leistungsabweichungen werden zu spät erkannt. Wir schaffen OEE-Dashboards mit Ursachenlogik und konkreten Steuerungsimpulsen.</p><span class="case-tag">OEE · Stillstand · Ursache</span></article>
-        <article class="usecase-card usecase-wide reveal"><span class="case-number">05</span><div><h3>Multi-Werk-Rollout</h3><p>Ein MVP funktioniert in einem Werk. Danach braucht es Standards, Wiederverwendung und Betrieb. Wir denken Architektur, Support und Skalierung von Anfang an mit.</p></div><span class="case-tag">Standards · Betrieb · Rollout</span></article>
-      </div>
-    </section>
-
-    <section id="angebote" class="section offers-section">
-      <div class="container section-heading reveal"><p class="eyebrow">Klarer Einstieg</p><h2>Drei Wege vom Engpass zur Lösung</h2></div>
-      <div class="container offers-grid">
-        <article class="offer reveal"><div class="offer-top"><span>01</span><p>Production Quick Check</p></div><h3>Der digitale Hebel, der sich wirklich lohnt.</h3><p>Für Unternehmen, die vor einer Entscheidung stehen und einen konkreten MVP-Scope brauchen.</p><ul><li>Engpassanalyse</li><li>Use-Case-Priorisierung</li><li>MVP-Scope &amp; grobe Architektur</li><li>Aufwandsschätzung als Entscheidungsgrundlage</li></ul><a href="#quick-check" class="inline-link">Quick Check konfigurieren <span>→</span></a></article>
-        <article class="offer featured reveal"><div class="offer-top"><span>02</span><p>MES/MOM MVP</p><b>4–8 Wochen</b></div><h3>Ein Problem sichtbar lösen.</h3><p>Für Unternehmen, die ein greifbares Werkzeug für Planung, Shopfloor oder Maschine live bringen wollen.</p><ul><li>Auftrags- und Ressourcenboard</li><li>OEE-/Stillstands-Dashboard</li><li>digitale Fertigungsrückmeldung</li><li>Maschinenstatus oder D365-Schnittstelle</li></ul><a href="#kontakt" class="inline-link">MVP besprechen <span>→</span></a></article>
-        <article class="offer reveal"><div class="offer-top"><span>03</span><p>Smart Factory Platform</p></div><h3>Was funktioniert, sauber skalieren.</h3><p>Für Unternehmen, die erfolgreiche MVPs auf weitere Werke, Linien und Prozesse übertragen.</p><ul><li>Connect: Maschine, Edge, OPC UA, MQTT</li><li>Model &amp; Flow: Datenmodell, Workflows</li><li>UI, Security, Azure, Monitoring &amp; Betrieb</li></ul><a href="#kontakt" class="inline-link">Plattform besprechen <span>→</span></a></article>
-      </div>
-    </section>
-
-    <section class="section architecture-section">
-      <div class="container architecture-layout">
-        <div class="architecture-copy reveal"><p class="eyebrow">Architektur, die mitdenkt</p><h2>Nicht nur Oberflächen. Der ganze Datenfluss.</h2><p>Wir berücksichtigen Schnittstellen, Datenmodell, Betrieb und spätere Skalierung — bevor eine erste Ansicht gebaut wird.</p></div>
-        <div class="architecture-flow reveal" aria-label="Architekturstrecke von Maschine bis Management-Dashboard">
-          <div class="architecture-unit"><span class="architecture-icon">⌁</span><b>Maschine</b><small>SPS · Sensorik</small></div><span class="architecture-arrow">→</span>
-          <div class="architecture-unit"><span class="architecture-icon">↔</span><b>Edge</b><small>OPC UA · MQTT</small></div><span class="architecture-arrow">→</span>
-          <div class="architecture-unit core"><span class="architecture-icon">◉</span><b>Azure</b><small>APIs · Datenmodell</small></div><span class="architecture-arrow">→</span>
-          <div class="architecture-unit"><span class="architecture-icon">▦</span><b>ERP / D365</b><small>MES · Aufträge</small></div><span class="architecture-arrow">→</span>
-          <div class="architecture-unit"><span class="architecture-icon">◫</span><b>Ansicht</b><small>Shopfloor · Management</small></div>
+      <div data-step="1" style="display:none">
+        <p style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.02em;margin-bottom:18px;color:#2b323a">Welche Systeme sind vorhanden?</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="systems" value="ERP"><span>ERP</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="systems" value="D365"><span>D365</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="systems" value="MES"><span>MES</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="systems" value="Excel"><span>Excel</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="systems" value="Maschinensteuerung"><span>Maschinensteuerung</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="systems" value="Azure"><span>Azure</span></label>
         </div>
       </div>
-    </section>
 
-    <section id="projektweg" class="section journey-section">
-      <div class="container section-heading reveal"><p class="eyebrow">Projektweg</p><h2>Kurzer Weg. Klare Entscheidungen.</h2></div>
-      <ol class="container journey-list">
-        <li class="reveal"><span>01</span><div><h3>Engpass verstehen</h3><p>Wir klären, wo Auftrag, Ressource, Maschine oder Rückmeldung heute Reibung erzeugen.</p></div></li>
-        <li class="reveal"><span>02</span><div><h3>Daten und Systeme prüfen</h3><p>Wir schauen auf ERP, D365, Excel, Maschinen, Schnittstellen und die Datenqualität.</p></div></li>
-        <li class="reveal"><span>03</span><div><h3>MVP-Scope definieren</h3><p>Wir legen fest, welches Ergebnis in kurzer Zeit für die Nutzer im Werk wirklich nutzbar ist.</p></div></li>
-        <li class="reveal"><span>04</span><div><h3>Lösung bauen und testen</h3><p>Wir entwickeln, testen mit den späteren Nutzern und binden die relevanten Datenquellen an.</p></div></li>
-        <li class="reveal"><span>05</span><div><h3>Skalieren und betreiben</h3><p>Wir standardisieren Bausteine, schaffen Transparenz im Betrieb und bereiten den Rollout vor.</p></div></li>
-      </ol>
-    </section>
-
-    <section id="quick-check" class="section quickcheck-section">
-      <div class="container quickcheck-layout">
-        <div class="quickcheck-copy reveal"><p class="eyebrow">Interaktiver Einstieg</p><h2>Welcher erste Schritt passt zu Ihrem Werk?</h2><p>In drei kurzen Fragen ordnen wir den Engpass ein und geben eine konkrete Empfehlung für den sinnvollsten Einstieg.</p><div class="quickcheck-meta"><span><b>3</b> Fragen</span><span><b>1</b> klare Empfehlung</span><span><b>0</b> Pitch-Folien</span></div></div>
-        <form class="quickcheck reveal" id="quickCheck" novalidate>
-          <div class="quickcheck-progress" aria-hidden="true"><span class="is-active">1</span><i></i><span>2</span><i></i><span>3</span></div>
-          <fieldset class="check-step is-active"><legend>Was ist aktuell Ihr größtes Problem?</legend><div class="choice-grid"><label><input type="radio" name="problem" value="Planung und Ressourcensteuerung"><span>Planung</span></label><label><input type="radio" name="problem" value="Fertigungsrückmeldung"><span>Rückmeldung</span></label><label><input type="radio" name="problem" value="Maschinen- oder Linienstatus"><span>Maschinenstatus</span></label><label><input type="radio" name="problem" value="OEE und Stillstandsursachen"><span>OEE</span></label><label><input type="radio" name="problem" value="ERP-/D365-Integration"><span>ERP-Integration</span></label><label><input type="radio" name="problem" value="Transparenz im Shopfloor"><span>Transparenz</span></label></div></fieldset>
-          <fieldset class="check-step"><legend>Welche Systeme sind vorhanden?</legend><div class="choice-grid"><label><input type="radio" name="systems" value="ERP"><span>ERP</span></label><label><input type="radio" name="systems" value="D365"><span>D365</span></label><label><input type="radio" name="systems" value="MES"><span>MES</span></label><label><input type="radio" name="systems" value="Excel"><span>Excel</span></label><label><input type="radio" name="systems" value="Maschinensteuerung"><span>Maschinensteuerung</span></label><label><input type="radio" name="systems" value="Azure"><span>Azure</span></label></div></fieldset>
-          <fieldset class="check-step"><legend>Was soll als Nächstes erreicht werden?</legend><div class="choice-grid"><label><input type="radio" name="goal" value="Überblick schaffen"><span>Überblick</span></label><label><input type="radio" name="goal" value="Abläufe automatisieren"><span>Automatisierung</span></label><label><input type="radio" name="goal" value="einen MVP live bringen"><span>MVP</span></label><label><input type="radio" name="goal" value="auf weitere Werke ausrollen"><span>Rollout</span></label><label><input type="radio" name="goal" value="eine tragfähige Architektur definieren"><span>Architektur</span></label></div></fieldset>
-          <div class="check-result" hidden><p class="result-label">Empfohlener Einstieg</p><h3 id="recommendation">Production Quick Check</h3><p id="recommendationText"></p><div class="result-summary"><span id="resultProblem"></span><span id="resultSystems"></span><span id="resultGoal"></span></div><a id="resultMail" class="button button-primary" href="mailto:info@hitech-solutions.eu">Erstgespräch anfragen <span>→</span></a></div>
-          <div class="check-actions"><button class="button button-muted check-back" type="button" hidden>Zurück</button><button class="button button-primary check-next" type="button" disabled>Weiter <span>→</span></button></div>
-        </form>
+      <div data-step="2" style="display:none">
+        <p style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.02em;margin-bottom:18px;color:#2b323a">Was soll als Nächstes erreicht werden?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="goal" value="Überblick schaffen"><span>Überblick</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="goal" value="Abläufe automatisieren"><span>Automatisierung</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="goal" value="einen MVP live bringen"><span>MVP</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative"><input type="radio" name="goal" value="auf weitere Werke ausrollen"><span>Rollout</span></label>
+          <label class="qc-choice" style="cursor:pointer;position:relative;grid-column:span 2"><input type="radio" name="goal" value="eine tragfähige Architektur definieren"><span>Architektur</span></label>
+        </div>
       </div>
-    </section>
 
-    <section id="kontakt" class="contact-section">
-      <div class="container contact-panel reveal"><div><p class="eyebrow">Konkreter nächster Schritt</p><h2>Starten wir mit einem echten Produktionsproblem.</h2><p>Kein allgemeiner Digitalisierungsworkshop. Kein monatelanges MES-Vorprojekt. Wir beginnen mit einem konkreten Engpass und prüfen, welches digitale Werkzeug kurzfristig den größten Nutzen bringt.</p></div><div class="contact-side"><p>Typischer Einstieg</p><ul><li>30–45 Minuten Erstgespräch</li><li>1 konkreter Engpass</li><li>1 grober MVP-Vorschlag</li><li>klare nächste Schritte</li></ul><a class="button button-primary" href="mailto:info@hitech-solutions.eu?subject=Erstgespräch%20HI-Tech%20Solutions">Erstgespräch anfragen <span>↗</span></a></div></div>
-    </section>
-  </main>
+      <div data-step="result" style="display:none">
+        <p style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:10px">Empfohlener Einstieg</p>
+        <h3 id="qc-rec" style="font-family:'Exo 2',sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:10px;color:#2b323a"></h3>
+        <p id="qc-desc" style="font-size:13px;line-height:1.7;color:#6f7780;margin-bottom:18px"></p>
+        <div id="qc-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px"></div>
+        <a id="qc-mail" href="mailto:info@hitech-solutions.eu" style="display:inline-flex;align-items:center;gap:10px;padding:13px 24px;background:#3ebaec;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;color:#fff;box-shadow:0 8px 20px rgba(62,186,236,.25);transition:all .3s">Erstgespräch anfragen →</a>
+      </div>
 
-  <footer class="site-footer"><div class="container"><a class="brand" href="#top"><span class="brand-mark">H</span><span>HI-Tech <b>Solutions</b></span></a><p>Produktionsverständnis × Softwarearchitektur</p><a href="mailto:info@hitech-solutions.eu">info@hitech-solutions.eu</a></div></footer>
+      <div id="qc-actions" style="display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid #e4e8ec">
+        <button id="qc-back" type="button" style="display:none;background:#fff;border:1px solid #e4e8ec;border-radius:999px;padding:10px 20px;font-size:12px;font-weight:600;color:#6f7780;cursor:pointer;transition:all .2s">← Zurück</button>
+        <button id="qc-next" type="button" disabled style="background:#3ebaec;border:0;border-radius:999px;padding:11px 26px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;color:#fff;cursor:pointer;transition:opacity .2s;margin-left:auto;opacity:.35">Weiter →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="kontakt" style="padding:120px 0;background:#fff;border-top:1px solid #e4e8ec">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto">
+    <div id="contact-panel" class="reveal" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:72px;padding:56px;border:1px solid #e4e8ec;border-radius:24px;background:#f6f8fa;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:56px;right:56px;height:2px;background:linear-gradient(90deg,#3ebaec,rgba(193,163,104,.4),transparent);pointer-events:none"></div>
+      <div style="position:absolute;right:-80px;bottom:-120px;width:280px;height:280px;border:1px solid rgba(62,186,236,.1);border-radius:50%;pointer-events:none"></div>
+      <div style="position:relative;z-index:1">
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3ebaec;margin-bottom:14px">Konkreter nächster Schritt</p>
+        <h2 style="font-family:'Exo 2',sans-serif;font-size:clamp(22px,2.8vw,38px);font-weight:800;line-height:1.1;letter-spacing:-0.04em;margin-bottom:16px;color:#2b323a">Starten wir mit einem echten Produktionsproblem.</h2>
+        <p style="font-size:15px;line-height:1.75;color:#6f7780;max-width:480px">Kein allgemeiner Digitalisierungsworkshop. Kein monatelanges MES-Vorprojekt. Wir beginnen mit einem konkreten Engpass und prüfen, welches digitale Werkzeug kurzfristig den größten Nutzen bringt.</p>
+      </div>
+      <div style="position:relative;z-index:1;padding-left:40px;border-left:1px solid #e4e8ec">
+        <p style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3ebaec;margin-bottom:18px">Typischer Einstieg</p>
+        <ul style="list-style:none;font-size:13px;color:#6f7780;margin-bottom:32px">
+          <li style="margin-bottom:12px"><span style="color:#3ebaec;margin-right:10px">→</span>30–45 Minuten Erstgespräch</li>
+          <li style="margin-bottom:12px"><span style="color:#3ebaec;margin-right:10px">→</span>1 konkreter Engpass</li>
+          <li style="margin-bottom:12px"><span style="color:#3ebaec;margin-right:10px">→</span>1 grober MVP-Vorschlag</li>
+          <li><span style="color:#3ebaec;margin-right:10px">→</span>klare nächste Schritte</li>
+        </ul>
+        <a href="mailto:info@hitech-solutions.eu?subject=Erstgespräch%20HI-Tech%20Solutions" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#3ebaec;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;color:#fff;box-shadow:0 8px 24px rgba(62,186,236,.25);transition:all .3s cubic-bezier(.16,1,.3,1)">Erstgespräch anfragen ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer style="padding:36px 0;background:#2b323a;border-top:1px solid rgba(255,255,255,.06)">
+  <div style="width:min(1200px,100% - 80px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <a href="#top" style="display:flex;gap:10px;align-items:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.02em;color:#fff">
+      <span style="display:grid;place-items:center;width:28px;height:28px;background:linear-gradient(135deg,#3ebaec,#6366F1);border-radius:7px;font-size:13px;font-weight:800;color:#fff">H</span>
+      HI-Tech <strong style="font-weight:800;margin-left:3px">Solutions</strong>
+    </a>
+    <p style="font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.02em">Produktionsverständnis × Softwarearchitektur</p>
+    <a href="mailto:info@hitech-solutions.eu" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.4);transition:color .2s">info@hitech-solutions.eu</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Scroll progress
+  const bar = document.getElementById('progress-bar');
+  if (bar) {
+    const update = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h > 0) bar.style.width = (window.scrollY / h * 100) + '%';
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  // Reveal on scroll
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    items.forEach(el => obs.observe(el));
+  } else {
+    items.forEach(el => el.classList.add('in'));
+  }
+
+  // Mobile nav
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
+  // Quick Check
+  const steps = [0, 1, 2].map(i => document.querySelector('[data-step="' + i + '"]'));
+  const resultEl = document.querySelector('[data-step="result"]');
+  const dots = document.querySelectorAll('[data-dot]');
+  const nextBtn = document.getElementById('qc-next');
+  const backBtn = document.getElementById('qc-back');
+  const actionsEl = document.getElementById('qc-actions');
+  if (!steps[0] || !nextBtn || !backBtn) return;
+
+  let current = 0;
+  const names = ['problem', 'systems', 'goal'];
+
+  const getVal = name => {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  };
+
+  const updateNext = () => {
+    const has = !!getVal(names[current]);
+    nextBtn.disabled = !has;
+    nextBtn.style.opacity = has ? '1' : '.35';
+    nextBtn.style.cursor = has ? 'pointer' : 'default';
+  };
+
+  const setStep = n => {
+    steps.forEach((s, i) => { if (s) s.style.display = i === n ? '' : 'none'; });
+    if (resultEl) resultEl.style.display = 'none';
+    if (actionsEl) actionsEl.style.display = '';
+    dots.forEach((d, i) => {
+      if (i === n) {
+        d.style.background = '#3ebaec'; d.style.color = '#fff';
+      } else if (i < n) {
+        d.style.background = 'rgba(62,186,236,.2)'; d.style.color = '#3ebaec';
+      } else {
+        d.style.background = '#f0f2f5'; d.style.color = '#b8bbbe';
+      }
+    });
+    backBtn.style.display = n === 0 ? 'none' : '';
+    nextBtn.textContent = n === 2 ? 'Empfehlung anzeigen →' : 'Weiter →';
+    current = n;
+    updateNext();
+  };
+
+  document.querySelectorAll('.qc-choice input').forEach(input => {
+    input.addEventListener('change', updateNext);
+  });
+
+  backBtn.addEventListener('click', () => { if (current > 0) setStep(current - 1); });
+
+  nextBtn.addEventListener('click', () => {
+    if (!getVal(names[current])) return;
+    if (current < 2) { setStep(current + 1); return; }
+
+    const problem = getVal('problem');
+    const systems = getVal('systems');
+    const goal = getVal('goal');
+    const isPlatform = goal === 'auf weitere Werke ausrollen' || goal === 'eine tragfähige Architektur definieren';
+    const isMVP = goal === 'einen MVP live bringen' || ['Maschinen- oder Linienstatus','OEE und Stillstandsursachen','Fertigungsrückmeldung'].includes(problem);
+    const rec = isPlatform ? 'Smart Factory Platform' : isMVP ? 'MES/MOM MVP' : 'Production Quick Check';
+    const desc = isPlatform
+      ? 'Ihr Ziel braucht Standards für Datenmodell, Schnittstellen und Betrieb. Wir klären zuerst die Bausteine für einen belastbaren Rollout.'
+      : isMVP
+      ? 'Ihr Engpass eignet sich für ein klar abgegrenztes Werkzeug, das in 4–8 Wochen mit den relevanten Daten und Nutzern live gehen kann.'
+      : 'Der sinnvollste erste Schritt ist, Engpass, Datenlage und MVP-Scope gemeinsam zu schärfen — bevor Entwicklungskapazität gebunden wird.';
+
+    steps.forEach(s => { if (s) s.style.display = 'none'; });
+    if (resultEl) resultEl.style.display = '';
+    if (actionsEl) actionsEl.style.display = 'none';
+    dots.forEach(d => { d.style.background = 'rgba(62,186,236,.2)'; d.style.color = '#3ebaec'; });
+
+    const recEl = document.getElementById('qc-rec');
+    const descEl = document.getElementById('qc-desc');
+    const tagsEl = document.getElementById('qc-tags');
+    const mailEl = document.getElementById('qc-mail');
+    if (recEl) recEl.textContent = rec;
+    if (descEl) descEl.textContent = desc;
+    if (tagsEl) tagsEl.innerHTML = [problem, systems, goal].map(v =>
+      '<span style="padding:5px 12px;background:rgba(62,186,236,.08);border:1px solid rgba(62,186,236,.2);border-radius:999px;font-size:10px;font-weight:600;color:#3ebaec;letter-spacing:.04em">' + v + '</span>'
+    ).join('');
+    if (mailEl) {
+      const s = encodeURIComponent('Anfrage ' + rec + ' – HI-Tech Solutions');
+      const b = encodeURIComponent('Hallo HI-Tech Solutions,\n\nAngaben aus dem Quick Check:\n- Problem: ' + problem + '\n- Systeme: ' + systems + '\n- Ziel: ' + goal + '\n\nEmpfehlung: ' + rec + '\n\nIch möchte ein Erstgespräch vereinbaren.');
+      mailEl.href = 'mailto:info@hitech-solutions.eu?subject=' + s + '&body=' + b;
+    }
+  });
+
+  setStep(0);
+})();
+</script>
 </body>
 </html>
