@@ -307,6 +307,44 @@
     [data-theme="light"] .grid-bg { opacity:.25!important; background-image:linear-gradient(rgba(14,29,58,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(14,29,58,.05) 1px,transparent 1px)!important; }
     [data-theme="light"] .kontakt-box { background:radial-gradient(circle at 0% 0%,rgba(0,168,168,.08),rgba(255,255,255,.6) 55%)!important; }
 
+    /* Fix inline color:#fff and dark bg overrides */
+    [data-theme="light"] [style*="color:#fff"] { color:var(--text-primary)!important; }
+    [data-theme="light"] [style*='color:#fff'] { color:var(--text-primary)!important; }
+
+    /* HUD dark sub-panels */
+    [data-theme="light"] .hud { background:rgba(255,255,255,.75)!important;border-color:rgba(0,168,168,.3)!important; }
+    [data-theme="light"] .hud-drift { opacity:.1!important; }
+    [data-theme="light"] [style*="background:rgba(0,0,0,.3)"],
+    [data-theme="light"] [style*="background:rgba(0,0,0,.34)"] { background:rgba(14,29,58,.06)!important;border-color:rgba(14,29,58,.1)!important; }
+    [data-theme="light"] .hud-mini { background:rgba(14,29,58,.05)!important;border-color:rgba(14,29,58,.1)!important; }
+    [data-theme="light"] .hud-mini-label { color:var(--text-muted)!important; }
+    [data-theme="light"] .hud-mini-val { color:var(--text-primary)!important; }
+    [data-theme="light"] #oeeText { color:var(--text-primary)!important; }
+    [data-theme="light"] #telemetryLog { color:var(--text-secondary)!important; }
+
+    /* Gauge track */
+    [data-theme="light"] circle[stroke="rgba(255,255,255,0.07)"] { stroke:rgba(14,29,58,.12)!important; }
+
+    /* Pipeline node text */
+    [data-theme="light"] .pipe-node [style*="color:#fff"] { color:var(--text-primary)!important; }
+    [data-theme="light"] .pipe-node { background:rgba(255,255,255,.8)!important; }
+    [data-theme="light"] .pipe-icon { background:rgba(14,29,58,.05)!important;border-color:rgba(14,29,58,.1)!important; }
+
+    /* Terminal code syntax for light bg */
+    [data-theme="light"] { --code-key:#0550ae; --code-str:#0a3069; --code-num:#953800; --code-comment:#6e7781; --code-tag:#116329; --code-attr:#8250df; }
+    [data-theme="light"] .term-body { background:rgba(248,250,253,1)!important;color:#24292f!important; }
+
+    /* Kompetenzfeld tags + other rgba(255,255,255,.03) panels */
+    [data-theme="light"] [style*="rgba(255,255,255,.03)"] { background:rgba(14,29,58,.05)!important;border-color:rgba(14,29,58,.12)!important; }
+    [data-theme="light"] [style*="rgba(255,255,255,.04)"] { background:rgba(14,29,58,.05)!important; }
+
+    /* Canvas sub-bg */
+    [data-theme="light"] .canvas-wrap { background:rgba(255,255,255,.85)!important; }
+
+    /* QC result box */
+    [data-theme="light"] .qc-result-box { background:rgba(14,29,58,.04)!important; }
+    [data-theme="light"] .qc-opt { background:rgba(14,29,58,.03)!important; }
+
     /* Theme toggle button */
     .theme-toggle { display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--border-color);color:var(--text-secondary);cursor:pointer;transition:all .2s;font-size:18px;flex-shrink:0; }
     .theme-toggle:hover { border-color:var(--border-brand);color:var(--brand-teal); }
