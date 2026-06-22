@@ -20,6 +20,8 @@
   <meta name="twitter:title" content="Cookie-Richtlinie | HI-Tech Solutions">
   <meta name="twitter:description" content="Welche Cookies HI-Tech Solutions verwendet und wie Sie diese verwalten können.">
   <meta name="twitter:image" content="https://hitech-solutions.eu/assets/logo.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-normal-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/exo2-normal-latin.woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
@@ -151,7 +153,7 @@
 <footer style="padding:36px 0;background:#2b323a;border-top:1px solid rgba(255,255,255,.06)">
   <div style="width:min(1200px,100% - 80px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <a href="index.html" style="display:flex;gap:10px;align-items:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.02em;color:#fff">
-      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" style="width:28px;height:28px;object-fit:contain">
+      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" loading="lazy" style="width:28px;height:28px;object-fit:contain">
       HI-Tech <strong style="font-weight:800;margin-left:3px">Solutions</strong>
     </a>
     <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
@@ -179,6 +181,21 @@
   });
 </script>
 
+<!-- ══ STICKY CTA ══ -->
+<div id="sticky-cta" style="position:fixed;bottom:24px;right:24px;z-index:9998;transition:opacity .3s,transform .3s;opacity:0;transform:translateY(8px);pointer-events:none">
+  <a href="index.html#kontakt" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#3ebaec;color:#fff;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;box-shadow:0 4px 20px rgba(62,186,236,.4);white-space:nowrap;text-decoration:none;line-height:1">Quick Check ↗</a>
+</div>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-cta');
+  window.addEventListener('scroll',function(){
+    var on=window.scrollY>280;
+    cta.style.opacity=on?'1':'0';
+    cta.style.transform=on?'none':'translateY(8px)';
+    cta.style.pointerEvents=on?'auto':'none';
+  },{passive:true});
+})();
+</script>
 <!-- ══ COOKIE BANNER ══ -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#2b323a;border-top:1px solid rgba(255,255,255,.08);padding:16px 24px">
   <div style="width:min(1200px,100% - 48px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">

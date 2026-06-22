@@ -20,6 +20,8 @@
   <meta name="twitter:title" content="Über uns | HI-Tech Solutions">
   <meta name="twitter:description" content="Lerne die Gründer von HI-Tech Solutions kennen – Produktionsverständnis trifft technische Umsetzung.">
   <meta name="twitter:image" content="https://hitech-solutions.eu/assets/abstract-smart-factory.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-normal-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/exo2-normal-latin.woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
@@ -127,7 +129,10 @@
         </p>
       </div>
       <div id="hero-visual" style="position:relative">
-        <img src="assets/abstract-smart-factory.png" alt="Smart Factory" width="1254" height="1254" style="width:100%;max-height:420px;border-radius:20px;object-fit:contain;opacity:.85;mix-blend-mode:multiply">
+        <picture>
+          <source srcset="assets/abstract-smart-factory.webp" type="image/webp">
+          <img src="assets/abstract-smart-factory.png" alt="Smart Factory" width="1254" height="1254" style="width:100%;max-height:420px;border-radius:20px;object-fit:contain;opacity:.85;mix-blend-mode:multiply">
+        </picture>
       </div>
     </div>
   </div>
@@ -183,7 +188,10 @@
 
         <!-- Carsten -->
         <div class="founder-card">
-          <img src="assets/carsten.JPG" alt="Carsten Ideke" class="founder-photo">
+          <picture>
+            <source srcset="assets/carsten.webp" type="image/webp">
+            <img src="assets/carsten.JPG" alt="Carsten Ideke" class="founder-photo" loading="lazy">
+          </picture>
           <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:0">
             <h3 style="font-family:'Exo 2',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#2b323a;margin-bottom:4px">Carsten Ideke</h3>
             <p style="font-size:13px;font-weight:700;color:#3ebaec;margin-bottom:8px">Co-Founder &amp; Chief Product Officer</p>
@@ -291,13 +299,14 @@
 <footer style="padding:36px 0;background:#2b323a;border-top:1px solid rgba(255,255,255,.06)">
   <div style="width:min(1200px,100% - 80px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <a href="index.html" style="display:flex;gap:10px;align-items:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.02em;color:#fff">
-      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" style="width:28px;height:28px;object-fit:contain">
+      <img src="assets/logo.png" alt="HI-Tech Logo" width="754" height="754" loading="lazy" style="width:28px;height:28px;object-fit:contain">
       HI-Tech <strong style="font-weight:800;margin-left:3px">Solutions</strong>
     </a>
     <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
       <a href="impressum.html" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s">Impressum</a>
       <a href="datenschutz.html" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s">Datenschutz</a>
       <a href="cookies.html" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s">Cookies</a>
+      <a href="https://www.linkedin.com/company/hitech-solutions-eu/" target="_blank" rel="noopener noreferrer" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s;display:inline-flex;align-items:center;gap:5px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:5px"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
     </div>
     <a href="mailto:info@hitech-solutions.eu" style="font-size:11px;font-weight:600;color:rgba(255,255,255,.4);transition:color .2s">info@hitech-solutions.eu</a>
   </div>
@@ -343,6 +352,21 @@
 })();
 </script>
 
+<!-- ══ STICKY CTA ══ -->
+<div id="sticky-cta" style="position:fixed;bottom:24px;right:24px;z-index:9998;transition:opacity .3s,transform .3s;opacity:0;transform:translateY(8px);pointer-events:none">
+  <a href="index.html#kontakt" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#3ebaec;color:#fff;border-radius:999px;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;box-shadow:0 4px 20px rgba(62,186,236,.4);white-space:nowrap;text-decoration:none;line-height:1">Quick Check ↗</a>
+</div>
+<script>
+(function(){
+  var cta=document.getElementById('sticky-cta');
+  window.addEventListener('scroll',function(){
+    var on=window.scrollY>280;
+    cta.style.opacity=on?'1':'0';
+    cta.style.transform=on?'none':'translateY(8px)';
+    cta.style.pointerEvents=on?'auto':'none';
+  },{passive:true});
+})();
+</script>
 <!-- ══ COOKIE BANNER ══ -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#2b323a;border-top:1px solid rgba(255,255,255,.08);padding:16px 24px">
   <div style="width:min(1200px,100% - 48px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
