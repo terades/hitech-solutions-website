@@ -501,35 +501,137 @@
       <div data-step="0">
         <p>Was ist aktuell Ihr größtes Problem?</p>
         <div id="qc-choices" class="qc-choice-grid">
-          <label class="qc-choice"><input type="radio" name="problem" value="Planung und Ressourcensteuerung"><span>Planung</span></label>
-          <label class="qc-choice"><input type="radio" name="problem" value="Fertigungsrückmeldung"><span>Rückmeldung</span></label>
-          <label class="qc-choice"><input type="radio" name="problem" value="Maschinen- oder Linienstatus"><span>Maschinenstatus</span></label>
-          <label class="qc-choice"><input type="radio" name="problem" value="OEE und Stillstandsursachen"><span>OEE</span></label>
-          <label class="qc-choice"><input type="radio" name="problem" value="ERP-/D365-Integration"><span>ERP-Integration</span></label>
-          <label class="qc-choice"><input type="radio" name="problem" value="Transparenz im Shopfloor"><span>Transparenz</span></label>
+          <label class="qc-choice">
+            <input type="radio" name="problem" value="Planung und Ressourcensteuerung">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Planung
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="problem" value="Fertigungsrückmeldung">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Rückmeldung
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="problem" value="Maschinen- oder Linienstatus">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Maschinenstatus
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="problem" value="OEE und Stillstandsursachen">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              OEE
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="problem" value="ERP-/D365-Integration">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M12 22v-3"/><path d="M12 5V2"/><path d="M20 12h2"/><path d="M2 12h2"/><path d="M12 12m-3 0a3 3 0 1 0 6 0 3 3 0 1 0 -6 0"/></svg>
+              ERP-Integration
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="problem" value="Transparenz im Shopfloor">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Transparenz
+            </span>
+          </label>
         </div>
       </div>
 
       <div data-step="1" style="display:none">
         <p>Welche Systeme sind vorhanden?</p>
         <div class="qc-choice-grid">
-          <label class="qc-choice"><input type="radio" name="systems" value="ERP"><span>ERP</span></label>
-          <label class="qc-choice"><input type="radio" name="systems" value="D365"><span>D365</span></label>
-          <label class="qc-choice"><input type="radio" name="systems" value="Produktionssoftware"><span>Prod.software</span></label>
-          <label class="qc-choice"><input type="radio" name="systems" value="Excel"><span>Excel</span></label>
-          <label class="qc-choice"><input type="radio" name="systems" value="Maschinensteuerung"><span>Maschinensteuerung</span></label>
-          <label class="qc-choice"><input type="radio" name="systems" value="Cloud"><span>Cloud</span></label>
+          <label class="qc-choice">
+            <input type="radio" name="systems" value="ERP">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+              ERP
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="systems" value="D365">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+              D365
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="systems" value="Produktionssoftware">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/></svg>
+              Prod.software
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="systems" value="Excel">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+              Excel
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="systems" value="Maschinensteuerung">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 15h3"/><path d="M1 9h3"/><path d="M1 15h3"/></svg>
+              Maschinensteuerung
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="systems" value="Cloud">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              Cloud
+            </span>
+          </label>
         </div>
       </div>
 
       <div data-step="2" style="display:none">
         <p>Was soll als Nächstes erreicht werden?</p>
         <div class="qc-choice-grid two-cols">
-          <label class="qc-choice"><input type="radio" name="goal" value="Überblick schaffen"><span>Überblick</span></label>
-          <label class="qc-choice"><input type="radio" name="goal" value="Abläufe automatisieren"><span>Automatisierung</span></label>
-          <label class="qc-choice"><input type="radio" name="goal" value="einen MVP live bringen"><span>MVP</span></label>
-          <label class="qc-choice"><input type="radio" name="goal" value="auf weitere Werke ausrollen"><span>Rollout</span></label>
-          <label class="qc-choice qc-choice-span-2"><input type="radio" name="goal" value="eine tragfähige Architektur definieren"><span>Architektur</span></label>
+          <label class="qc-choice">
+            <input type="radio" name="goal" value="Überblick schaffen">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              Überblick
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="goal" value="Abläufe automatisieren">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Automatisierung
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="goal" value="einen MVP live bringen">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              MVP
+            </span>
+          </label>
+          <label class="qc-choice">
+            <input type="radio" name="goal" value="auf weitere Werke ausrollen">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              Rollout
+            </span>
+          </label>
+          <label class="qc-choice qc-choice-span-2">
+            <input type="radio" name="goal" value="eine tragfähige Architektur definieren">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="qc-choice-icon"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+              Architektur
+            </span>
+          </label>
         </div>
       </div>
 
@@ -721,12 +823,11 @@
     if (resultEl) resultEl.style.display = 'none';
     if (actionsEl) actionsEl.style.display = '';
     dots.forEach((d, i) => {
+      d.classList.remove('active', 'completed');
       if (i === n) {
-        d.style.background = '#3ebaec'; d.style.color = '#fff';
+        d.classList.add('active');
       } else if (i < n) {
-        d.style.background = 'rgba(62,186,236,.2)'; d.style.color = '#3ebaec';
-      } else {
-        d.style.background = '#f0f2f5'; d.style.color = '#b8bbbe';
+        d.classList.add('completed');
       }
     });
     backBtn.style.display = n === 0 ? 'none' : '';
@@ -760,7 +861,10 @@
     steps.forEach(s => { if (s) s.style.display = 'none'; });
     if (resultEl) resultEl.style.display = '';
     if (actionsEl) actionsEl.style.display = 'none';
-    dots.forEach(d => { d.style.background = 'rgba(62,186,236,.2)'; d.style.color = '#3ebaec'; });
+    dots.forEach(d => {
+      d.classList.remove('active');
+      d.classList.add('completed');
+    });
 
     const recEl = document.getElementById('qc-rec');
     const descEl = document.getElementById('qc-desc');
