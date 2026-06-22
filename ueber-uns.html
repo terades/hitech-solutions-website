@@ -38,9 +38,9 @@
     .timeline-step:last-child::after{display:none}
 
     /* Founder card */
-    .founder-card{background:#fff;border:1px solid #e4e8ec;border-radius:20px;overflow:hidden}
-    .founder-photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-    .founder-photo-placeholder{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#f0f4f8 0%,#e2e8f0 100%);display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;font-weight:500}
+    .founder-card{background:#fff;border:1px solid #e4e8ec;border-radius:20px;overflow:hidden;display:flex;flex-direction:row}
+    .founder-photo{width:280px;flex-shrink:0;object-fit:cover;object-position:center top;display:block;align-self:stretch}
+    .founder-photo-placeholder{width:280px;flex-shrink:0;background:linear-gradient(135deg,#f0f4f8 0%,#e2e8f0 100%);display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;font-weight:500}
 
     /* Value card */
     .value-card{padding:28px 24px;background:#fff;border:1px solid #e4e8ec;border-radius:16px}
@@ -54,7 +54,8 @@
       #timeline{grid-template-columns:1fr 1fr!important}
       .timeline-step::after{display:none}
       #gruender-grid{grid-template-columns:1fr!important;gap:40px!important}
-      #founder-cards{grid-template-columns:1fr!important}
+      .founder-card{flex-direction:column!important}
+      .founder-photo,.founder-photo-placeholder{width:100%!important;height:260px!important}
       #values-grid{grid-template-columns:1fr 1fr!important}
       .sec{padding:72px 0}
       .wrap{width:calc(100% - 48px)!important}
@@ -163,7 +164,7 @@
         <h2 style="font-family:'Exo 2',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.03em;color:#2b323a;margin-bottom:16px">Die Gründer</h2>
         <p style="font-size:14px;line-height:1.75;color:#6f7780">Wir kommen aus unterschiedlichen Wegen, teilen aber die gleiche Überzeugung: Software muss die Produktion verstehen – nicht umgekehrt.</p>
       </div>
-      <div id="founder-cards" class="stagger" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div id="founder-cards" class="stagger" style="display:grid;grid-template-columns:1fr;gap:20px">
 
         <!-- Kristian -->
         <div class="founder-card">
