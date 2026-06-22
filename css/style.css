@@ -1087,10 +1087,10 @@ a {
   display: flex;
   align-items: stretch;
   gap: 0;
-  overflow: hidden;
   border-radius: 16px;
   border: 1px solid var(--color-border);
   box-shadow: 0 4px 16px rgba(43,50,58,.06);
+  position: relative;
 }
 .arch-unit {
   flex: 1;
@@ -1098,9 +1098,29 @@ a {
   padding: 24px 10px;
   background: #fff;
   border-right: 1px solid var(--color-border);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.arch-unit:hover {
+  background: #fafbfc;
+}
+.arch-unit.active {
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--color-primary);
+  z-index: 2;
+}
+.arch-unit.featured.active {
+  box-shadow: inset 0 0 0 1.5px var(--color-indigo);
+}
+.arch-unit:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 .arch-unit:last-child {
   border-right: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 .arch-unit span {
   display: grid;
@@ -1157,6 +1177,90 @@ a {
 .arch-unit.featured small {
   color: var(--color-primary);
   opacity: .7;
+}
+
+/* Tooltips for Architecture Section */
+.arch-tooltip {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 290px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 32px rgba(43, 50, 58, 0.12);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  text-align: left;
+}
+.arch-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent var(--color-border) transparent;
+}
+.arch-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+.arch-unit.active .arch-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.arch-tooltip-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 6px;
+}
+.arch-tooltip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.arch-tooltip-list li {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.arch-tooltip-list li:last-child {
+  margin-bottom: 0;
+}
+.arch-tooltip-list li strong {
+  color: var(--color-text);
+  font-weight: 600;
+  flex-shrink: 0;
+  display: inline-block;
+  width: 75px;
+}
+.arch-tooltip-list li span.desc {
+  flex: 1;
 }
 
 /* ══ Journey Section ══ */
@@ -1807,9 +1911,17 @@ a {
     border-bottom: 1px solid var(--color-border) !important;
     padding: 16px 20px !important;
     display: flex !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
     gap: 14px !important;
     text-align: left !important;
+  }
+  .architecture-flow .arch-unit:first-child {
+    border-radius: 15px 15px 0 0 !important;
+  }
+  .architecture-flow .arch-unit:last-child {
+    border-radius: 0 0 15px 15px !important;
+    border-bottom: none !important;
   }
   .architecture-flow .arch-unit > span {
     margin: 0 !important;
@@ -1836,6 +1948,27 @@ a {
     display: inline-block !important;
     transform: rotate(90deg) !important;
     font-size: 13px !important;
+  }
+  
+  .arch-tooltip {
+    position: static !important;
+    width: 100% !important;
+    transform: none !important;
+    margin-top: 12px;
+    display: none;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+    border-color: rgba(var(--color-primary-rgb), 0.15) !important;
+    background: var(--color-bg-light) !important;
+    flex-basis: 100%;
+  }
+  .arch-unit.active .arch-tooltip {
+    display: block !important;
+  }
+  .arch-tooltip::before,
+  .arch-tooltip::after {
+    display: none !important;
   }
   .contact-side-right {
     border-left: none !important;

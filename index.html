@@ -377,24 +377,56 @@
         <span>⌁</span>
         <strong>Maschine</strong>
         <small>SPS · Sensorik</small>
+        <div class="arch-tooltip">
+          <div class="arch-tooltip-title">Maschine</div>
+          <ul class="arch-tooltip-list">
+            <li><strong>Schnittstellen</strong><span class="desc">Siemens S7, Beckhoff ADS, Modbus TCP, OPC UA</span></li>
+            <li><strong>Hardware</strong><span class="desc">Integration via Bestands-SPS oder dedizierte Gateways</span></li>
+            <li><strong>Erfassung</strong><span class="desc">Millisekundengenaue Signale für exakte Taktzeiten</span></li>
+          </ul>
+        </div>
       </div>
       <div class="arch-sep"><span>→</span></div>
       <div class="arch-unit">
         <span>↔</span>
         <strong>Edge</strong>
         <small>OPC UA · MQTT</small>
+        <div class="arch-tooltip">
+          <div class="arch-tooltip-title">Edge-Ebene</div>
+          <ul class="arch-tooltip-list">
+            <li><strong>Protokolle</strong><span class="desc">OPC UA (Secure), MQTT (Sparkplug B), Node-RED</span></li>
+            <li><strong>Ausfall</strong><span class="desc">Lokaler Datenpuffer bei Netzunterbrechung (Store-Forward)</span></li>
+            <li><strong>Sicherheit</strong><span class="desc">TLS 1.3 Verschlüsselung &amp; Client-Zertifikate</span></li>
+          </ul>
+        </div>
       </div>
       <div class="arch-sep"><span>→</span></div>
       <div class="arch-unit featured">
         <span>◉</span>
         <strong>Cloud</strong>
         <small>APIs · Datenmodell</small>
+        <div class="arch-tooltip">
+          <div class="arch-tooltip-title">Cloud / API</div>
+          <ul class="arch-tooltip-list">
+            <li><strong>APIs</strong><span class="desc">REST APIs &amp; WebSockets für Echtzeit-Dashboards</span></li>
+            <li><strong>Modell</strong><span class="desc">Unified Namespace (UNS) entkoppelt Daten &amp; Apps</span></li>
+            <li><strong>Sicherheit</strong><span class="desc">ISO 27001-konform gehostet in Deutschland</span></li>
+          </ul>
+        </div>
       </div>
       <div class="arch-sep"><span>→</span></div>
       <div class="arch-unit">
         <span>▦</span>
         <strong>ERP / D365</strong>
         <small>ERP-Anbindung</small>
+        <div class="arch-tooltip">
+          <div class="arch-tooltip-title">ERP-Integration</div>
+          <ul class="arch-tooltip-list">
+            <li><strong>Standard</strong><span class="desc">Azure Service Bus, Dataverse, OData/REST</span></li>
+            <li><strong>Fluss</strong><span class="desc">Synchronisation von Aufträgen &amp; Ist-Rückmeldungen</span></li>
+            <li><strong>Sicherheit</strong><span class="desc">OAuth 2.0 Authentifizierung &amp; Rollenrechte</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -619,6 +651,26 @@
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     }));
+  }
+
+  // Architecture Tooltips
+  const archFlow = document.getElementById('arch-flow');
+  if (archFlow) {
+    const units = archFlow.querySelectorAll('.arch-unit');
+    units.forEach(unit => {
+      unit.addEventListener('click', (e) => {
+        if (e.target.closest('.arch-tooltip')) return;
+        const isActive = unit.classList.contains('active');
+        units.forEach(u => u.classList.remove('active'));
+        if (!isActive) {
+          unit.classList.add('active');
+        }
+        e.stopPropagation();
+      });
+    });
+    document.addEventListener('click', () => {
+      units.forEach(u => u.classList.remove('active'));
+    });
   }
 
   // Active nav
