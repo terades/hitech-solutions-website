@@ -257,10 +257,66 @@
     .step-card-accent { background:radial-gradient(circle at 100% 0%,rgba(0,168,168,.08),var(--bg-card));border-color:var(--border-brand);box-shadow:var(--shadow-glow); }
     .step-num { font-family:var(--font-display);font-weight:800;font-size:40px;line-height:1;color:#fff;margin-bottom:16px; }
 
+    /* Light mode */
+    [data-theme="light"] {
+      --bg-black: #f0f4f8;
+      --bg-card: rgba(255,255,255,0.7);
+      --bg-panel: rgba(240,244,248,0.92);
+      --bg-deep: #e8edf3;
+      --border-color: rgba(14,29,58,0.1);
+      --border-brand: rgba(0,168,168,0.35);
+      --text-primary: #0E1D3A;
+      --text-secondary: #3d5470;
+      --text-muted: #6b82a0;
+      --text-gradient: linear-gradient(135deg,#0E1D3A 20%,#00ABA8 100%);
+      --shadow-card: 0 8px 32px rgba(14,29,58,0.12);
+      --shadow-float: 0 20px 60px rgba(14,29,58,0.15);
+      --shadow-glow: 0 0 40px rgba(0,168,168,0.2);
+      --shadow-btn: 0 4px 20px rgba(0,168,168,0.3);
+    }
+    [data-theme="light"] html,
+    [data-theme="light"] body { background:#f0f4f8!important; }
+    [data-theme="light"] .site-header { background:rgba(240,244,248,.85)!important; }
+    [data-theme="light"] .brand { color:var(--text-primary)!important; }
+    [data-theme="light"] .brand-name { color:var(--text-primary)!important; }
+    [data-theme="light"] .nav-links a { color:var(--text-secondary)!important; }
+    [data-theme="light"] .nav-links a:hover { color:var(--text-primary)!important; }
+    [data-theme="light"] .section-h2 { color:var(--text-primary)!important; }
+    [data-theme="light"] .stat-val { color:var(--text-primary)!important; }
+    [data-theme="light"] .svc-num { color:var(--text-primary)!important; }
+    [data-theme="light"] .canvas-h3 { color:var(--text-primary)!important; }
+    [data-theme="light"] .qc-h3 { color:var(--text-primary)!important; }
+    [data-theme="light"] .qc-opt-title { color:var(--text-primary)!important; }
+    [data-theme="light"] .qc-row strong { color:var(--text-primary)!important; }
+    [data-theme="light"] .step-num { color:var(--text-primary)!important; }
+    [data-theme="light"] h1,
+    [data-theme="light"] h2,
+    [data-theme="light"] h3 { color:var(--text-primary)!important; }
+    [data-theme="light"] .canvas-tabs { background:rgba(240,244,248,.5)!important; }
+    [data-theme="light"] .canvas-tab.active { background:rgba(255,255,255,.8)!important; color:var(--text-primary)!important; }
+    [data-theme="light"] .term-bar { background:rgba(220,228,238,.8)!important; }
+    [data-theme="light"] .term-wrap { background:rgba(235,240,248,1)!important; }
+    [data-theme="light"] .term-body { color:var(--text-primary)!important; }
+    [data-theme="light"] .term-tab { color:var(--text-secondary)!important; background:rgba(255,255,255,.5)!important; }
+    [data-theme="light"] .term-tab.active { color:var(--text-primary)!important; }
+    [data-theme="light"] .btn-secondary { color:var(--text-primary)!important; border-color:rgba(14,29,58,.2)!important; }
+    [data-theme="light"] .btn-ghost { color:var(--text-primary)!important; }
+    [data-theme="light"] .amb-a { background:radial-gradient(circle,rgba(0,168,168,.1),transparent 68%)!important; }
+    [data-theme="light"] .amb-b { background:radial-gradient(circle,rgba(99,102,241,.06),transparent 68%)!important; }
+    [data-theme="light"] .amb-c { background:radial-gradient(circle,rgba(59,189,248,.06),transparent 68%)!important; }
+    [data-theme="light"] .grid-bg { opacity:.25!important; background-image:linear-gradient(rgba(14,29,58,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(14,29,58,.05) 1px,transparent 1px)!important; }
+    [data-theme="light"] .kontakt-box { background:radial-gradient(circle at 0% 0%,rgba(0,168,168,.08),rgba(255,255,255,.6) 55%)!important; }
+
+    /* Theme toggle button */
+    .theme-toggle { display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--border-color);color:var(--text-secondary);cursor:pointer;transition:all .2s;font-size:18px;flex-shrink:0; }
+    .theme-toggle:hover { border-color:var(--border-brand);color:var(--brand-teal); }
+    [data-theme="light"] .theme-toggle { background:rgba(14,29,58,.06)!important; }
+
     /* Responsive */
     @media (max-width:980px) {
       .hero-grid { grid-template-columns:1fr!important; }
       .nav-links { position:absolute;top:64px;right:20px;left:20px;flex-direction:column;align-items:stretch!important;padding:16px;border-radius:16px;background:rgba(10,13,18,.96);backdrop-filter:blur(20px);border:1px solid var(--border-color);box-shadow:var(--shadow-float);display:none!important; }
+      [data-theme="light"] .nav-links { background:rgba(240,244,248,.98)!important; }
       .nav-links.open { display:flex!important; }
       .nav-toggle { display:inline-flex!important; }
       .g4 { grid-template-columns:repeat(2,1fr)!important; }
@@ -300,6 +356,7 @@
       <a href="#canvas">Projekt-Canvas</a>
       <a class="btn-nav" href="#kontakt">Kontakt</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Light/Dark Mode umschalten" title="Light/Dark Mode">🌙</button>
     <button class="nav-toggle" id="navToggle" aria-label="Navigation" aria-expanded="false">☰</button>
   </header>
 
@@ -784,6 +841,33 @@
   </main>
 
   <script>
+    /* ─── THEME TOGGLE ─── */
+    (function() {
+      const saved = localStorage.getItem('htx-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+
+    const themeToggle = document.getElementById('themeToggle');
+    function updateThemeIcon() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      themeToggle.textContent = isLight ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-label', isLight ? 'Dark Mode aktivieren' : 'Light Mode aktivieren');
+    }
+    updateThemeIcon();
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('htx-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('htx-theme', 'light');
+      }
+      updateThemeIcon();
+    });
+
     /* ─── NAV TOGGLE ─── */
     const navToggle = document.getElementById('navToggle');
     const navLinks  = document.getElementById('navLinks');

@@ -1,3 +1,32 @@
+// Theme toggle
+(function() {
+  const saved = localStorage.getItem('htx-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+})();
+
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  const updateIcon = () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    themeToggle.textContent = isLight ? '☀️' : '🌙';
+    themeToggle.setAttribute('aria-label', isLight ? 'Dark Mode aktivieren' : 'Light Mode aktivieren');
+  };
+  updateIcon();
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('htx-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('htx-theme', 'light');
+    }
+    updateIcon();
+  });
+}
+
 const navToggle = document.querySelector(".nav-toggle");
 const mainNav = document.querySelector(".main-nav");
 const revealItems = document.querySelectorAll(".reveal");
