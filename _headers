@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
   Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()
@@ -12,10 +12,10 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate

@@ -3,1071 +3,149 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HI Tech Solutions | Digital Manufacturing, MES &amp; Smart Factory</title>
-  <meta name="description" content="HI Tech Solutions verbindet Produktionsverständnis mit moderner Software-, Cloud- und Datenarchitektur. MES, MOM, Smart Factory, OT/IT Integration und Azure.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#000000">
-  <meta name="color-scheme" content="dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'">
+  <title>HI-Tech Solutions | Produktionssteuerung, die funktioniert</title>
+  <meta name="description" content="HI-Tech Solutions entwickelt pragmatische MES/MOM- und Smart-Factory-Lösungen für mittelständische Produktionsunternehmen.">
+  <meta name="theme-color" content="#10161d">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:site_name" content="HI Tech Solutions">
-  <meta property="og:title" content="HI Tech Solutions | Digital Manufacturing, MES &amp; Smart Factory">
-  <meta property="og:description" content="Connecting Production, Data &amp; Technology. Beratung, Integration und Umsetzung für moderne Fertigungssysteme.">
+  <meta property="og:site_name" content="HI-Tech Solutions">
+  <meta property="og:title" content="Produktionssteuerung, die im Werk wirklich funktioniert.">
+  <meta property="og:description" content="Vom Produktionsengpass zum lauffähigen MES/MOM-MVP.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hitech-solutions.eu/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="HI Tech Solutions | Digital Manufacturing, MES &amp; Smart Factory">
-  <meta name="twitter:description" content="Connecting Production, Data &amp; Technology.">
   <link rel="canonical" href="https://hitech-solutions.eu/">
   <link rel="icon" type="image/jpeg" href="assets/logo-hi-tech-solutions.jpeg">
-  <link rel="apple-touch-icon" href="assets/logo-hi-tech-solutions.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Exo+2:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
-  <style>
-    :root {
-      --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      --font-display: 'Exo 2', 'Inter', sans-serif;
-      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-
-      --text-hero: clamp(2.5rem, 4.5vw + .5rem, 4rem);
-      --text-h2: clamp(1.75rem, 3vw, 2.5rem);
-      --text-h3: 1.25rem;
-      --text-h3-lg: 1.4rem;
-      --text-h4: 1.0625rem;
-      --text-lead: 1.125rem;
-      --text-body: 1rem;
-      --text-body-lg: 1.0625rem;
-      --text-body-sm: 0.9375rem;
-      --text-caption: 0.75rem;
-
-      --leading-tight: 1.15;
-      --leading-body: 1.65;
-      --leading-relaxed: 1.75;
-
-      --tracking-tight: -0.03em;
-      --tracking-snug: -0.015em;
-      --tracking-wide: 0.08em;
-
-      --bg-black: #000;
-      --bg-card: rgba(14,29,58,0.22);
-      --bg-panel: rgba(8,12,18,0.85);
-      --bg-deep: #000;
-
-      --border-color: rgba(255,255,255,0.07);
-      --border-brand: rgba(0,168,168,0.32);
-
-      --text-primary: #fff;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --text-gradient: linear-gradient(135deg,#fff 20%,#00ABA8 100%);
-
-      --brand-teal: #00ABA8;
-      --accent-cyan: #3BBDF8;
-      --accent-violet: #6366F1;
-      --accent-emerald: #10b981;
-      --accent-gradient: linear-gradient(135deg,#00A8A8 0%,#6366F1 100%);
-
-      --signal-green: #10b981;
-      --signal-amber: #f59e0b;
-      --signal-red: #ef4444;
-
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --radius-sm: 8px;
-      --radius-pill: 9999px;
-
-      --shadow-glow: 0 0 40px rgba(0,168,168,0.18);
-      --shadow-card: 0 8px 32px rgba(0,0,0,0.45);
-      --shadow-float: 0 20px 60px rgba(0,0,0,0.5);
-      --shadow-btn: 0 4px 20px rgba(0,168,168,0.35);
-
-      --code-key: #79c0ff;
-      --code-str: #a5d6ff;
-      --code-num: #ff7b72;
-      --code-comment: #8b949e;
-      --code-tag: #7ee787;
-      --code-attr: #d2a8ff;
-
-      --color-sky-blue: #38bdf8;
-      --color-aqua-green: #34d399;
-      --ease-out-expo: cubic-bezier(0.16,1,0.3,1);
-    }
-
-    *,*::before,*::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: #000; }
-    body { margin:0; background:#000; color:var(--text-secondary); font-family:var(--font-body); line-height:1.6; overflow-x:hidden; }
-    button { font-family:inherit; }
-    a { color:inherit; }
-    pre,code { font-family:var(--font-mono); }
-
-    /* Animations */
-    @keyframes htxReveal { from{opacity:0;transform:translateY(34px)} to{opacity:1;transform:none} }
-    @keyframes htxFloat  { 0%,100%{transform:translate(0,0)} 50%{transform:translate(46px,-34px)} }
-    @keyframes htxFloatB { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,38px)} }
-    @keyframes htxFlow   { 0%{left:-6%;opacity:0} 12%{opacity:1} 88%{opacity:1} 100%{left:106%;opacity:0} }
-    @keyframes htxPulse  { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)} 70%{box-shadow:0 0 0 11px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
-    @keyframes htxScan   { 0%{transform:translateX(-10%);opacity:0} 20%{opacity:.9} 80%{opacity:.9} 100%{transform:translateX(640%);opacity:0} }
-    @keyframes htxGrow   { from{transform:scaleX(0)} to{transform:scaleX(1)} }
-    @keyframes htxDrift  { from{background-position:0 0} to{background-position:64px 64px} }
-    @keyframes pulseGlow { 0%{opacity:.8;transform:scale(1)} 100%{opacity:1;transform:scale(1.05)} }
-
-    .htxHeroIn { animation: htxReveal 1s var(--ease-out-expo) both; }
-    .htxHeroIn.d1 { animation-delay:.08s } .htxHeroIn.d2 { animation-delay:.18s }
-    .htxHeroIn.d3 { animation-delay:.28s } .htxHeroIn.d4 { animation-delay:.40s }
-    .htxR { animation: htxReveal 1s var(--ease-out-expo) both; animation-timeline: view(); animation-range: entry 2% cover 26%; }
-    .htxProg { animation: htxGrow linear both; animation-timeline: scroll(root); transform-origin:left; }
-
-    /* Scroll progress */
-    .scroll-progress { position:fixed;top:0;left:0;right:0;height:3px;z-index:120; }
-    .scroll-progress-bar { height:100%;width:100%;background:var(--accent-gradient); }
-
-    /* Ambient glows */
-    .amb { position:fixed;inset:0;z-index:0;pointer-events:none; }
-    .amb-a { position:absolute;top:-160px;left:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(0,171,168,.16),transparent 68%);filter:blur(90px);animation:htxFloat 22s ease-in-out infinite; }
-    .amb-b { position:absolute;top:32%;right:-140px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.14),transparent 68%);filter:blur(100px);animation:htxFloatB 26s ease-in-out infinite; }
-    .amb-c { position:absolute;bottom:-180px;left:30%;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(59,189,248,.10),transparent 68%);filter:blur(100px);animation:htxFloat 30s ease-in-out infinite; }
-    .grid-bg { position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%); }
-
-    /* Header */
-    .site-header { position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 max(20px,calc((100% - 1200px)/2));background:rgba(0,0,0,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color); }
-    .brand { display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:#fff; }
-    .brand-name { font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:var(--tracking-snug); }
-    .nav-links { display:flex;align-items:center;gap:30px; }
-    .nav-links a { text-decoration:none;color:var(--text-secondary);font-size:14px;font-weight:500;transition:color .2s; }
-    .nav-links a:hover { color:#fff; }
-    .btn-nav { display:inline-flex;align-items:center;justify-content:center;color:#fff!important;font-weight:600!important;font-size:14px;font-family:var(--font-display);padding:10px 20px;border-radius:var(--radius-pill);background:var(--brand-teal);box-shadow:var(--shadow-btn); }
-    .nav-toggle { display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border-color);color:#fff;cursor:pointer;font-size:18px; }
-
-    /* Eyebrow */
-    .eyebrow { display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:var(--radius-pill);background:rgba(0,168,168,.06);border:1px solid rgba(0,168,168,.2);font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-teal);margin-bottom:14px; }
-
-    /* Buttons */
-    .btn-primary { display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:var(--radius-pill);background:var(--brand-teal);color:#fff;text-decoration:none;font-weight:600;font-size:15px;font-family:var(--font-body);box-shadow:var(--shadow-btn);border:none;cursor:pointer;transition:opacity .2s; }
-    .btn-primary:hover { opacity:.9; }
-    .btn-secondary { display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:var(--radius-pill);background:rgba(255,255,255,.04);color:#fff;text-decoration:none;font-weight:600;font-size:15px;font-family:var(--font-body);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:border-color .2s; }
-    .btn-secondary:hover { border-color:rgba(255,255,255,.2); }
-    .btn-ghost { display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:var(--radius-pill);background:rgba(255,255,255,.03);color:#fff;border:1px solid var(--border-color);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;transition:border-color .2s; }
-
-    /* Cards */
-    .card { padding:28px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border-color);backdrop-filter:blur(10px); }
-    .card-interactive { transition:border-color .3s,box-shadow .3s,transform .3s; }
-    .card-interactive:hover { border-color:var(--border-brand);box-shadow:var(--shadow-glow);transform:translateY(-3px); }
-    .card-highlight { background:radial-gradient(circle at 100% 0%,rgba(0,168,168,.1),var(--bg-card));border-color:var(--border-brand);box-shadow:var(--shadow-glow); }
-
-    /* Stat card */
-    .stat-val { font-family:var(--font-display);font-weight:800;font-size:3rem;line-height:1;color:#fff;margin-bottom:10px; }
-    .stat-label { font-size:var(--text-body-sm);color:var(--text-secondary);line-height:1.4; }
-
-    /* Service card number */
-    .svc-num { font-family:var(--font-display);font-weight:800;font-size:2.5rem;line-height:1;color:#fff;margin-bottom:16px; }
-
-    /* Section layout */
-    .section-inner { max-width:1200px;margin:0 auto;padding:0 20px; }
-    .section-head { text-align:center;max-width:680px;margin:0 auto 52px; }
-    .section-h2 { margin:14px 0;font-family:var(--font-display);font-weight:800;font-size:var(--text-h2);line-height:1.1;letter-spacing:var(--tracking-tight);color:#fff; }
-    .section-p { margin:0;font-size:var(--text-body-lg);line-height:var(--leading-body);color:var(--text-secondary); }
-
-    /* Grids */
-    .g2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
-    .g3 { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
-    .g4 { display:grid;grid-template-columns:repeat(4,1fr);gap:20px; }
-
-    /* Pipeline */
-    .pipe { display:flex;align-items:stretch;gap:0;margin-bottom:40px; }
-    .pipe-node { flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:22px 14px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border-color);backdrop-filter:blur(10px); }
-    .pipe-node-center { background:radial-gradient(circle at 50% 0%,rgba(0,168,168,.1),var(--bg-card));border-color:var(--border-brand);box-shadow:var(--shadow-glow); }
-    .pipe-icon { display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border-color); }
-    .pipe-icon-accent { background:var(--accent-gradient);border-color:transparent;box-shadow:0 4px 15px rgba(0,168,168,.25); }
-    .pipe-conn { flex:.5;min-width:34px;position:relative;align-self:center;height:2px;background:linear-gradient(90deg,var(--border-color),rgba(0,171,168,.4),var(--border-color)); }
-    .pipe-dot { position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--brand-teal);box-shadow:0 0 10px var(--brand-teal);animation:htxFlow 3s linear infinite; }
-
-    /* Terminal */
-    .term-wrap { border-radius:var(--radius-lg);border:1px solid var(--border-color);background:var(--bg-deep);box-shadow:var(--shadow-glow);overflow:hidden; }
-    .term-bar { display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 20px;background:var(--bg-panel);border-bottom:1px solid var(--border-color);cursor:pointer; }
-    .term-dots { display:flex;gap:8px; }
-    .term-tabs { display:flex;gap:8px;flex-wrap:wrap; }
-    .term-tab { padding:8px 16px;border-radius:var(--radius-sm);font-family:var(--font-display);font-weight:500;font-size:13px;cursor:pointer;transition:all .3s;border:1px solid var(--border-color);background:rgba(255,255,255,.02);color:var(--text-secondary); }
-    .term-tab.active { background:rgba(0,168,168,.1);border-color:var(--brand-teal);color:#fff; }
-    .term-body { padding:26px 28px;font-family:var(--font-mono);font-size:13.5px;line-height:1.6;overflow-x:auto;color:var(--text-primary); }
-    .term-panel { display:none; }
-    .term-panel.active { display:block; }
-
-    /* Canvas */
-    .canvas-wrap { border-radius:var(--radius-lg);border:1px solid var(--border-color);background:var(--bg-card);backdrop-filter:blur(15px);box-shadow:var(--shadow-card);overflow:hidden; }
-    .canvas-tabs { display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border-color);background:rgba(0,0,0,.3); }
-    .canvas-tab { padding:22px 12px;background:transparent;border:none;border-bottom:3px solid transparent;color:var(--text-secondary);font-family:var(--font-display);font-weight:600;font-size:14.5px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px; }
-    .canvas-tab.active { background:rgba(255,255,255,.04);border-bottom-color:var(--brand-teal);color:#fff; }
-    .canvas-body { padding:40px 44px; }
-    .canvas-panel { display:none; }
-    .canvas-panel.active { display:grid;grid-template-columns:1fr 1fr;gap:40px; }
-    .canvas-h3 { margin:0 0 14px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h3-lg);color:#fff; }
-    .canvas-kicker { margin:0 0 16px;font-family:var(--font-display);font-size:var(--text-caption);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--brand-teal); }
-    .canvas-list { margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px; }
-    .canvas-list li { display:flex;gap:11px;color:var(--text-secondary);line-height:1.5; }
-    .canvas-list li::before { content:'▸';color:var(--brand-teal);flex:none; }
-
-    /* Quick check */
-    .qc-wrap { border-radius:var(--radius-lg);border:1px solid var(--border-color);background:var(--bg-card);backdrop-filter:blur(15px);box-shadow:var(--shadow-card);padding:36px; }
-    .qc-progress { display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:34px; }
-    .qc-dot { display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-family:var(--font-display);font-weight:700;font-size:14px;background:rgba(255,255,255,.05);color:var(--text-muted);border:1px solid var(--border-color);transition:all .3s; }
-    .qc-dot.active,.qc-dot.done { background:var(--brand-teal);color:#fff;border-color:transparent;box-shadow:var(--shadow-glow); }
-    .qc-step { display:none; }
-    .qc-step.active { display:block; }
-    .qc-h3 { margin:0 0 22px;text-align:center;font-family:var(--font-display);font-weight:600;font-size:var(--text-h3);color:#fff; }
-    .qc-opts { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:26px; }
-    .qc-opt { display:flex;flex-direction:column;gap:8px;cursor:pointer;padding:20px;border-radius:var(--radius-md);background:rgba(255,255,255,.02);border:1px solid var(--border-color);transition:all .3s var(--ease-out-expo); }
-    .qc-opt:hover { border-color:var(--border-brand); }
-    .qc-opt.selected { background:radial-gradient(circle at 100% 0%,rgba(0,168,168,.1),rgba(10,20,35,.4));border-color:var(--border-brand);box-shadow:var(--shadow-glow); }
-    .qc-opt-icon { display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border-color);color:var(--brand-teal);transition:all .3s;margin-bottom:4px; }
-    .qc-opt.selected .qc-opt-icon { background:var(--accent-gradient);border-color:transparent;color:#fff; }
-    .qc-opt-title { font-family:var(--font-display);font-weight:600;font-size:15px;color:#fff; }
-    .qc-opt-desc { font-size:13px;line-height:1.5;color:var(--text-secondary); }
-    .qc-nav { display:flex;justify-content:flex-end; }
-    .qc-nav-split { display:flex;justify-content:space-between; }
-    .qc-next { min-height:48px;padding:0 26px;border-radius:var(--radius-pill);background:var(--brand-teal);color:#fff;border:1px solid rgba(255,255,255,.1);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;box-shadow:var(--shadow-btn);transition:all .3s; }
-    .qc-next:disabled { opacity:.4;cursor:not-allowed;box-shadow:none; }
-
-    /* Result */
-    .qc-result-box { text-align:left;max-width:560px;margin:0 auto 28px;border-radius:var(--radius-md);border:1px solid var(--border-color);background:rgba(0,0,0,.25);padding:22px 24px;display:flex;flex-direction:column;gap:14px; }
-    .qc-row { display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap; }
-    .qc-row span { font-size:13px;color:var(--text-muted); }
-    .qc-row strong { font-family:var(--font-display);font-size:14px;color:#fff;text-align:right; }
-    .qc-row strong.accent { color:var(--brand-teal); }
-    .qc-divider { height:1px;background:var(--border-color); }
-    .qc-actions { display:flex;gap:12px;justify-content:center;flex-wrap:wrap; }
-
-    /* Kontakt */
-    .kontakt-box { position:relative;overflow:hidden;border-radius:var(--radius-lg);border:1px solid var(--border-brand);background:radial-gradient(circle at 0% 0%,rgba(0,168,168,.1),rgba(14,29,58,.35) 55%);backdrop-filter:blur(15px);box-shadow:var(--shadow-glow),var(--shadow-card);padding:56px 48px;display:flex;gap:40px;align-items:center;justify-content:space-between;flex-wrap:wrap; }
-    .kontakt-grid { position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 100% at 0% 0%,#000,transparent);-webkit-mask-image:radial-gradient(ellipse 70% 100% at 0% 0%,#000,transparent);pointer-events:none; }
-
-    /* Footer */
-    .site-footer { border-top:1px solid var(--border-color);padding:36px 20px;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap; }
-
-    /* HUD */
-    .hud { position:relative;border-radius:var(--radius-lg);border:1px solid var(--border-brand);background:radial-gradient(circle at 100% 0%,rgba(0,168,168,.07),rgba(10,20,35,.55) 60%);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow-glow),var(--shadow-card);padding:22px;overflow:hidden; }
-    .hud-drift { position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:26px 26px;animation:htxDrift 8s linear infinite;pointer-events:none; }
-    .hud-mini { padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--border-color); }
-    .hud-mini-label { font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:.05em;margin-bottom:2px; }
-    .hud-mini-val { font-family:var(--font-display);font-weight:700;font-size:18px;color:#fff; }
-    .hud-mini-unit { font-size:11px;color:var(--text-muted);font-weight:500; }
-
-    /* Step cards */
-    .step-card { position:relative;padding:26px 22px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border-color);backdrop-filter:blur(10px); }
-    .step-card-accent { background:radial-gradient(circle at 100% 0%,rgba(0,168,168,.08),var(--bg-card));border-color:var(--border-brand);box-shadow:var(--shadow-glow); }
-    .step-num { font-family:var(--font-display);font-weight:800;font-size:40px;line-height:1;color:#fff;margin-bottom:16px; }
-
-    /* Light mode */
-    [data-theme="light"] {
-      --bg-black: #f0f4f8;
-      --bg-card: rgba(255,255,255,0.7);
-      --bg-panel: rgba(240,244,248,0.92);
-      --bg-deep: #e8edf3;
-      --border-color: rgba(14,29,58,0.1);
-      --border-brand: rgba(0,168,168,0.35);
-      --text-primary: #0E1D3A;
-      --text-secondary: #3d5470;
-      --text-muted: #6b82a0;
-      --text-gradient: linear-gradient(135deg,#0E1D3A 20%,#00ABA8 100%);
-      --shadow-card: 0 8px 32px rgba(14,29,58,0.12);
-      --shadow-float: 0 20px 60px rgba(14,29,58,0.15);
-      --shadow-glow: 0 0 40px rgba(0,168,168,0.2);
-      --shadow-btn: 0 4px 20px rgba(0,168,168,0.3);
-    }
-    [data-theme="light"] html,
-    [data-theme="light"] body { background:#f0f4f8!important; }
-    [data-theme="light"] .site-header { background:rgba(240,244,248,.85)!important; }
-    [data-theme="light"] .brand { color:var(--text-primary)!important; }
-    [data-theme="light"] .brand-name { color:var(--text-primary)!important; }
-    [data-theme="light"] .nav-links a { color:var(--text-secondary)!important; }
-    [data-theme="light"] .nav-links a:hover { color:var(--text-primary)!important; }
-    [data-theme="light"] .section-h2 { color:var(--text-primary)!important; }
-    [data-theme="light"] .stat-val { color:var(--text-primary)!important; }
-    [data-theme="light"] .svc-num { color:var(--text-primary)!important; }
-    [data-theme="light"] .canvas-h3 { color:var(--text-primary)!important; }
-    [data-theme="light"] .qc-h3 { color:var(--text-primary)!important; }
-    [data-theme="light"] .qc-opt-title { color:var(--text-primary)!important; }
-    [data-theme="light"] .qc-row strong { color:var(--text-primary)!important; }
-    [data-theme="light"] .step-num { color:var(--text-primary)!important; }
-    [data-theme="light"] h1,
-    [data-theme="light"] h2,
-    [data-theme="light"] h3 { color:var(--text-primary)!important; }
-    [data-theme="light"] .canvas-tabs { background:rgba(240,244,248,.5)!important; }
-    [data-theme="light"] .canvas-tab.active { background:rgba(255,255,255,.8)!important; color:var(--text-primary)!important; }
-    [data-theme="light"] .term-bar { background:rgba(220,228,238,.8)!important; }
-    [data-theme="light"] .term-wrap { background:rgba(235,240,248,1)!important; }
-    [data-theme="light"] .term-body { color:var(--text-primary)!important; }
-    [data-theme="light"] .term-tab { color:var(--text-secondary)!important; background:rgba(255,255,255,.5)!important; }
-    [data-theme="light"] .term-tab.active { color:var(--text-primary)!important; }
-    [data-theme="light"] .btn-secondary { color:var(--text-primary)!important; border-color:rgba(14,29,58,.2)!important; }
-    [data-theme="light"] .btn-ghost { color:var(--text-primary)!important; }
-    [data-theme="light"] .amb-a { background:radial-gradient(circle,rgba(0,168,168,.1),transparent 68%)!important; }
-    [data-theme="light"] .amb-b { background:radial-gradient(circle,rgba(99,102,241,.06),transparent 68%)!important; }
-    [data-theme="light"] .amb-c { background:radial-gradient(circle,rgba(59,189,248,.06),transparent 68%)!important; }
-    [data-theme="light"] .grid-bg { opacity:.25!important; background-image:linear-gradient(rgba(14,29,58,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(14,29,58,.05) 1px,transparent 1px)!important; }
-    [data-theme="light"] .kontakt-box { background:radial-gradient(circle at 0% 0%,rgba(0,168,168,.08),rgba(255,255,255,.6) 55%)!important; }
-
-    /* Fix inline color:#fff and dark bg overrides */
-    [data-theme="light"] [style*="color:#fff"] { color:var(--text-primary)!important; }
-    [data-theme="light"] [style*='color:#fff'] { color:var(--text-primary)!important; }
-
-    /* HUD dark sub-panels */
-    [data-theme="light"] .hud { background:rgba(255,255,255,.75)!important;border-color:rgba(0,168,168,.3)!important; }
-    [data-theme="light"] .hud-drift { opacity:.1!important; }
-    [data-theme="light"] [style*="background:rgba(0,0,0,.3)"],
-    [data-theme="light"] [style*="background:rgba(0,0,0,.34)"] { background:rgba(14,29,58,.06)!important;border-color:rgba(14,29,58,.1)!important; }
-    [data-theme="light"] .hud-mini { background:rgba(14,29,58,.05)!important;border-color:rgba(14,29,58,.1)!important; }
-    [data-theme="light"] .hud-mini-label { color:var(--text-muted)!important; }
-    [data-theme="light"] .hud-mini-val { color:var(--text-primary)!important; }
-    [data-theme="light"] #oeeText { color:var(--text-primary)!important; }
-    [data-theme="light"] #telemetryLog { color:var(--text-secondary)!important; }
-
-    /* Gauge track */
-    [data-theme="light"] circle[stroke="rgba(255,255,255,0.07)"] { stroke:rgba(14,29,58,.12)!important; }
-
-    /* Pipeline node text */
-    [data-theme="light"] .pipe-node [style*="color:#fff"] { color:var(--text-primary)!important; }
-    [data-theme="light"] .pipe-node { background:rgba(255,255,255,.8)!important; }
-    [data-theme="light"] .pipe-icon { background:rgba(14,29,58,.05)!important;border-color:rgba(14,29,58,.1)!important; }
-
-    /* Terminal code syntax for light bg */
-    [data-theme="light"] { --code-key:#0550ae; --code-str:#0a3069; --code-num:#953800; --code-comment:#6e7781; --code-tag:#116329; --code-attr:#8250df; }
-    [data-theme="light"] .term-body { background:rgba(248,250,253,1)!important;color:#24292f!important; }
-
-    /* Kompetenzfeld tags + other rgba(255,255,255,.03) panels */
-    [data-theme="light"] [style*="rgba(255,255,255,.03)"] { background:rgba(14,29,58,.05)!important;border-color:rgba(14,29,58,.12)!important; }
-    [data-theme="light"] [style*="rgba(255,255,255,.04)"] { background:rgba(14,29,58,.05)!important; }
-
-    /* Canvas sub-bg */
-    [data-theme="light"] .canvas-wrap { background:rgba(255,255,255,.85)!important; }
-
-    /* QC result box */
-    [data-theme="light"] .qc-result-box { background:rgba(14,29,58,.04)!important; }
-    [data-theme="light"] .qc-opt { background:rgba(14,29,58,.03)!important; }
-
-    /* Theme toggle button */
-    .theme-toggle { display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--border-color);color:var(--text-secondary);cursor:pointer;transition:all .2s;font-size:18px;flex-shrink:0; }
-    .theme-toggle:hover { border-color:var(--border-brand);color:var(--brand-teal); }
-    [data-theme="light"] .theme-toggle { background:rgba(14,29,58,.06)!important; }
-
-    /* Responsive */
-    @media (max-width:980px) {
-      .hero-grid { grid-template-columns:1fr!important; }
-      .nav-links { position:absolute;top:64px;right:20px;left:20px;flex-direction:column;align-items:stretch!important;padding:16px;border-radius:16px;background:rgba(10,13,18,.96);backdrop-filter:blur(20px);border:1px solid var(--border-color);box-shadow:var(--shadow-float);display:none!important; }
-      [data-theme="light"] .nav-links { background:rgba(240,244,248,.98)!important; }
-      .nav-links.open { display:flex!important; }
-      .nav-toggle { display:inline-flex!important; }
-      .g4 { grid-template-columns:repeat(2,1fr)!important; }
-      .g3,.g2 { grid-template-columns:1fr!important; }
-      .pipe { flex-direction:column!important; }
-      .pipe-conn { width:2px!important;height:34px!important;margin:0 auto!important;flex:none!important; }
-      .canvas-panel.active { grid-template-columns:1fr!important; }
-      .canvas-tabs { grid-template-columns:repeat(2,1fr); }
-    }
-    @media (max-width:560px) { .g4 { grid-template-columns:1fr!important; } .qc-opts { grid-template-columns:1fr!important; } }
-    @media (prefers-reduced-motion:reduce) { *{animation:none!important} .htxR,.htxHeroIn{opacity:1!important;transform:none!important} }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
 </head>
 <body>
-  <!-- ambient -->
-  <div class="amb" aria-hidden="true"><div class="amb-a"></div><div class="amb-b"></div><div class="amb-c"></div></div>
-  <div class="grid-bg" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-  <!-- scroll progress -->
-  <div class="scroll-progress"><div class="htxProg scroll-progress-bar" style="height:100%;width:100%;background:var(--brand-teal);"></div></div>
-
-  <!-- HEADER -->
   <header class="site-header">
-    <a class="brand" href="#top">
-      <svg viewBox="0 0 100 100" width="32" height="32" fill="none" aria-hidden="true">
-        <path d="M22 15h16v70H22z" fill="currentColor"/>
-        <path d="M38 44h18v16H38z" fill="currentColor"/>
-        <path d="M56 44h16v41H56z" fill="currentColor"/>
-        <path d="M56 15l16-8v25L56 40z" fill="var(--brand-teal)"/>
-      </svg>
-      <span class="brand-name">HI Tech Solutions</span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#ansatz">Duo-Ansatz</a>
-      <a href="#weg">Unser Weg</a>
-      <a href="#canvas">Projekt-Canvas</a>
-      <a class="btn-nav" href="#kontakt">Kontakt</a>
+    <a class="brand" href="#top" aria-label="HI-Tech Solutions – Startseite"><span class="brand-mark">H</span><span>HI-Tech <b>Solutions</b></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span><span class="sr-only">Navigation öffnen</span></button>
+    <nav id="siteNav" class="site-nav" aria-label="Hauptnavigation">
+      <a href="#ansatz">Ansatz</a><a href="#use-cases">Use Cases</a><a href="#angebote">Angebote</a><a href="#projektweg">Projektweg</a>
+      <a class="nav-cta" href="#kontakt">Quick Check starten <span aria-hidden="true">↗</span></a>
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="Light/Dark Mode umschalten" title="Light/Dark Mode">🌙</button>
-    <button class="nav-toggle" id="navToggle" aria-label="Navigation" aria-expanded="false">☰</button>
   </header>
 
-  <main id="top" style="position:relative;z-index:1;">
-
-    <!-- HERO -->
-    <section class="hero-grid" style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;max-width:1200px;margin:0 auto;padding:72px 20px 88px;">
-      <div>
-        <div class="htxHeroIn" style="display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:var(--radius-pill);background:rgba(0,171,168,.08);border:1px solid var(--border-brand);margin-bottom:26px;">
-          <span style="width:7px;height:7px;border-radius:50%;background:var(--signal-green);box-shadow:0 0 8px var(--signal-green);animation:htxPulse 2.4s infinite;"></span>
-          <span style="font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--brand-teal);">Smart Factory · MES/MOM · OT/IT</span>
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <p class="eyebrow hero-in delay-1"><span class="status-dot"></span> MES/MOM · Smart Factory · Azure</p>
+          <p class="hero-brand hero-in delay-2">HI-Tech Solutions</p>
+          <h1 class="hero-in delay-3">Digitale Produktionssteuerung, die im Werk <em>wirklich funktioniert.</em></h1>
+          <p class="hero-lead hero-in delay-4">Wir entwickeln pragmatische MES/MOM- und Smart-Factory-Lösungen für mittelständische Produktionsunternehmen — von der Engpassanalyse bis zum lauffähigen MVP in wenigen Wochen.</p>
+          <p class="hero-detail hero-in delay-5">Auftragsübersicht, Ressourcensteuerung, Maschinenanbindung, OEE, D365-/ERP-Integration, Dashboards und skalierbare Plattformbausteine.</p>
+          <div class="hero-actions hero-in delay-6"><a class="button button-primary" href="#quick-check">Quick Check starten <span>→</span></a><a class="button button-text" href="#use-cases">Use Cases ansehen <span>↓</span></a></div>
         </div>
-        <h1 class="htxHeroIn d1" style="margin:0 0 24px;font-family:var(--font-display);font-weight:800;font-size:var(--text-hero);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);color:#fff;text-wrap:balance;">Mehr Transparenz im Werk.<br><span style="color:var(--brand-teal);">Weniger Reibung</span> zwischen ERP, Maschine und Mensch.</h1>
-        <p class="htxHeroIn d2" style="margin:0 0 34px;font-size:var(--text-lead);line-height:var(--leading-body);color:var(--text-secondary);max-width:560px;">Wir machen kritische Produktionsabläufe schnell sichtbar, messbar und steuerbar — ohne jahrelanges MES-Großprojekt. Start mit einem klaren Engpass, lauffähiger MVP in 4–8 Wochen, daraus eine erweiterbare Plattformlogik.</p>
-        <div class="htxHeroIn d3" style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px;">
-          <a class="btn-primary" href="#kontakt">Gespräch anfragen →</a>
-          <a class="btn-secondary" href="#leistungen">Angebote ansehen</a>
-        </div>
-        <div class="htxHeroIn d4" style="display:flex;flex-wrap:wrap;gap:10px;">
-          <span style="font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-muted);align-self:center;margin-right:4px;">Kompetenzfelder</span>
-          <span style="padding:6px 13px;border-radius:var(--radius-pill);background:rgba(255,255,255,.03);border:1px solid var(--border-color);font-size:12.5px;color:var(--text-secondary);">Industry 4.0</span>
-          <span style="padding:6px 13px;border-radius:var(--radius-pill);background:rgba(255,255,255,.03);border:1px solid var(--border-color);font-size:12.5px;color:var(--text-secondary);">MES/MOM</span>
-          <span style="padding:6px 13px;border-radius:var(--radius-pill);background:rgba(255,255,255,.03);border:1px solid var(--border-color);font-size:12.5px;color:var(--text-secondary);">OT/IT</span>
-          <span style="padding:6px 13px;border-radius:var(--radius-pill);background:rgba(255,255,255,.03);border:1px solid var(--border-color);font-size:12.5px;color:var(--text-secondary);">Azure Cloud</span>
+        <div class="hero-visual hero-in delay-4" aria-label="Produktionsdashboard mit Live-Daten">
+          <img src="assets/smart-factory-dashboard.png" alt="Beispiel eines Smart-Factory-Dashboards mit OEE, Linienstatus und Auftragsdaten" width="1024" height="1024">
+          <div class="signal-card signal-card-top"><span class="signal-icon">↗</span><span><b>Linie 03</b><small>Live · 92% OEE</small></span></div>
+          <div class="signal-card signal-card-bottom"><span class="signal-pulse"></span><span><b>Auftrag 14892</b><small>Ressource verfügbar</small></span></div>
         </div>
       </div>
+      <div class="trust-strip"><div class="container"><span>Produktion verstanden</span><i></i><span>Software sauber gebaut</span><i></i><span>Azure-ready</span><i></i><span>D365-erfahren</span><i></i><span>OT/IT-integriert</span></div></div>
+    </section>
 
-      <!-- LIVE HUD -->
-      <div class="hud htxHeroIn d2">
-        <div class="hud-drift"></div>
-        <div style="position:relative;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
-            <div style="display:flex;flex-direction:column;gap:3px;">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--text-muted);">FACTORY_01 / LINE_03</span>
-              <span style="font-family:var(--font-display);font-size:15px;font-weight:600;color:#fff;">Robot Arm 4 · Live</span>
-            </div>
-            <span style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:var(--radius-pill);background:rgba(16,185,129,.1);color:var(--accent-emerald);font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.06em;">
-              <span style="width:7px;height:7px;border-radius:50%;background:var(--signal-green);animation:htxPulse 2s infinite;"></span>RUNNING
-            </span>
-          </div>
+    <section class="section problem-section">
+      <div class="container two-column problem-intro reveal">
+        <div><p class="eyebrow">Der Ausgangspunkt</p><h2>Warum viele Digitalisierungsprojekte im Werk nicht greifen</h2></div>
+        <p class="section-lead">ERP, Excel, Maschine und Shopfloor laufen oft nebeneinander. Dadurch entstehen Entscheidungen auf Basis von Annahmen, statt auf Basis dessen, was gerade in der Produktion passiert.</p>
+      </div>
+      <div class="container friction-map reveal">
+        <div class="friction-node"><span class="node-index">01</span><b>ERP</b><small>Auftrag, Stückliste, Termin</small></div>
+        <div class="friction-link"><span>Planung bleibt in Excel</span></div>
+        <div class="friction-node"><span class="node-index">02</span><b>Excel</b><small>Priorität, Kapazität, Schicht</small></div>
+        <div class="friction-link"><span>Ist-Zustand fehlt</span></div>
+        <div class="friction-node active"><span class="node-index">03</span><b>Shopfloor</b><small>Ressource, Auftrag, Rückmeldung</small></div>
+        <div class="friction-link"><span>Daten ohne Kontext</span></div>
+        <div class="friction-node"><span class="node-index">04</span><b>Maschine</b><small>Status, Zyklus, Alarm</small></div>
+        <div class="friction-link"><span>zu spät / manuell</span></div>
+        <div class="friction-node"><span class="node-index">05</span><b>Rückmeldung</b><small>Menge, Zeit, Ursache</small></div>
+      </div>
+      <div class="container problem-notes reveal"><p><strong>Die Folge:</strong> Planung sieht nicht, was wirklich passiert. Maschinendaten liefern keine Entscheidungsgrundlage. Und das MES-Projekt wird zu groß, zu abstrakt und zu langsam.</p><a href="#quick-check" class="inline-link">Den konkreten Engpass eingrenzen <span>→</span></a></div>
+    </section>
 
-          <div style="display:flex;gap:18px;align-items:center;padding:8px 4px 16px;">
-            <div style="position:relative;width:118px;height:118px;flex:none;">
-              <svg viewBox="0 0 130 130" width="118" height="118" style="transform:rotate(-90deg);">
-                <defs>
-                  <linearGradient id="htxGauge" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#00ABA8"/>
-                    <stop offset="100%" stop-color="#6366F1"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="65" cy="65" r="54" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="10"/>
-                <circle id="gaugeArc" cx="65" cy="65" r="54" fill="none" stroke="url(#htxGauge)" stroke-width="10" stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="35.29" style="transition:stroke-dashoffset .9s var(--ease-out-expo);"/>
-              </svg>
-              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                <span id="oeeText" style="font-family:var(--font-display);font-weight:800;font-size:30px;color:#fff;line-height:1;">89.6</span>
-                <span style="font-family:var(--font-display);font-size:10px;letter-spacing:.14em;color:var(--text-muted);text-transform:uppercase;">% OEE</span>
-              </div>
-            </div>
-            <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:9px;">
-              <div class="hud-mini">
-                <div class="hud-mini-label">CYCLE</div>
-                <div class="hud-mini-val"><span id="cycleText">1420</span><span class="hud-mini-unit"> ms</span></div>
-              </div>
-              <div class="hud-mini">
-                <div class="hud-mini-label">TEMP</div>
-                <div class="hud-mini-val"><span id="tempText">42.8</span><span class="hud-mini-unit"> °C</span></div>
-              </div>
-              <div class="hud-mini" style="grid-column:span 2;">
-                <div class="hud-mini-label">ACTIVE ORDER</div>
-                <div style="font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--accent-emerald);">WO-48192-A</div>
-              </div>
-            </div>
-          </div>
+    <section id="ansatz" class="section approach-section">
+      <div class="container section-heading reveal"><p class="eyebrow">Der Duo-Ansatz</p><h2>Shopfloor-Verstand trifft <em>skalierbare Software.</em></h2><p>Viele Digitalisierungsprojekte scheitern nicht an der Technik. Sie scheitern daran, dass Werkrealität und Softwarelogik nicht sauber übersetzt werden.</p></div>
+      <div class="container approach-grid">
+        <article class="approach-panel production reveal"><div class="panel-label">01 / Produktion</div><div class="panel-icon">⌁</div><h3>Produktionsverständnis</h3><p>Wir sprechen mit Werkleitung, Planung, Arbeitsvorbereitung und Shopfloor auf Augenhöhe. Engpässe, Schichtlogik, Rückmeldungen, Ressourcen, Prioritäten und ERP-Abhängigkeiten sind der Ausgangspunkt.</p><ul><li>konkreter Auftrag statt abstraktes Projekt</li><li>Werkrealität als fachliche Spezifikation</li></ul></article>
+        <article class="approach-panel engineering reveal"><div class="panel-label">02 / Technik</div><div class="panel-icon">◫</div><h3>Technische Umsetzung</h3><p>Wir bauen robuste Datenmodelle, APIs, Dashboards, Cloud-Architekturen und Integrationen — so, dass ein MVP später nicht weggeworfen, sondern skaliert werden kann.</p><ul><li>klare Schnittstellen und Betriebskonzept</li><li>vom MVP zum wiederverwendbaren Baustein</li></ul></article>
+      </div>
+      <p class="container approach-conclusion reveal">Keine PowerPoint-Digitalisierung. <span>Sondern ein Werkzeug, das im Werk genutzt wird.</span></p>
+    </section>
 
-          <!-- Sparkline -->
-          <div style="position:relative;margin:4px 0 14px;border-radius:12px;background:rgba(0,0,0,.3);border:1px solid var(--border-color);padding:10px 12px 6px;overflow:hidden;">
-            <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);margin-bottom:4px;letter-spacing:.05em;">OEE TREND · LIVE</div>
-            <svg id="sparkSvg" viewBox="0 0 260 70" width="100%" height="62" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="htxSpark" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="rgba(0,171,168,0.32)"/>
-                  <stop offset="100%" stop-color="rgba(0,171,168,0)"/>
-                </linearGradient>
-              </defs>
-              <polygon id="sparkArea" fill="url(#htxSpark)"/>
-              <polyline id="sparkLine" fill="none" stroke="var(--brand-teal)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-            </svg>
-            <div style="position:absolute;top:0;bottom:0;left:0;width:2px;background:linear-gradient(180deg,transparent,rgba(59,189,248,.7),transparent);animation:htxScan 5s linear infinite;pointer-events:none;"></div>
-          </div>
+    <section id="use-cases" class="section usecase-section">
+      <div class="container section-heading split-heading reveal"><div><p class="eyebrow">Anwendungsfälle</p><h2>Typische Probleme, die wir lösen</h2></div><p>Wir starten dort, wo Transparenz, Steuerung oder Rückmeldung heute konkret Zeit und Wirkung kosten.</p></div>
+      <div class="container usecase-grid">
+        <article class="usecase-card reveal"><span class="case-number">01</span><h3>Auftrags- und Ressourcensteuerung</h3><p>ERP-Daten, Excel-Planung und Shopfloor-Realität laufen auseinander. Wir schaffen ein Board für Aufträge, Ressourcen, Kapazitäten, Prioritäten und Status.</p><span class="case-tag">Planung → Shopfloor</span></article>
+        <article class="usecase-card reveal"><span class="case-number">02</span><h3>Maschinen- und Linienstatus</h3><p>Maschinen liefern Daten, aber niemand sieht den echten Zustand nutzbar. Wir verbinden SPS, OPC UA, Edge und Cloud zu einem verständlichen Live-Bild.</p><span class="case-tag">SPS · OPC UA · Edge</span></article>
+        <article class="usecase-card reveal"><span class="case-number">03</span><h3>D365-/ERP-Integration</h3><p>Produktionsaufträge, Arbeitsgänge, Ressourcen und Rückmeldungen müssen sauber zwischen ERP und Shopfloor fließen. Wir bauen robuste Schnittstellen und Datenmodelle.</p><span class="case-tag">D365 · ERP · APIs</span></article>
+        <article class="usecase-card reveal"><span class="case-number">04</span><h3>OEE und Performance</h3><p>Stillstände, Zykluszeiten und Leistungsabweichungen werden zu spät erkannt. Wir schaffen OEE-Dashboards mit Ursachenlogik und konkreten Steuerungsimpulsen.</p><span class="case-tag">OEE · Stillstand · Ursache</span></article>
+        <article class="usecase-card usecase-wide reveal"><span class="case-number">05</span><div><h3>Multi-Werk-Rollout</h3><p>Ein MVP funktioniert in einem Werk. Danach braucht es Standards, Wiederverwendung und Betrieb. Wir denken Architektur, Support und Skalierung von Anfang an mit.</p></div><span class="case-tag">Standards · Betrieb · Rollout</span></article>
+      </div>
+    </section>
 
-          <!-- Telemetry log -->
-          <div style="border-radius:12px;background:rgba(0,0,0,.34);border:1px solid var(--border-color);padding:10px 12px;font-family:var(--font-mono);font-size:11px;line-height:1.55;">
-            <div id="telemetryLog" style="display:flex;flex-direction:column;gap:2px;"></div>
-          </div>
+    <section id="angebote" class="section offers-section">
+      <div class="container section-heading reveal"><p class="eyebrow">Klarer Einstieg</p><h2>Drei Wege vom Engpass zur Lösung</h2></div>
+      <div class="container offers-grid">
+        <article class="offer reveal"><div class="offer-top"><span>01</span><p>Production Quick Check</p></div><h3>Der digitale Hebel, der sich wirklich lohnt.</h3><p>Für Unternehmen, die vor einer Entscheidung stehen und einen konkreten MVP-Scope brauchen.</p><ul><li>Engpassanalyse</li><li>Use-Case-Priorisierung</li><li>MVP-Scope &amp; grobe Architektur</li><li>Aufwandsschätzung als Entscheidungsgrundlage</li></ul><a href="#quick-check" class="inline-link">Quick Check konfigurieren <span>→</span></a></article>
+        <article class="offer featured reveal"><div class="offer-top"><span>02</span><p>MES/MOM MVP</p><b>4–8 Wochen</b></div><h3>Ein Problem sichtbar lösen.</h3><p>Für Unternehmen, die ein greifbares Werkzeug für Planung, Shopfloor oder Maschine live bringen wollen.</p><ul><li>Auftrags- und Ressourcenboard</li><li>OEE-/Stillstands-Dashboard</li><li>digitale Fertigungsrückmeldung</li><li>Maschinenstatus oder D365-Schnittstelle</li></ul><a href="#kontakt" class="inline-link">MVP besprechen <span>→</span></a></article>
+        <article class="offer reveal"><div class="offer-top"><span>03</span><p>Smart Factory Platform</p></div><h3>Was funktioniert, sauber skalieren.</h3><p>Für Unternehmen, die erfolgreiche MVPs auf weitere Werke, Linien und Prozesse übertragen.</p><ul><li>Connect: Maschine, Edge, OPC UA, MQTT</li><li>Model &amp; Flow: Datenmodell, Workflows</li><li>UI, Security, Azure, Monitoring &amp; Betrieb</li></ul><a href="#kontakt" class="inline-link">Plattform besprechen <span>→</span></a></article>
+      </div>
+    </section>
+
+    <section class="section architecture-section">
+      <div class="container architecture-layout">
+        <div class="architecture-copy reveal"><p class="eyebrow">Architektur, die mitdenkt</p><h2>Nicht nur Oberflächen. Der ganze Datenfluss.</h2><p>Wir berücksichtigen Schnittstellen, Datenmodell, Betrieb und spätere Skalierung — bevor eine erste Ansicht gebaut wird.</p></div>
+        <div class="architecture-flow reveal" aria-label="Architekturstrecke von Maschine bis Management-Dashboard">
+          <div class="architecture-unit"><span class="architecture-icon">⌁</span><b>Maschine</b><small>SPS · Sensorik</small></div><span class="architecture-arrow">→</span>
+          <div class="architecture-unit"><span class="architecture-icon">↔</span><b>Edge</b><small>OPC UA · MQTT</small></div><span class="architecture-arrow">→</span>
+          <div class="architecture-unit core"><span class="architecture-icon">◉</span><b>Azure</b><small>APIs · Datenmodell</small></div><span class="architecture-arrow">→</span>
+          <div class="architecture-unit"><span class="architecture-icon">▦</span><b>ERP / D365</b><small>MES · Aufträge</small></div><span class="architecture-arrow">→</span>
+          <div class="architecture-unit"><span class="architecture-icon">◫</span><b>Ansicht</b><small>Shopfloor · Management</small></div>
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section style="max-width:1200px;margin:0 auto;padding:0 20px 90px;">
-      <div class="g3 htxR">
-        <div class="card"><div class="stat-val">1</div><p class="stat-label">klarer Engpass als Start</p></div>
-        <div class="card"><div class="stat-val">4–8</div><p class="stat-label">Wochen MVP-Ziel</p></div>
-        <div class="card"><div class="stat-val">0</div><p class="stat-label">PowerPoint-only Schlachten</p></div>
+    <section id="projektweg" class="section journey-section">
+      <div class="container section-heading reveal"><p class="eyebrow">Projektweg</p><h2>Kurzer Weg. Klare Entscheidungen.</h2></div>
+      <ol class="container journey-list">
+        <li class="reveal"><span>01</span><div><h3>Engpass verstehen</h3><p>Wir klären, wo Auftrag, Ressource, Maschine oder Rückmeldung heute Reibung erzeugen.</p></div></li>
+        <li class="reveal"><span>02</span><div><h3>Daten und Systeme prüfen</h3><p>Wir schauen auf ERP, D365, Excel, Maschinen, Schnittstellen und die Datenqualität.</p></div></li>
+        <li class="reveal"><span>03</span><div><h3>MVP-Scope definieren</h3><p>Wir legen fest, welches Ergebnis in kurzer Zeit für die Nutzer im Werk wirklich nutzbar ist.</p></div></li>
+        <li class="reveal"><span>04</span><div><h3>Lösung bauen und testen</h3><p>Wir entwickeln, testen mit den späteren Nutzern und binden die relevanten Datenquellen an.</p></div></li>
+        <li class="reveal"><span>05</span><div><h3>Skalieren und betreiben</h3><p>Wir standardisieren Bausteine, schaffen Transparenz im Betrieb und bereiten den Rollout vor.</p></div></li>
+      </ol>
+    </section>
+
+    <section id="quick-check" class="section quickcheck-section">
+      <div class="container quickcheck-layout">
+        <div class="quickcheck-copy reveal"><p class="eyebrow">Interaktiver Einstieg</p><h2>Welcher erste Schritt passt zu Ihrem Werk?</h2><p>In drei kurzen Fragen ordnen wir den Engpass ein und geben eine konkrete Empfehlung für den sinnvollsten Einstieg.</p><div class="quickcheck-meta"><span><b>3</b> Fragen</span><span><b>1</b> klare Empfehlung</span><span><b>0</b> Pitch-Folien</span></div></div>
+        <form class="quickcheck reveal" id="quickCheck" novalidate>
+          <div class="quickcheck-progress" aria-hidden="true"><span class="is-active">1</span><i></i><span>2</span><i></i><span>3</span></div>
+          <fieldset class="check-step is-active"><legend>Was ist aktuell Ihr größtes Problem?</legend><div class="choice-grid"><label><input type="radio" name="problem" value="Planung und Ressourcensteuerung"><span>Planung</span></label><label><input type="radio" name="problem" value="Fertigungsrückmeldung"><span>Rückmeldung</span></label><label><input type="radio" name="problem" value="Maschinen- oder Linienstatus"><span>Maschinenstatus</span></label><label><input type="radio" name="problem" value="OEE und Stillstandsursachen"><span>OEE</span></label><label><input type="radio" name="problem" value="ERP-/D365-Integration"><span>ERP-Integration</span></label><label><input type="radio" name="problem" value="Transparenz im Shopfloor"><span>Transparenz</span></label></div></fieldset>
+          <fieldset class="check-step"><legend>Welche Systeme sind vorhanden?</legend><div class="choice-grid"><label><input type="radio" name="systems" value="ERP"><span>ERP</span></label><label><input type="radio" name="systems" value="D365"><span>D365</span></label><label><input type="radio" name="systems" value="MES"><span>MES</span></label><label><input type="radio" name="systems" value="Excel"><span>Excel</span></label><label><input type="radio" name="systems" value="Maschinensteuerung"><span>Maschinensteuerung</span></label><label><input type="radio" name="systems" value="Azure"><span>Azure</span></label></div></fieldset>
+          <fieldset class="check-step"><legend>Was soll als Nächstes erreicht werden?</legend><div class="choice-grid"><label><input type="radio" name="goal" value="Überblick schaffen"><span>Überblick</span></label><label><input type="radio" name="goal" value="Abläufe automatisieren"><span>Automatisierung</span></label><label><input type="radio" name="goal" value="einen MVP live bringen"><span>MVP</span></label><label><input type="radio" name="goal" value="auf weitere Werke ausrollen"><span>Rollout</span></label><label><input type="radio" name="goal" value="eine tragfähige Architektur definieren"><span>Architektur</span></label></div></fieldset>
+          <div class="check-result" hidden><p class="result-label">Empfohlener Einstieg</p><h3 id="recommendation">Production Quick Check</h3><p id="recommendationText"></p><div class="result-summary"><span id="resultProblem"></span><span id="resultSystems"></span><span id="resultGoal"></span></div><a id="resultMail" class="button button-primary" href="mailto:info@hitech-solutions.eu">Erstgespräch anfragen <span>→</span></a></div>
+          <div class="check-actions"><button class="button button-muted check-back" type="button" hidden>Zurück</button><button class="button button-primary check-next" type="button" disabled>Weiter <span>→</span></button></div>
+        </form>
       </div>
     </section>
 
-    <!-- SCHNITTSTELLEN / PIPELINE + TERMINAL -->
-    <section id="schnittstellen" style="max-width:1200px;margin:0 auto;padding:0 20px 100px;">
-      <div class="htxR section-head">
-        <div class="eyebrow">Schnittstellen &amp; Standards</div>
-        <h2 class="section-h2">Wie wir Shopfloor und IT verbinden.</h2>
-        <p class="section-p">Unsere Software übersetzt rohe Maschinensignale in strukturierte, sofort nutzbare Datenmodelle für ERP- und Cloud-Systeme.</p>
-      </div>
-
-      <div class="pipe htxR">
-        <div class="pipe-node">
-          <span class="pipe-icon" style="color:var(--brand-teal);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1M12 18h1M7 18h1"/></svg>
-          </span>
-          <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">Maschine / OT</div>
-          <div style="font-size:12px;color:var(--text-muted);">OPC UA · Sensoren · SPS</div>
-        </div>
-        <div class="pipe-conn"><span class="pipe-dot" style="animation-delay:0s;"></span></div>
-        <div class="pipe-node">
-          <span class="pipe-icon" style="color:var(--accent-cyan);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M9 2v2M15 20v2M9 20v2M20 15h2M20 9h2M2 15h2M2 9h2"/></svg>
-          </span>
-          <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">Edge Gateway</div>
-          <div style="font-size:12px;color:var(--text-muted);">Normalisierung · Buffer</div>
-        </div>
-        <div class="pipe-conn"><span class="pipe-dot" style="animation-delay:.9s;"></span></div>
-        <div class="pipe-node pipe-node-center">
-          <span class="pipe-icon pipe-icon-accent" style="color:#fff;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 9v3a6 6 0 0 0 6 6h3"/><path d="M6 21v-6"/></svg>
-          </span>
-          <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">Unified Namespace</div>
-          <div style="font-size:12px;color:var(--text-muted);">MQTT · Single Source</div>
-        </div>
-        <div class="pipe-conn"><span class="pipe-dot" style="animation-delay:1.5s;"></span></div>
-        <div class="pipe-node">
-          <span class="pipe-icon" style="color:var(--accent-cyan);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-          </span>
-          <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">Cloud &amp; Azure</div>
-          <div style="font-size:12px;color:var(--text-muted);">Analytics · Storage</div>
-        </div>
-        <div class="pipe-conn"><span class="pipe-dot" style="animation-delay:2.1s;"></span></div>
-        <div class="pipe-node">
-          <span class="pipe-icon" style="color:var(--accent-violet);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
-          </span>
-          <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">ERP / D365</div>
-          <div style="font-size:12px;color:var(--text-muted);">Aufträge · Planung</div>
-        </div>
-      </div>
-
-      <!-- Terminal -->
-      <div class="term-wrap htxR">
-        <div class="term-bar" id="termBar">
-          <div class="term-dots">
-            <span style="width:11px;height:11px;border-radius:50%;background:var(--signal-red);display:block;"></span>
-            <span style="width:11px;height:11px;border-radius:50%;background:var(--signal-amber);display:block;"></span>
-            <span style="width:11px;height:11px;border-radius:50%;background:var(--signal-green);display:block;"></span>
-          </div>
-          <div class="term-tabs">
-            <button class="term-tab active" data-tab="mqtt">Unified Namespace (MQTT)</button>
-            <button class="term-tab" data-tab="rest">REST API (OEE)</button>
-            <button class="term-tab" data-tab="opc">OPC UA Node (XML)</button>
-          </div>
-        </div>
-        <div class="term-body">
-          <div class="term-panel active" id="tab-mqtt">
-<pre style="margin:0;"><code>{
-  <span style="color:var(--code-key)">"topic"</span>: <span style="color:var(--code-str)">"hits/factory_01/line_03/robot_arm_4/state"</span>,
-  <span style="color:var(--code-key)">"timestamp"</span>: <span style="color:var(--code-str)">"2026-06-22T07:25:00Z"</span>,
-  <span style="color:var(--code-key)">"metrics"</span>: {
-    <span style="color:var(--code-key)">"oee_current"</span>: <span style="color:var(--code-num)">89.6</span>,
-    <span style="color:var(--code-key)">"active_order"</span>: <span style="color:var(--code-str)">"WO-48192-A"</span>,
-    <span style="color:var(--code-key)">"state"</span>: <span style="color:var(--code-str)">"RUNNING"</span>,
-    <span style="color:var(--code-key)">"cycle_time_ms"</span>: <span style="color:var(--code-num)">1420</span>,
-    <span style="color:var(--code-key)">"temperature_celsius"</span>: <span style="color:var(--code-num)">42.8</span>
-  }
-}</code></pre>
-          </div>
-          <div class="term-panel" id="tab-rest">
-<pre style="margin:0;"><code><span style="color:var(--code-comment)">// GET /api/v1/lines/line_03/oee</span>
-{
-  <span style="color:var(--code-key)">"line_id"</span>: <span style="color:var(--code-str)">"line_03"</span>,
-  <span style="color:var(--code-key)">"oee"</span>: {
-    <span style="color:var(--code-key)">"availability"</span>: <span style="color:var(--code-num)">0.945</span>,
-    <span style="color:var(--code-key)">"performance"</span>: <span style="color:var(--code-num)">0.962</span>,
-    <span style="color:var(--code-key)">"quality"</span>: <span style="color:var(--code-num)">0.992</span>,
-    <span style="color:var(--code-key)">"oee_total"</span>: <span style="color:var(--code-num)">0.896</span>
-  },
-  <span style="color:var(--code-key)">"target_comparison"</span>: {
-    <span style="color:var(--code-key)">"actual_units"</span>: <span style="color:var(--code-num)">2410</span>,
-    <span style="color:var(--code-key)">"target_units"</span>: <span style="color:var(--code-num)">2600</span>,
-    <span style="color:var(--code-key)">"delta"</span>: <span style="color:var(--code-num)">-190</span>
-  }
-}</code></pre>
-          </div>
-          <div class="term-panel" id="tab-opc">
-<pre style="margin:0;"><code><span style="color:var(--code-tag)">&lt;UAObjectType</span> <span style="color:var(--code-attr)">NodeId=</span><span style="color:var(--code-str)">"ns=2;i=1004"</span> <span style="color:var(--code-attr)">BrowseName=</span><span style="color:var(--code-str)">"HITS_RobotArmType"</span><span style="color:var(--code-tag)">&gt;</span>
-  <span style="color:var(--code-tag)">&lt;UAInstanceDeclaration</span> <span style="color:var(--code-attr)">BrowseName=</span><span style="color:var(--code-str)">"OeeCurrent"</span> <span style="color:var(--code-attr)">DataType=</span><span style="color:var(--code-str)">"Double"</span><span style="color:var(--code-tag)">&gt;</span>
-    <span style="color:var(--code-tag)">&lt;Value&gt;</span>89.6<span style="color:var(--code-tag)">&lt;/Value&gt;</span>
-  <span style="color:var(--code-tag)">&lt;/UAInstanceDeclaration&gt;</span>
-  <span style="color:var(--code-tag)">&lt;UAInstanceDeclaration</span> <span style="color:var(--code-attr)">BrowseName=</span><span style="color:var(--code-str)">"State"</span> <span style="color:var(--code-attr)">DataType=</span><span style="color:var(--code-str)">"String"</span><span style="color:var(--code-tag)">&gt;</span>
-    <span style="color:var(--code-tag)">&lt;Value&gt;</span>RUNNING<span style="color:var(--code-tag)">&lt;/Value&gt;</span>
-  <span style="color:var(--code-tag)">&lt;/UAInstanceDeclaration&gt;</span>
-<span style="color:var(--code-tag)">&lt;/UAObjectType&gt;</span></code></pre>
-          </div>
-        </div>
-      </div>
+    <section id="kontakt" class="contact-section">
+      <div class="container contact-panel reveal"><div><p class="eyebrow">Konkreter nächster Schritt</p><h2>Starten wir mit einem echten Produktionsproblem.</h2><p>Kein allgemeiner Digitalisierungsworkshop. Kein monatelanges MES-Vorprojekt. Wir beginnen mit einem konkreten Engpass und prüfen, welches digitale Werkzeug kurzfristig den größten Nutzen bringt.</p></div><div class="contact-side"><p>Typischer Einstieg</p><ul><li>30–45 Minuten Erstgespräch</li><li>1 konkreter Engpass</li><li>1 grober MVP-Vorschlag</li><li>klare nächste Schritte</li></ul><a class="button button-primary" href="mailto:info@hitech-solutions.eu?subject=Erstgespräch%20HI-Tech%20Solutions">Erstgespräch anfragen <span>↗</span></a></div></div>
     </section>
-
-    <!-- DUO-ANSATZ -->
-    <section id="ansatz" style="max-width:1200px;margin:0 auto;padding:0 20px 100px;">
-      <div class="htxR section-head">
-        <div class="eyebrow">Positionierung</div>
-        <h2 class="section-h2">Produktionsnahe Software, die live geht und skaliert.</h2>
-        <p class="section-p">Wir bauen keine theoretischen Digitalisierungsprogramme. Unser Kernvorteil: die Übersetzung von realer Werklogik in saubere Softwarearchitektur.</p>
-      </div>
-      <div class="g3 htxR">
-        <div class="card card-interactive">
-          <span style="display:grid;place-items:center;width:50px;height:50px;margin-bottom:22px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border-color);color:var(--brand-teal);">
-            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1M12 18h1M7 18h1"/></svg>
-          </span>
-          <h3 style="margin:0 0 12px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h3);letter-spacing:var(--tracking-snug);color:#fff;">Produktionsverstand</h3>
-          <p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Wir erkennen reale Engpässe, Werkslogik, Buchungslogik und Prioritäten direkt auf dem Shopfloor.</p>
-        </div>
-        <div class="card card-interactive">
-          <span style="display:grid;place-items:center;width:50px;height:50px;margin-bottom:22px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border-color);color:var(--accent-cyan);">
-            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
-          </span>
-          <h3 style="margin:0 0 12px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h3);letter-spacing:var(--tracking-snug);color:#fff;">Technische Umsetzung</h3>
-          <p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Wir bauen robuste APIs, Datenmodelle, Rechtekonzepte, Deployments und sichere IT-Integrationen.</p>
-        </div>
-        <div class="card card-interactive card-highlight">
-          <span style="display:grid;place-items:center;width:50px;height:50px;margin-bottom:22px;border-radius:14px;background:var(--accent-gradient);color:#fff;box-shadow:0 4px 15px rgba(0,168,168,.25);">
-            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
-          </span>
-          <h3 style="margin:0 0 12px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h3);letter-spacing:var(--tracking-snug);color:#fff;">Warum das kaufbar ist</h3>
-          <p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Sie kaufen keine abstrakte „Digitalisierung", sondern eine kontrollierte Reduzierung eines konkreten operativen Problems.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- UNSER WEG -->
-    <section id="weg" style="max-width:1200px;margin:0 auto;padding:0 20px 100px;">
-      <div class="htxR section-head" style="max-width:720px;">
-        <div class="eyebrow">Unser Weg</div>
-        <h2 class="section-h2">Vom Produktionsschmerz zum skalierbaren Software-Asset.</h2>
-        <p class="section-p">Wir reduzieren das Risiko. Jedes Projekt folgt einem klaren, messbaren Prozess.</p>
-      </div>
-      <div class="g4 htxR">
-        <div class="step-card"><div class="step-num">01</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">Transparenzverlust</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Excel, ERP, Maschinen und Erfahrungswissen laufen nebeneinander. Entscheidungen entstehen zu spät.</p></div>
-        <div class="step-card"><div class="step-num">02</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">Übersetzung der Werklogik</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Shopfloor-Verständnis wird in Datenmodelle, Workflows, Schnittstellen und klare MVP-Grenzen überführt.</p></div>
-        <div class="step-card"><div class="step-num">03</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">Erster Use Case live</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Statt Großprojekt: ein scharf abgegrenzter Quick Check, ein lauffähiger MVP, messbarer Nutzen.</p></div>
-        <div class="step-card step-card-accent"><div class="step-num">04</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">Projekte werden Module</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Wiederkehrende Bausteine werden Assets: Connect, Model, Flow, Auth, Dashboard und Support.</p></div>
-      </div>
-    </section>
-
-    <!-- LEISTUNGEN -->
-    <section id="leistungen" style="max-width:1200px;margin:0 auto;padding:0 20px 100px;">
-      <div class="htxR section-head">
-        <div class="eyebrow">Leistungen</div>
-        <h2 class="section-h2">Unsere Angebote für Ihren Shopfloor.</h2>
-        <p class="section-p">Vom schnellen Einstieg bis zur langfristig skalierbaren Plattform-Architektur.</p>
-      </div>
-      <div class="g4 htxR">
-        <div class="card card-interactive"><div class="svc-num">01</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">Quick Check</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Engpassanalyse und Use-Case-Definition statt monatelanger, teurer Strategiephasen.</p></div>
-        <div class="card card-interactive"><div class="svc-num">02</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">MVP-Entwicklung</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">MVP mit definiertem Scope, festen Annahmen und sichtbarem Ergebnis in nur 4–8 Wochen.</p></div>
-        <div class="card card-interactive"><div class="svc-num">03</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">Modul-Skalierung</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Architektur wird so aufgebaut, dass wiederverwendbare Module entstehen.</p></div>
-        <div class="card card-interactive"><div class="svc-num">04</div><h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h4);color:#fff;">OT/IT Integration</h3><p style="margin:0;font-size:var(--text-body-sm);line-height:var(--leading-body);color:var(--text-secondary);">Verbindung von Maschinen, Edge, ERP, Dynamics 365 und skalierbaren Cloud-Plattformen.</p></div>
-      </div>
-    </section>
-
-    <!-- LEAN PROJECT CANVAS -->
-    <section id="canvas" style="max-width:1200px;margin:0 auto;padding:0 20px 100px;">
-      <div class="htxR section-head">
-        <div class="eyebrow">Modellübersicht</div>
-        <h2 class="section-h2">Unser Lean Project Canvas.</h2>
-        <p class="section-p">Navigieren Sie durch die Kernbausteine unserer Umsetzungsphilosophie.</p>
-      </div>
-      <div class="canvas-wrap htxR">
-        <div class="canvas-tabs" id="canvasTabs">
-          <button class="canvas-tab active" data-canvas="problem"><span aria-hidden="true">☷</span> Kundenproblem</button>
-          <button class="canvas-tab" data-canvas="value"><span aria-hidden="true">◇</span> Value Proposition</button>
-          <button class="canvas-tab" data-canvas="packages"><span aria-hidden="true">▧</span> Lösungspakete</button>
-          <button class="canvas-tab" data-canvas="scale"><span aria-hidden="true">↗</span> Skalierung</button>
-        </div>
-        <div class="canvas-body">
-          <div class="canvas-panel active" id="canvas-problem">
-            <div>
-              <h3 class="canvas-h3">Das Problem im Mittelstand</h3>
-              <p style="margin:0;line-height:var(--leading-relaxed);color:var(--text-secondary);">Mittelständischen Produktionsbetrieben fehlt die pragmatische Verbindung zwischen Werkrealität und sauberer IT-Umsetzung. Enterprise-MES-Suiten sind im Shopfloor-Alltag oft überladen, unflexibel und überteuert.</p>
-            </div>
-            <div>
-              <h4 class="canvas-kicker">Schmerzpunkte</h4>
-              <ul class="canvas-list">
-                <li>Produktionsdaten versinken isoliert in ERP, Excel, Steuerungen und Köpfen.</li>
-                <li>Systembrüche verhindern eine Echtzeit-Prozessüberwachung.</li>
-                <li>IT und Werksleitung sprechen unterschiedliche Sprachen.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="canvas-panel" id="canvas-value">
-            <div>
-              <h3 class="canvas-h3">Unser Versprechen</h3>
-              <p style="margin:0;line-height:var(--leading-relaxed);color:var(--text-secondary);">In wenigen Wochen vom Produktionsproblem zum nutzbaren digitalen Werkzeug. Kein Selbstzweck, sondern sichtbare Entlastung in Planung, Steuerung und Shopfloor-Kommunikation.</p>
-            </div>
-            <div>
-              <h4 class="canvas-kicker">Ihr messbarer Nutzen</h4>
-              <ul class="canvas-list">
-                <li>Schneller Überblick über Aufträge, Ressourcen und Engpässe.</li>
-                <li>Deutliche Reduzierung von Excel- und Abstimmungsaufwand.</li>
-                <li>Ein produktiver MVP statt abstrakter Digitalstrategie-Folien.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="canvas-panel" id="canvas-packages">
-            <div>
-              <h3 class="canvas-h3">Schrittweise Risiko-Reduzierung</h3>
-              <p style="margin:0;line-height:var(--leading-relaxed);color:var(--text-secondary);">Sie behalten in jeder Phase die volle Kontrolle über Budget und Risiken. Statt eines jahrelangen Großprojekts starten wir gezielt am engsten Engpass.</p>
-            </div>
-            <div>
-              <h4 class="canvas-kicker">Die Phasen</h4>
-              <ul class="canvas-list">
-                <li><strong style="color:#fff;">Quick Check:</strong> Engpassanalyse und MVP-Scope.</li>
-                <li><strong style="color:#fff;">MVP:</strong> Lauffähiges Werkzeug in 4–8 Wochen.</li>
-                <li><strong style="color:#fff;">Plattformbausteine:</strong> Modularer Ausbau Schritt für Schritt.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="canvas-panel" id="canvas-scale">
-            <div>
-              <h3 class="canvas-h3">Plattformlogik &amp; Assets</h3>
-              <p style="margin:0;line-height:var(--leading-relaxed);color:var(--text-secondary);">Die Architektur wird von Anfang an modular aufgebaut, sodass erfolgreiche MVPs als wiederverwendbare Module an weitere Werke, Linien und Prozesse übertragen werden.</p>
-            </div>
-            <div>
-              <h4 class="canvas-kicker">Skalierbare Bausteine</h4>
-              <ul class="canvas-list">
-                <li><strong style="color:#fff;">Connect:</strong> Robuste Maschinenschnittstellen.</li>
-                <li><strong style="color:#fff;">Model &amp; Flow:</strong> Einheitliche Datenmodelle, Workflows.</li>
-                <li><strong style="color:#fff;">Security:</strong> Rollenmodelle, Audit-Trails, DSGVO.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUICK CHECK KONFIGURATOR -->
-    <section style="max-width:1000px;margin:0 auto;padding:0 20px 100px;">
-      <div class="htxR section-head">
-        <div class="eyebrow">Quick-Check Konfigurator</div>
-        <h2 class="section-h2">Individuellen Lösungsansatz ermitteln.</h2>
-        <p class="section-p">Zwei kurze Fragen zu Ihrer Produktion — wir leiten den passenden Quick-Check-Fahrplan ab.</p>
-      </div>
-      <div class="qc-wrap htxR">
-        <div class="qc-progress">
-          <span id="qDot1" class="qc-dot active">1</span>
-          <span style="font-size:13px;color:var(--text-secondary);">Engpass</span>
-          <span style="width:34px;height:1px;background:var(--border-color);display:block;"></span>
-          <span id="qDot2" class="qc-dot">2</span>
-          <span style="font-size:13px;color:var(--text-secondary);">IT-Landschaft</span>
-          <span style="width:34px;height:1px;background:var(--border-color);display:block;"></span>
-          <span id="qDot3" class="qc-dot">3</span>
-          <span style="font-size:13px;color:var(--text-secondary);">Ergebnis</span>
-        </div>
-
-        <!-- Step 1 -->
-        <div class="qc-step active" id="qcStep1">
-          <h3 class="qc-h3">1. Was bremst Ihre Produktion am meisten aus?</h3>
-          <div class="qc-opts" id="bottleneckOpts">
-            <label class="qc-opt" data-q="bottleneck" data-val="transparenz">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.34 19a10 10 0 1 1 17.32 0"/><path d="M12 14l3-3"/></svg></span>
-              <span class="qc-opt-title">Echtzeit-Transparenz</span>
-              <span class="qc-opt-desc">Es fehlt der Live-Blick auf OEE, Stillstände und Linienstatus.</span>
-            </label>
-            <label class="qc-opt" data-q="bottleneck" data-val="interfaces">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="15" r="3"/><circle cx="6" cy="3" r="3"/><path d="M6 9v3a6 6 0 0 0 6 6h3"/></svg></span>
-              <span class="qc-opt-title">System-Schnittstellen</span>
-              <span class="qc-opt-desc">Maschinen, ERP, MES und Excel laufen getrennt voneinander.</span>
-            </label>
-            <label class="qc-opt" data-q="bottleneck" data-val="reports">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></span>
-              <span class="qc-opt-title">Manuelle Berichte</span>
-              <span class="qc-opt-desc">Hoher Aufwand durch Excel-Listen und papierbasiertes Erfassen.</span>
-            </label>
-            <label class="qc-opt" data-q="bottleneck" data-val="mes">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14M5 2h14M17 22v-4.17a2 2 0 0 0-.59-1.41L12 12l-4.41 4.42A2 2 0 0 0 7 17.83V22M7 2v4.17a2 2 0 0 0 .59 1.41L12 12l4.41-4.42A2 2 0 0 0 17 6.17V2"/></svg></span>
-              <span class="qc-opt-title">Starres MES-Projekt</span>
-              <span class="qc-opt-desc">Standard-MES-Suiten sind überteuert und zu träge.</span>
-            </label>
-          </div>
-          <div class="qc-nav">
-            <button class="qc-next" id="qNext1" onclick="qcNext()" disabled>Weiter →</button>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="qc-step" id="qcStep2">
-          <h3 class="qc-h3">2. Welche IT-Infrastruktur nutzen Sie aktuell?</h3>
-          <div class="qc-opts" id="infraOpts">
-            <label class="qc-opt" data-q="infra" data-val="erp">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4"/><path d="M3 9h18M3 15h18M12 3v18"/></svg></span>
-              <span class="qc-opt-title">ERP + Excel</span>
-              <span class="qc-opt-desc">Planung im ERP (SAP, D365), operative Listen in Excel.</span>
-            </label>
-            <label class="qc-opt" data-q="infra" data-val="excel">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h2v5H8ZM14 13h2v5h-2Z"/></svg></span>
-              <span class="qc-opt-title">Reine Excel-Steuerung</span>
-              <span class="qc-opt-desc">Auftrags- und Ressourcenplanung in manuellen Dateien.</span>
-            </label>
-            <label class="qc-opt" data-q="infra" data-val="legacy">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8a7 3 0 1 0 14 0 7 3 0 1 0-14 0Z"/><path d="M5 8v8a7 3 0 0 0 14 0V8"/></svg></span>
-              <span class="qc-opt-title">Starres Altsystem</span>
-              <span class="qc-opt-desc">Historisch gewachsen, ohne API-Anbindung.</span>
-            </label>
-            <label class="qc-opt" data-q="infra" data-val="iiot">
-              <span class="qc-opt-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9C23 8.8 23 15.2 19.1 19.1M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg></span>
-              <span class="qc-opt-title">Moderne IIoT-Basis</span>
-              <span class="qc-opt-desc">Erste MQTT-Broker, APIs oder Cloud-Dienste vorhanden.</span>
-            </label>
-          </div>
-          <div class="qc-nav-split">
-            <button class="btn-ghost" onclick="qcPrev()">← Zurück</button>
-            <button class="qc-next" id="qNext2" onclick="qcNext()" disabled>Ergebnis →</button>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="qc-step" id="qcStep3">
-          <div style="text-align:center;">
-            <div style="display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;margin-bottom:18px;background:var(--brand-teal);color:#fff;box-shadow:var(--shadow-glow);animation:htxPulse 2.4s infinite;">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-            </div>
-            <h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:600;font-size:var(--text-h3);color:#fff;">Ihr individueller Quick-Check Fahrplan</h3>
-            <p style="margin:0 auto 24px;max-width:520px;font-size:var(--text-body);line-height:var(--leading-body);color:var(--text-secondary);">Basierend auf Ihren Angaben haben wir die optimale MVP-Strategie zur Reduzierung Ihrer Reibungsverluste ermittelt:</p>
-            <div class="qc-result-box">
-              <div class="qc-row"><span>Priorisierter Engpass</span><strong id="sumBottleneck">—</strong></div>
-              <div class="qc-divider"></div>
-              <div class="qc-row"><span>IT-Landschaft</span><strong id="sumInfra">—</strong></div>
-              <div class="qc-divider"></div>
-              <div class="qc-row"><span>Unser MVP-Ansatz</span><strong class="accent" id="sumSolution">—</strong></div>
-            </div>
-            <div class="qc-actions">
-              <button class="btn-ghost" onclick="qcReset()">Eingabe ändern</button>
-              <a id="qcMailLink" href="mailto:info@hitech-solutions.eu?subject=Quick-Check%20Anfrage" class="btn-primary">Quick-Check anfordern</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" style="max-width:1200px;margin:0 auto;padding:0 20px 100px;">
-      <div class="kontakt-box htxR">
-        <div class="kontakt-grid"></div>
-        <div style="position:relative;max-width:560px;">
-          <div class="eyebrow">Kontakt</div>
-          <h2 style="margin:14px 0 16px;font-family:var(--font-display);font-weight:800;font-size:var(--text-h2);line-height:1.1;letter-spacing:var(--tracking-tight);color:#fff;">Bereit für weniger Reibung im Werk?</h2>
-          <p style="margin:0;font-size:var(--text-body-lg);line-height:var(--leading-body);color:var(--text-secondary);">Lass uns über eure Produktion, digitale Roadmap oder eine konkrete MES-/Cloud-Herausforderung sprechen. Wir bauen lauffähige Software statt leerer PowerPoint-Pläne.</p>
-        </div>
-        <div style="position:relative;display:flex;flex-direction:column;gap:12px;">
-          <a class="btn-primary" href="mailto:info@hitech-solutions.eu?subject=Anfrage%20HI%20Tech%20Solutions">info@hitech-solutions.eu</a>
-          <a class="btn-secondary" href="https://hitech-solutions.eu/">hitech-solutions.eu</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div style="display:inline-flex;align-items:center;gap:10px;color:#fff;">
-        <svg viewBox="0 0 100 100" width="28" height="28" fill="none" aria-hidden="true"><path d="M22 15h16v70H22z" fill="currentColor"/><path d="M38 44h18v16H38z" fill="currentColor"/><path d="M56 44h16v41H56z" fill="currentColor"/><path d="M56 15l16-8v25L56 40z" fill="var(--brand-teal)"/></svg>
-        <strong style="font-family:var(--font-display);font-weight:700;">HI Tech Solutions</strong>
-      </div>
-      <p style="margin:0;font-size:12.5px;color:var(--text-muted);">Digital Manufacturing · MES/MOM · Smart Factory · Azure · OT/IT</p>
-    </footer>
   </main>
 
-  <script>
-    /* ─── THEME TOGGLE ─── */
-    (function() {
-      const saved = localStorage.getItem('htx-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
-      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-    })();
-
-    const themeToggle = document.getElementById('themeToggle');
-    function updateThemeIcon() {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      themeToggle.textContent = isLight ? '☀️' : '🌙';
-      themeToggle.setAttribute('aria-label', isLight ? 'Dark Mode aktivieren' : 'Light Mode aktivieren');
-    }
-    updateThemeIcon();
-    themeToggle.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('htx-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('htx-theme', 'light');
-      }
-      updateThemeIcon();
-    });
-
-    /* ─── NAV TOGGLE ─── */
-    const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open);
-    });
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.site-header')) navLinks.classList.remove('open');
-    });
-
-    /* ─── TERMINAL TABS ─── */
-    document.getElementById('termBar').addEventListener('click', e => {
-      const btn = e.target.closest('.term-tab');
-      if (!btn) return;
-      document.querySelectorAll('.term-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.term-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-    });
-
-    /* ─── CANVAS TABS ─── */
-    document.getElementById('canvasTabs').addEventListener('click', e => {
-      const btn = e.target.closest('.canvas-tab');
-      if (!btn) return;
-      document.querySelectorAll('.canvas-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.canvas-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('canvas-' + btn.dataset.canvas).classList.add('active');
-    });
-
-    /* ─── QUICK CHECK ─── */
-    let qcState = { step: 1, bottleneck: null, infra: null };
-
-    const bLabel = { transparenz:'Echtzeit-OEE-Transparenz', interfaces:'System-Schnittstellen', reports:'Manuelle Berichte', mes:'Starres MES-Projekt' };
-    const iLabel = { erp:'ERP + Excel-Inseln', excel:'Reine Excel-Steuerung', legacy:'Altsystem ohne API', iiot:'Moderne IIoT/Cloud-Basis' };
-    const sol    = { transparenz:'Live-OEE-Dashboard als MVP', interfaces:'Unified-Namespace-Gateway (MQTT)', reports:'Digitale Shopfloor-Rückmeldung', mes:'Schlanker MVP-Baustein' };
-
-    function qcRender() {
-      const s = qcState;
-      document.querySelectorAll('.qc-step').forEach(el => el.classList.remove('active'));
-      document.getElementById('qcStep' + s.step).classList.add('active');
-
-      ['qDot1','qDot2','qDot3'].forEach((id, i) => {
-        const dot = document.getElementById(id);
-        dot.classList.toggle('active', i + 1 === s.step);
-        dot.classList.toggle('done',   i + 1 < s.step);
-      });
-
-      document.querySelectorAll('[data-q="bottleneck"]').forEach(el => {
-        el.classList.toggle('selected', el.dataset.val === s.bottleneck);
-      });
-      document.querySelectorAll('[data-q="infra"]').forEach(el => {
-        el.classList.toggle('selected', el.dataset.val === s.infra);
-      });
-
-      const n1 = document.getElementById('qNext1');
-      const n2 = document.getElementById('qNext2');
-      if (n1) n1.disabled = !s.bottleneck;
-      if (n2) n2.disabled = !s.infra;
-
-      if (s.step === 3) {
-        document.getElementById('sumBottleneck').textContent = bLabel[s.bottleneck] || '—';
-        document.getElementById('sumInfra').textContent      = iLabel[s.infra] || '—';
-        document.getElementById('sumSolution').textContent   = sol[s.bottleneck] || '—';
-        const body = 'Engpass: ' + (bLabel[s.bottleneck]||'') + '\nIT-Landschaft: ' + (iLabel[s.infra]||'') + '\nGewünschter MVP-Ansatz: ' + (sol[s.bottleneck]||'') + '\n\n';
-        document.getElementById('qcMailLink').href = 'mailto:info@hitech-solutions.eu?subject=' + encodeURIComponent('Quick-Check Anfrage') + '&body=' + encodeURIComponent(body);
-      }
-    }
-
-    document.querySelectorAll('.qc-opt').forEach(opt => {
-      opt.addEventListener('click', () => {
-        qcState[opt.dataset.q] = opt.dataset.val;
-        qcRender();
-      });
-    });
-
-    function qcNext() { if (qcState.step < 3) { qcState.step++; qcRender(); } }
-    function qcPrev() { if (qcState.step > 1) { qcState.step--; qcRender(); } }
-    function qcReset() { qcState = { step:1, bottleneck:null, infra:null }; qcRender(); }
-
-    qcRender();
-
-    /* ─── LIVE HUD ─── */
-    const C = 2 * Math.PI * 54; // ≈ 339.29
-    const W = 260, H = 70, lo = 80, hi = 95;
-
-    let oee   = 89.6;
-    let cycle = 1420;
-    let temp  = 42.8;
-    let series = Array.from({length:30}, (_, i) => 87 + Math.sin(i/3.2)*3 + (Math.random()*2-1));
-    let tick  = 0;
-
-    const logTpl = [
-      { topic:'line_03/robot_arm_4/state',  kind:'state', c:'var(--signal-green)' },
-      { topic:'line_03/oee_current',         kind:'oee',   c:'var(--color-sky-blue)' },
-      { topic:'line_02/press_07/cycle_ms',   kind:'cycle', c:'var(--color-sky-blue)' },
-      { topic:'line_03/temp_celsius',        kind:'temp',  c:'var(--color-aqua-green)' },
-      { topic:'edge_gw_01/uplink',           kind:'ok',    c:'var(--brand-teal)' },
-      { topic:'line_01/conveyor/state',      kind:'state', c:'var(--signal-green)' },
-      { topic:'line_04/cnc_12/warning',      kind:'warn',  c:'var(--signal-amber)' },
-    ];
-
-    function getTime() { return new Date().toTimeString().slice(0,8); }
-    function getVal(kind) {
-      if (kind==='oee')   return oee.toFixed(1);
-      if (kind==='cycle') return String(cycle);
-      if (kind==='temp')  return temp.toFixed(1);
-      if (kind==='warn')  return 'VIBRATION';
-      if (kind==='ok')    return 'OK';
-      return 'RUNNING';
-    }
-
-    let logRows = [];
-    for (let i=0;i<5;i++) {
-      const t = logTpl[i];
-      logRows.push({time:getTime(), topic:t.topic, val:getVal(t.kind), c:t.c});
-    }
-
-    function renderSparkline() {
-      const pts = series.map((v,i) => {
-        const x = (i/(series.length-1))*W;
-        const y = H - ((Math.max(lo,Math.min(hi,v))-lo)/(hi-lo))*H;
-        return x.toFixed(1)+','+y.toFixed(1);
-      });
-      document.getElementById('sparkLine').setAttribute('points', pts.join(' '));
-      document.getElementById('sparkArea').setAttribute('points', '0,'+H+' '+pts.join(' ')+' '+W+','+H);
-    }
-
-    function renderLog() {
-      document.getElementById('telemetryLog').innerHTML = logRows.slice(-5).map(r =>
-        `<div style="display:flex;gap:9px;align-items:baseline;white-space:nowrap;overflow:hidden;">
-          <span style="color:var(--text-muted);flex:none;">${r.time}</span>
-          <span style="color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;">${r.topic}</span>
-          <span style="color:${r.c};font-weight:600;flex:none;margin-left:auto;">${r.val}</span>
-        </div>`
-      ).join('');
-    }
-
-    renderSparkline();
-    renderLog();
-
-    setInterval(() => {
-      oee   = Math.max(82, Math.min(94.5, oee + (Math.random()*2-1)));
-      cycle = 1400 + Math.round(Math.random()*60);
-      temp  = 40 + Math.random()*5;
-      series = [...series.slice(1), oee];
-
-      document.getElementById('oeeText').textContent  = oee.toFixed(1);
-      document.getElementById('cycleText').textContent = cycle;
-      document.getElementById('tempText').textContent  = temp.toFixed(1);
-
-      const offset = C * (1 - oee/100);
-      document.getElementById('gaugeArc').style.strokeDashoffset = offset;
-
-      const t = logTpl[tick % logTpl.length];
-      logRows = [...logRows.slice(-4), {time:getTime(), topic:t.topic, val:getVal(t.kind), c:t.c}];
-      tick++;
-
-      renderSparkline();
-      renderLog();
-    }, 1700);
-  </script>
+  <footer class="site-footer"><div class="container"><a class="brand" href="#top"><span class="brand-mark">H</span><span>HI-Tech <b>Solutions</b></span></a><p>Produktionsverständnis × Softwarearchitektur</p><a href="mailto:info@hitech-solutions.eu">info@hitech-solutions.eu</a></div></footer>
 </body>
 </html>

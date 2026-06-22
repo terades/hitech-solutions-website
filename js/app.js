@@ -1,350 +1,69 @@
-// Theme toggle
-(function() {
-  const saved = localStorage.getItem('htx-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || (prefersDark ? 'dark' : 'light');
-  if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-})();
-
-const themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-  const updateIcon = () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    themeToggle.textContent = isLight ? '☀️' : '🌙';
-    themeToggle.setAttribute('aria-label', isLight ? 'Dark Mode aktivieren' : 'Light Mode aktivieren');
-  };
-  updateIcon();
-  themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('htx-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('htx-theme', 'light');
-    }
-    updateIcon();
-  });
-}
-
-const navToggle = document.querySelector(".nav-toggle");
-const mainNav = document.querySelector(".main-nav");
-const revealItems = document.querySelectorAll(".reveal");
-const counters = document.querySelectorAll("[data-count]");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-function setCounterValue(element, target) {
-  element.textContent = target.toLocaleString("de-DE") + (target >= 1000 ? "+" : "");
-}
-
-if (navToggle && mainNav) {
-  const closeNav = () => {
-    mainNav.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Navigation \u00f6ffnen");
-  };
-
-  navToggle.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-    navToggle.setAttribute("aria-label", isOpen ? "Navigation schlie\u00dfen" : "Navigation \u00f6ffnen");
-  });
-
-  mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeNav);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeNav();
-    }
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!mainNav.classList.contains("open")) {
-      return;
-    }
-
-    if (!mainNav.contains(event.target) && !navToggle.contains(event.target)) {
-      closeNav();
-    }
-  });
-}
-
-if (reduceMotion || typeof IntersectionObserver === "undefined") {
-  revealItems.forEach((item) => item.classList.add("visible"));
-  counters.forEach((counter) => setCounterValue(counter, Number(counter.dataset.count)));
-} else {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.16 });
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-
-  let countersStarted = false;
-
-  function animateCounter(element, target) {
-    const duration = 1200;
-    const start = performance.now();
-
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const currentValue = Math.round(target * eased);
-
-      setCounterValue(element, currentValue);
-
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
-    }
-
-    requestAnimationFrame(tick);
-  }
-
-  const counterObserver = new IntersectionObserver((entries, observer) => {
-    if (countersStarted) {
-      return;
-    }
-
-    if (entries.some((entry) => entry.isIntersecting)) {
-      countersStarted = true;
-      counters.forEach((counter) => animateCounter(counter, Number(counter.dataset.count)));
-      observer.disconnect();
-    }
-  }, { threshold: 0.3 });
-
-  counters.forEach((counter) => counterObserver.observe(counter));
-}
-
-window.addEventListener("scroll", () => {
-  const scrollProgress = document.getElementById("scrollProgress");
-  if (scrollProgress) {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    scrollProgress.style.width = scrolled + "%";
-  }
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.querySelector('.site-nav');
+navToggle?.addEventListener('click', () => {
+  const isOpen = siteNav.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
 });
+siteNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { siteNav.classList.remove('is-open'); navToggle?.setAttribute('aria-expanded', 'false'); }));
 
-// Interactive Canvas Tabs switching
-const canvasTabs = document.querySelectorAll(".canvas-tab");
-const canvasPanels = document.querySelectorAll(".canvas-panel");
+const progress = document.querySelector('#scrollProgress');
+window.addEventListener('scroll', () => {
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  if (progress && height > 0) progress.style.width = `${(window.scrollY / height) * 100}%`;
+}, { passive: true });
 
-if (canvasTabs.length > 0 && canvasPanels.length > 0) {
-  canvasTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      // Deactivate all tabs
-      canvasTabs.forEach((t) => {
-        t.classList.remove("active");
-        t.setAttribute("aria-selected", "false");
-      });
-      
-      // Hide all panels
-      canvasPanels.forEach((panel) => {
-        panel.classList.remove("active");
-        panel.setAttribute("hidden", "true");
-      });
-
-      // Activate clicked tab
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-
-      // Show matching panel
-      const targetId = tab.getAttribute("aria-controls");
-      const targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.classList.add("active");
-        targetPanel.removeAttribute("hidden");
-      }
-    });
-  });
+const revealItems = document.querySelectorAll('.reveal');
+if (reduceMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+} else {
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); currentObserver.unobserve(entry.target); } });
+  }, { threshold: 0.14 });
+  revealItems.forEach((item) => observer.observe(item));
 }
 
-// Interactive Code Terminal Tab switching
-const terminalTabs = document.querySelectorAll(".terminal-tab");
-const terminalCodes = document.querySelectorAll(".terminal-code");
+const quickCheck = document.querySelector('#quickCheck');
+if (quickCheck) {
+  const steps = [...quickCheck.querySelectorAll('.check-step')];
+  const dots = [...quickCheck.querySelectorAll('.quickcheck-progress span')];
+  const next = quickCheck.querySelector('.check-next');
+  const back = quickCheck.querySelector('.check-back');
+  const result = quickCheck.querySelector('.check-result');
+  let current = 0;
 
-if (terminalTabs.length > 0 && terminalCodes.length > 0) {
-  terminalTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      terminalTabs.forEach((t) => {
-        t.classList.remove("active");
-        t.setAttribute("aria-selected", "false");
-      });
-      terminalCodes.forEach((code) => {
-        code.classList.remove("active");
-        code.setAttribute("hidden", "true");
-      });
-      
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-      
-      const targetId = tab.getAttribute("aria-controls");
-      const targetCode = document.getElementById(targetId);
-      if (targetCode) {
-        targetCode.classList.add("active");
-        targetCode.removeAttribute("hidden");
-      }
-    });
-  });
-}
-
-// Quick-Check Configurator Logic
-const configStep1 = document.getElementById("config-step-1");
-const configStep2 = document.getElementById("config-step-2");
-const configStep3 = document.getElementById("config-step-3");
-
-const stepDot1 = document.getElementById("step-dot-1");
-const stepDot2 = document.getElementById("step-dot-2");
-const stepDot3 = document.getElementById("step-dot-3");
-
-if (configStep1 && configStep2 && configStep3) {
-  // Helper to get active step
-  const getSelectedValue = (name) => {
-    const checkedInput = document.querySelector(`input[name="${name}"]:checked`);
-    return checkedInput ? checkedInput.value : null;
+  const selected = (name) => quickCheck.querySelector(`input[name="${name}"]:checked`)?.value;
+  const setStep = () => {
+    steps.forEach((step, index) => step.classList.toggle('is-active', index === current));
+    dots.forEach((dot, index) => dot.classList.toggle('is-active', index === current));
+    back.hidden = current === 0;
+    next.disabled = !selected(steps[current].querySelector('input').name);
+    next.innerHTML = current === steps.length - 1 ? 'Empfehlung anzeigen <span>→</span>' : 'Weiter <span>→</span>';
   };
-
-  // Helper to toggle selected class on parent label card
-  const updateSelectedClass = (name) => {
-    document.querySelectorAll(`input[name="${name}"]`).forEach((input) => {
-      const card = input.closest(".config-option-card");
-      if (card) {
-        if (input.checked) {
-          card.classList.add("selected");
-        } else {
-          card.classList.remove("selected");
-        }
-      }
-    });
-  };
-
-  // Radio selection change listener for step validation
-  document.querySelectorAll('input[name="bottleneck"]').forEach((radio) => {
-    radio.addEventListener("change", () => {
-      updateSelectedClass("bottleneck");
-      configStep1.querySelector(".next-step-btn").removeAttribute("disabled");
-    });
+  quickCheck.querySelectorAll('input').forEach((input) => input.addEventListener('change', setStep));
+  back.addEventListener('click', () => { current -= 1; setStep(); });
+  next.addEventListener('click', () => {
+    if (!selected(steps[current].querySelector('input').name)) return;
+    if (current < steps.length - 1) { current += 1; setStep(); return; }
+    const problem = selected('problem');
+    const systems = selected('systems');
+    const goal = selected('goal');
+    const platform = goal === 'auf weitere Werke ausrollen' || goal === 'eine tragfähige Architektur definieren';
+    const mvp = goal === 'einen MVP live bringen' || ['Maschinen- oder Linienstatus', 'OEE und Stillstandsursachen', 'Fertigungsrückmeldung'].includes(problem);
+    const recommendation = platform ? 'Smart Factory Platform' : mvp ? 'MES/MOM MVP' : 'Production Quick Check';
+    const description = platform ? 'Ihr Ziel braucht Standards für Datenmodell, Schnittstellen und Betrieb. Wir klären zuerst die Bausteine für einen belastbaren Rollout.' : mvp ? 'Ihr Engpass eignet sich für ein klar abgegrenztes Werkzeug, das in 4–8 Wochen mit den relevanten Daten und Nutzern live gehen kann.' : 'Der sinnvollste erste Schritt ist, Engpass, Datenlage und MVP-Scope gemeinsam zu schärfen — bevor Entwicklungskapazität gebunden wird.';
+    document.querySelector('#recommendation').textContent = recommendation;
+    document.querySelector('#recommendationText').textContent = description;
+    document.querySelector('#resultProblem').textContent = problem;
+    document.querySelector('#resultSystems').textContent = systems;
+    document.querySelector('#resultGoal').textContent = goal;
+    const subject = encodeURIComponent(`Anfrage ${recommendation} – HI-Tech Solutions`);
+    const body = encodeURIComponent(`Hallo HI-Tech Solutions,\n\nunsere Angaben aus dem Quick Check:\n- Größtes Problem: ${problem}\n- Vorhandene Systeme: ${systems}\n- Ziel: ${goal}\n\nEmpfohlener Einstieg: ${recommendation}\n\nIch möchte ein Erstgespräch vereinbaren.`);
+    document.querySelector('#resultMail').href = `mailto:info@hitech-solutions.eu?subject=${subject}&body=${body}`;
+    steps.forEach((step) => { step.hidden = true; });
+    quickCheck.querySelector('.quickcheck-progress').hidden = true;
+    quickCheck.querySelector('.check-actions').hidden = true;
+    result.hidden = false;
   });
-
-  document.querySelectorAll('input[name="infra"]').forEach((radio) => {
-    radio.addEventListener("change", () => {
-      updateSelectedClass("infra");
-      configStep2.querySelector(".next-step-btn").removeAttribute("disabled");
-    });
-  });
-
-  // Step 1 -> Step 2
-  configStep1.querySelector(".next-step-btn").addEventListener("click", () => {
-    configStep1.classList.remove("active");
-    configStep1.setAttribute("hidden", "true");
-    configStep2.classList.add("active");
-    configStep2.removeAttribute("hidden");
-
-    stepDot1.classList.remove("active");
-    stepDot1.classList.add("completed");
-    stepDot2.classList.add("active");
-  });
-
-  // Step 2 -> Step 1 (Back)
-  configStep2.querySelector(".prev-step-btn").addEventListener("click", () => {
-    configStep2.classList.remove("active");
-    configStep2.setAttribute("hidden", "true");
-    configStep1.classList.add("active");
-    configStep1.removeAttribute("hidden");
-
-    stepDot2.classList.remove("active");
-    stepDot1.classList.remove("completed");
-    stepDot1.classList.add("active");
-  });
-
-  // Step 2 -> Step 3 (Calculation)
-  configStep2.querySelector(".next-step-btn").addEventListener("click", () => {
-    const bottleneck = getSelectedValue("bottleneck");
-    const infra = getSelectedValue("infra");
-
-    // Dynamic Solution Mapping
-    let solution = "Fokussierte Shopfloor-Datenbrücke & MVP-Entwicklung";
-    if (bottleneck.includes("Transparenz")) {
-      solution = "OEE-Live-Dashboard & Shopfloor-Terminal";
-    } else if (bottleneck.includes("Schnittstellen")) {
-      solution = "Unified Namespace (UNS) & ERP-API-Brücke";
-    } else if (bottleneck.includes("Rückmeldung")) {
-      solution = "Digitaler Schichtbericht & Rückmeldeportal";
-    } else if (bottleneck.includes("Großprojekte")) {
-      solution = "Gezieltes MVP-Softwarewerkzeug für Engpass";
-    }
-
-    // Populate summary fields
-    document.getElementById("summary-bottleneck").textContent = bottleneck;
-    document.getElementById("summary-infra").textContent = infra;
-    document.getElementById("summary-solution").textContent = solution;
-
-    // Generate Mailto Link
-    const subject = encodeURIComponent("Quick-Check Anfrage: HI Tech Solutions");
-    const body = encodeURIComponent(
-      `Hallo HI Tech Solutions,\n\n` +
-      `ich habe den Quick-Check Konfigurator auf Ihrer Website ausgefüllt und interessiere mich für ein kostenfreies Erstgespräch.\n\n` +
-      `Hier sind unsere Angaben:\n` +
-      `- Unser größter Engpass: ${bottleneck}\n` +
-      `- Unsere vorhandene IT-Landschaft: ${infra}\n` +
-      `- Empfohlener Lösungsansatz: ${solution}\n\n` +
-      `Bitte kontaktieren Sie mich bezüglich einer Terminvereinbarung.\n\n` +
-      `Mit freundlichen Grüßen`
-    );
-    
-    const mailBtn = document.getElementById("config-mail-btn");
-    mailBtn.setAttribute("href", `mailto:info@hitech-solutions.eu?subject=${subject}&body=${body}`);
-
-    // Show Step 3
-    configStep2.classList.remove("active");
-    configStep2.setAttribute("hidden", "true");
-    configStep3.classList.add("active");
-    configStep3.removeAttribute("hidden");
-
-    stepDot2.classList.remove("active");
-    stepDot2.classList.add("completed");
-    stepDot3.classList.add("active");
-
-    // Intercept mail click to prevent default if not set
-    mailBtn.addEventListener("click", (e) => {
-      if (mailBtn.getAttribute("href") === "#") {
-        e.preventDefault();
-      }
-    });
-
-    // Copy to clipboard fallback
-    const copyBtn = document.getElementById("copy-email-btn");
-    if (copyBtn) {
-      copyBtn.addEventListener("click", () => {
-        navigator.clipboard.writeText("info@hitech-solutions.eu").then(() => {
-          const originalText = copyBtn.textContent;
-          copyBtn.textContent = "Kopiert!";
-          setTimeout(() => {
-            copyBtn.textContent = originalText;
-          }, 2000);
-        }).catch(err => {
-          console.error("Copy failed", err);
-        });
-      });
-    }
-  });
-
-  // Step 3 -> Step 2 (Back)
-  configStep3.querySelector(".prev-step-btn").addEventListener("click", () => {
-    configStep3.classList.remove("active");
-    configStep3.setAttribute("hidden", "true");
-    configStep2.classList.add("active");
-    configStep2.removeAttribute("hidden");
-
-    stepDot3.classList.remove("active");
-    stepDot2.classList.remove("completed");
-    stepDot2.classList.add("active");
-  });
+  setStep();
 }
