@@ -3338,6 +3338,10 @@ a {
   background: rgba(56, 189, 248, 0.2);
   color: #38bdf8;
 }
+.log-tag.tag-warn {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
 .log-msg {
   color: #cbd5e1;
 }
