@@ -1965,6 +1965,10 @@ a {
     gap: 20px !important;
     margin-bottom: 40px !important;
   }
+  .usecases-intro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
   .usecases-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
