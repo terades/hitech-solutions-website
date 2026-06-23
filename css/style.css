@@ -815,6 +815,8 @@ a {
   background: #fff;
   position: relative;
   transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
 }
 .usecase-item:hover {
   background: rgba(var(--color-primary-rgb), 0.015) !important;
@@ -844,6 +846,7 @@ a {
   line-height: 1.65;
   color: var(--color-text-muted);
   margin-bottom: 20px;
+  flex: 1;
 }
 .usecase-item span.usecase-tag {
   font-size: 9px;
@@ -855,23 +858,6 @@ a {
   background: rgba(var(--color-primary-rgb), 0.08);
   border-radius: 999px;
 }
-.usecase-item.wide {
-  grid-column: span 2;
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-.usecase-item.wide span.usecase-num {
-  margin-bottom: 0;
-}
-.usecase-item.wide h3 {
-  margin-bottom: 8px;
-}
-.usecase-item.wide > div {
-  flex: 1;
-  min-width: 0;
-}
-
 /* ══ Offers Section ══ */
 .offers-section {
   background: #fff;
@@ -1914,12 +1900,6 @@ a {
   .usecases-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  .usecase-item.wide {
-    grid-column: span 2 !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    align-items: flex-start !important;
-  }
   .friction-flow-container {
     flex-wrap: wrap !important;
     gap: 8px !important;
@@ -2058,9 +2038,6 @@ a {
 @media(max-width:640px) {
   .usecases-grid {
     grid-template-columns: 1fr !important;
-  }
-  .usecase-item.wide {
-    grid-column: span 1 !important;
   }
   .offers-grid {
     grid-template-columns: 1fr !important;
