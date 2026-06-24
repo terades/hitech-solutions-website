@@ -2178,6 +2178,16 @@ a {
   #values-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* CTA panel: stack button below text on mobile */
+  .cta-panel {
+    grid-template-columns: 1fr !important;
+    padding: 32px 24px !important;
+    gap: 24px !important;
+  }
+  .cta-panel-actions {
+    align-items: flex-start !important;
+  }
 }
 
 /* Mobile nav open state */
