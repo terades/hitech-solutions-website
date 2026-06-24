@@ -40,9 +40,9 @@ class HiTechNavbar extends HTMLElement {
           <button class="hn-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span></span><span></span><span></span></button>
           <nav class="hn-nav">
             <a href="${logoHref}" class="hn-link">Home</a>
-            <a href="OEE.html" class="hn-link">OEE-Modul</a>
+            <a href="OEE.html" class="hn-link">Produktions-Dashboard</a>
             <a href="ueber-uns.html" class="hn-link">Über uns</a>
-            <a href="${ctaHref}" class="hn-cta">Quick Check ↗</a>
+            <a href="${ctaHref}" class="hn-cta">Kontakt ↗</a>
           </nav>
         </div>
       </header>
