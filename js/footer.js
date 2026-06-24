@@ -11,6 +11,7 @@ class HiTechFooter extends HTMLElement {
             <a href="index.html" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">Home</a>
             <a href="index.html#use-cases" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">Use Cases</a>
             <a href="ueber-uns.html" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">Über uns</a>
+            <a href="OEE.html" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">OEE-Modul</a>
             <a href="datenschutz.html" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">Datenschutz</a>
             <a href="impressum.html" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">Impressum</a>
             <a href="cookies.html" class="footer-link" style="font-size:13px;color:#b8bbbe;text-decoration:none;transition:color .2s;font-family:inherit;">Cookies</a>
