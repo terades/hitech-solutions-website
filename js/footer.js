@@ -17,7 +17,7 @@ class HiTechFooter extends HTMLElement {
               LinkedIn
             </a>
           </nav>
-          <p style="font-size:12px;color:#b8bbbe;margin:0;font-family:inherit;">© 2025 HI-Tech Solutions GmbH</p>
+          <p style="font-size:12px;color:#b8bbbe;margin:0;font-family:inherit;">© 2026 HI-Tech Solutions GmbH</p>
         </div>
       </footer>
     `;
