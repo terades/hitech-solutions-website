@@ -37,15 +37,16 @@ class HiTechNavbar extends HTMLElement {
             <img src="assets/logo.webp" alt="HI-Tech Logo" width="754" height="754" class="hn-logo-symbol">
             <img src="assets/logo-schrift.webp" alt="HI-Tech Solutions" width="1894" height="341" class="hn-logo-text">
           </a>
-          ${isHome ? '' : '<button class="hn-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span></span><span></span><span></span></button>'}
+          ${isHome
+            ? `<a href="${ctaHref}" class="hn-cta">Quick Check ↗</a>`
+            : `<button class="hn-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span></span><span></span><span></span></button>
           <nav class="hn-nav">
-            ${isHome ? '' : `
             <a href="index.html" class="hn-link">Home</a>
             <a href="OEE.html" class="hn-link">OEE-Modul</a>
             <a href="ueber-uns.html" class="hn-link">Über uns</a>
-            `}
-            <a href="${ctaHref}" class="hn-cta">Quick Check ↗</a>
-          </nav>
+            <a href="index.html#kontakt" class="hn-cta">Quick Check ↗</a>
+          </nav>`
+          }
         </div>
       </header>
     `;
