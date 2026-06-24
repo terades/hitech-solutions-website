@@ -1559,22 +1559,6 @@
 })();
 </script>
 
-<!-- ══ STICKY CTA ══ -->
-<div id="sticky-cta" class="sticky-cta-container">
-  <a href="#kontakt" class="sticky-cta-link">Quick Check ↗</a>
-</div>
-<script>
-(function(){
-  var cta=document.getElementById('sticky-cta');
-  window.addEventListener('scroll',function(){
-    var on=window.scrollY>280;
-    cta.style.opacity=on?'1':'0';
-    cta.style.transform=on?'none':'translateY(8px)';
-    cta.style.pointerEvents=on?'auto':'none';
-  },{passive:true});
-})();
-</script>
-
 <!-- ══ COOKIE BANNER ══ -->
 <div id="cookie-banner" class="cookie-banner">
   <div class="cookie-banner-layout">
