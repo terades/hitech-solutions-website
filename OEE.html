@@ -275,13 +275,19 @@
       <img src="assets/logo.webp" alt="HI-Tech Logo" width="754" height="754" class="logo-img-symbol">
       <img src="assets/logo-schrift.webp" alt="HI-Tech Solutions" width="1894" height="341" class="logo-img-text">
     </a>
+    <button id="nav-toggle" type="button" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav id="site-nav">
       <a href="index.html#ansatz" class="nav-link">Ansatz</a>
       <a href="index.html#use-cases" class="nav-link">Use Cases</a>
       <a href="index.html#angebote" class="nav-link">Angebote</a>
       <a href="index.html#projektweg" class="nav-link">Projektweg</a>
       <a href="ueber-uns.html" class="nav-link">Über uns</a>
-      <a href="index.html#quick-check" class="nav-cta">Quick Check ↗</a>
+      <a href="OEE.html" class="nav-link active">OEE-Modul</a>
+      <a href="index.html#kontakt" class="nav-cta">Quick Check ↗</a>
     </nav>
   </div>
 </header>
@@ -920,6 +926,20 @@ document.addEventListener('DOMContentLoaded', () => {
   reveal();
   [100, 300, 600, 1200].forEach(t => setTimeout(reveal, t));
   window.addEventListener('scroll', reveal, { passive: true });
+
+  // Mobile nav
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
 
   // Progress bar
   const bar = document.getElementById('progress-bar');

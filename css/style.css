@@ -926,6 +926,19 @@ a {
   background: rgba(var(--color-primary-rgb), 0.08);
   border-radius: 999px;
 }
+.usecase-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: .02em;
+  transition: var(--transition-fast);
+}
+.usecase-link:hover {
+  opacity: 0.75;
+}
 /* ══ Offers Section ══ */
 .offers-section {
   background: #fff;
