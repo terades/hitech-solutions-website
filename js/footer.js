@@ -4,7 +4,7 @@ class HiTechFooter extends HTMLElement {
       <footer style="background:#fff;border-top:1px solid #e4e8ec;padding:36px 0;width:100%;box-sizing:border-box;font-family:'Inter',sans-serif;">
         <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
           <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
-            <img src="assets/logo.webp" alt="HI-Tech Solutions" width="754" height="754" style="height:36px;width:auto;object-fit:contain;">
+            <img src="assets/logo.svg" alt="HI-Tech Solutions" width="754" height="754" style="height:36px;width:auto;object-fit:contain;">
             <img src="assets/logo-schrift.webp" alt="HI-Tech Solutions" width="1894" height="341" style="height:22px;width:auto;object-fit:contain;">
           </a>
           <nav class="footer-nav" style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">

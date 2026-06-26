@@ -216,7 +216,7 @@ class HiTechNavbar extends HTMLElement {
       <header class="hn-header">
         <div class="hn-wrap">
           <a href="${logoHref}" class="hn-logo" aria-label="HI-Tech Solutions">
-            <img src="assets/logo.webp" alt="HI-Tech Logo" width="754" height="754" class="hn-logo-symbol">
+            <img src="assets/logo.svg" alt="HI-Tech Logo" width="754" height="754" class="hn-logo-symbol">
             <img src="assets/logo-schrift.webp" alt="HI-Tech Solutions" width="1894" height="341" class="hn-logo-text">
           </a>
           <button class="hn-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span></span><span></span><span></span></button>
