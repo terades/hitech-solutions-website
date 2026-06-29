@@ -32,8 +32,20 @@ jobs:
         run: |
           ENABLE="${ENABLE_AUTH:-false}"
           HASH="${AUTH_PASSWORD_HASH:-}"
+
+          if [ "$ENABLE" = "true" ] && [ -z "$HASH" ]; then
+            echo "::error::ENABLE_AUTH is 'true' but AUTH_PASSWORD_HASH is not set. Set the variable in GitHub → Settings → Variables."
+            exit 1
+          fi
+
           sed -i "s|__ENABLE_AUTH__|${ENABLE}|g" js/auth.js
           sed -i "s|__AUTH_PASSWORD_HASH__|${HASH}|g" js/auth.js
+
+          # When auth is active, block all crawlers so content doesn't appear in search results
+          if [ "$ENABLE" = "true" ]; then
+            printf 'User-agent: *\nDisallow: /\n' > robots.txt
+            echo "Auth enabled: robots.txt set to Disallow all"
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
