@@ -238,9 +238,17 @@ class HiTechNavbar extends HTMLElement {
                   <span class="hn-dropdown-title">Betriebsdatenerfassung (BDE)</span>
                   <span class="hn-dropdown-desc">Digitale Auftragsbuchung & Werkercockpit.</span>
                 </a>
+                <a href="maschinen-linienstatus.html" class="hn-dropdown-item">
+                  <span class="hn-dropdown-title">Maschinen- & Linienstatus</span>
+                  <span class="hn-dropdown-desc">SPS, OPC UA & Edge zu einem Live-Bild verbinden.</span>
+                </a>
                 <a href="orchestrator.html" class="hn-dropdown-item">
                   <span class="hn-dropdown-title">Schnittstellen-Orchestrator</span>
                   <span class="hn-dropdown-desc">Datenflüsse & ERP-Integration in Echtzeit.</span>
+                </a>
+                <a href="qualitaetssicherung.html" class="hn-dropdown-item">
+                  <span class="hn-dropdown-title">Qualitätssicherung & Rückverfolgbarkeit</span>
+                  <span class="hn-dropdown-desc">Digitale Prüfprozesse mit direkter ERP-Anbindung.</span>
                 </a>
               </div>
             </div>
@@ -254,7 +262,9 @@ class HiTechNavbar extends HTMLElement {
               <div class="hn-mobile-submenu">
                 <a href="OEE.html" class="hn-link">OEE-Monitoring</a>
                 <a href="bde.html" class="hn-link">Betriebsdatenerfassung</a>
+                <a href="maschinen-linienstatus.html" class="hn-link">Maschinen- & Linienstatus</a>
                 <a href="orchestrator.html" class="hn-link">Orchestrator</a>
+                <a href="qualitaetssicherung.html" class="hn-link">Qualitätssicherung</a>
               </div>
             </div>
 
@@ -275,7 +285,7 @@ class HiTechNavbar extends HTMLElement {
     });
 
     // Highlight parent "Lösungen" if child page is active
-    const childPages = ['OEE.html', 'bde.html', 'orchestrator.html'];
+    const childPages = ['OEE.html', 'bde.html', 'orchestrator.html', 'maschinen-linienstatus.html', 'qualitaetssicherung.html'];
     if (childPages.includes(currentPage)) {
       const parentToggle = this.querySelector('.hn-desktop-only .hn-dropdown-toggle');
       if (parentToggle) parentToggle.classList.add('active');
