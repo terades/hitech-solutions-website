@@ -250,6 +250,10 @@ class HiTechNavbar extends HTMLElement {
                   <span class="hn-dropdown-title">Qualitätssicherung & Rückverfolgbarkeit</span>
                   <span class="hn-dropdown-desc">Digitale Prüfprozesse mit direkter ERP-Anbindung.</span>
                 </a>
+                <a href="multi-werk-rollout.html" class="hn-dropdown-item">
+                  <span class="hn-dropdown-title">Multi-Werk-Rollout</span>
+                  <span class="hn-dropdown-desc">Zentrales Rollout-Management für mehrere Werke.</span>
+                </a>
               </div>
             </div>
 
@@ -265,6 +269,7 @@ class HiTechNavbar extends HTMLElement {
                 <a href="maschinen-linienstatus.html" class="hn-link">Maschinen- & Linienstatus</a>
                 <a href="orchestrator.html" class="hn-link">Orchestrator</a>
                 <a href="qualitaetssicherung.html" class="hn-link">Qualitätssicherung</a>
+                <a href="multi-werk-rollout.html" class="hn-link">Multi-Werk-Rollout</a>
               </div>
             </div>
 
@@ -285,7 +290,7 @@ class HiTechNavbar extends HTMLElement {
     });
 
     // Highlight parent "Lösungen" if child page is active
-    const childPages = ['OEE.html', 'bde.html', 'orchestrator.html', 'maschinen-linienstatus.html', 'qualitaetssicherung.html'];
+    const childPages = ['OEE.html', 'bde.html', 'orchestrator.html', 'maschinen-linienstatus.html', 'qualitaetssicherung.html', 'multi-werk-rollout.html'];
     if (childPages.includes(currentPage)) {
       const parentToggle = this.querySelector('.hn-desktop-only .hn-dropdown-toggle');
       if (parentToggle) parentToggle.classList.add('active');
