@@ -111,6 +111,19 @@ html.auth-locked body {
   animation: auth-shake 0.4s ease;
 }
 
+#auth-lockout {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6f7780;
+  text-align: center;
+  margin: 0;
+}
+
+#auth-lockout strong {
+  color: #e53e3e;
+  font-variant-numeric: tabular-nums;
+}
+
 @media (max-width: 440px) {
   #auth-box {
     margin: 16px;
